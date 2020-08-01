@@ -1,0 +1,24 @@
+{
+    "name": "my_package",
+    "description": "",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/kevinliozon/my_package.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/kevinliozon/my_package/issues"
+    },
+    "homepage": "https://github.com/kevinliozon/my_package",
+    "scripts": {
+        "build": "babel src -d lib"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.2"
+    }
+}
