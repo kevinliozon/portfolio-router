@@ -4,17 +4,14 @@ const pages = [{
     href: '/'
 }, {
     name: 'Projects',
-    href: '/projects'
+    href: '#/projects'
 }, {
     name: 'View 1',
-    href: '/view1'
+    href: '#/view1'
 }, {
     name: 'View 2',
-    href: '/view2'
+    href: '#/view2'
 }];
-
-
-
 
 /*** CONTAINERS ***/
 const wrapTemplate = document.getElementById('wrap');
