@@ -14,7 +14,7 @@ function getTemplate (activeTemplate) {
 
 window.addEventListener('load', (eventLoad) => {
 
-    history ? getTemplate(history.state.template) : getTemplate('/home'); // If no history, fallback onto home page
+    (history && history.state) ? getTemplate(history.state.template) : getTemplate('/home'); // If no history, fallback onto home page
 
     Array.from(document.getElementsByClassName('nav__link')).forEach((navLink) => {
         navLink.addEventListener('click', function (e) {
