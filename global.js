@@ -1,20 +1,25 @@
 /*** PAGES ***/
 const pages = [{
     name: 'Home',
-    href: '/'
+    label: 'Navigate to home page',
+    href: '?page=home',
+    templatePath: '/home'
 }, {
-    name: 'Projects',
-    href: '/projects'
+    name: 'About & ethics',
+    label: 'Learn more about my education, previous roles and ethics',
+    href: '?page=about',
+    templatePath: '/about'
 }, {
-    name: 'View 1',
-    href: '/view1'
+    name: 'Case studies',
+    label: 'See some case studies from previous projects',
+    href: '?page=projects',
+    templatePath: '/projects'
 }, {
-    name: 'View 2',
-    href: '/view2'
+    name: 'Driving change',
+    label: 'Read about a change management case study',
+    href: '?page=change',
+    templatePath: '/change'
 }];
-
-
-
 
 /*** CONTAINERS ***/
 const wrapTemplate = document.getElementById('wrap');
