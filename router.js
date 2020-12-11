@@ -93,5 +93,5 @@ window.addEventListener('hashchange', function(event){
             return getPageTemplate(page.templatePath, page.name, page.href);
         }
     }
-    return getPageTemplate('/home', 'Home', '#page=home'); // if no path corresponds we fall back onto homepage
+    return window.history.go(-1); // if no path corresponds we fall back to previous page
 });
