@@ -20,13 +20,13 @@ for (let page of pages) {
     }
 }
 
-for (let externalLink of externalLinks) {
-    wrapFooterNav.innerHTML += '<a\
+for (let externalPage of externalPages) {
+    wrapFooterNavAlt.innerHTML += '<a\
     class="nav__link--external"\
-    href="'+externalLink.href+'"\
-    aria-label="'+externalLink.label+'"\
-    data-template="'+externalLink.templatePath+'"\
+    href="'+externalPage.href+'"\
+    aria-label="'+externalPage.label+'"\
+    data-template="'+externalPage.templatePath+'"\
     target="_blank">\
-    '+externalLink.name+'\
+    '+externalPage.name+'\
     </a>';
 }

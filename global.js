@@ -7,54 +7,63 @@ const pages = [{
     isMain: true
 }, {
     name: 'About & ethics',
-    label: 'Learn more about my education, previous roles and ethics',
+    label: 'Navigate to this page to learn more about my education, previous roles and ethics',
     href: '#page=about',
     templatePath: '/about',
     isMain: true
 }, {
     name: 'Case studies',
-    label: 'See some case studies from previous projects',
+    label: 'Navigate to this page to see some case studies from previous projects',
     href: '#page=projects',
     templatePath: '/projects',
     isMain: true
 }, {
     name: 'Driving change',
-    label: 'Read about a change management case study',
+    label: 'Navigate to this page to learn more about a change management case study',
     href: '#page=change',
     templatePath: '/change',
     isMain: true
 }, {
     name: 'Sitemap',
-    label: 'Navigate to the sitemap',
+    label: 'Navigate to the sitemap page',
     href: '#page=sitemap',
     templatePath: '/sitemap',
     isMain: false
 }, {
     name: 'Cookie policy',
-    label: 'Learn more about this website\'s cookie policy',
+    label: 'Navigate to this page to learn more about this website\'s cookie policy',
     href: '#page=cookie',
     templatePath: '/cookie',
     isMain: false
 }, {
     name: 'Terms & Conditions',
-    label: 'Terms & Conditions. What you need to know before reusing the content of this website',
+    label: 'Navigate to this page to learn more about terms and conditions.',
     href: '#page=terms',
     templatePath: '/terms',
     isMain: false
 }];
 
 /*** EXTERNAL LINKS ***/
-const externalLinks = [{
+const externalPages = [{
     name: 'Email me',
-    label: 'Contact me via email',
+    label: 'Open your email application to contact me via email',
     href: 'mailto:kevinliozonpro@gmail.com'
 }, {
     name: 'LinkedIn',
-    label: 'Connect with me on Linkedin',
+    label: 'Open a new tab and see my profile on Linkedin',
     href: 'https://www.linkedin.com/in/kevin-liozon-39117bb3'
+}, {
+    name: 'Github',
+    label: 'Open a new tab and see my profile on Github',
+    href: 'https://github.com/kevinliozon'
+}, {
+    name: 'Stackshare',
+    label: 'Open a new tab and see my profile on Stackshare',
+    href: 'https://stackshare.io/kevinliozon/lead-product-designer-stack'
 }];
 
 /*** CONTAINERS ***/
 const wrapTemplate = document.getElementById('wrap');
 const wrapHeaderNav = document.getElementById('header-nav');
 const wrapFooterNav = document.getElementById('footer-nav');
+const wrapFooterNavAlt = document.getElementById('footer-nav-alt');
