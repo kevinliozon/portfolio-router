@@ -64,6 +64,3 @@ const externalPages = [{
 
 /*** CONTAINERS ***/
 const wrapTemplate = document.getElementById('wrap');
-const wrapHeaderNav = document.getElementById('header-nav');
-const wrapFooterNav = document.getElementById('footer-nav');
-const wrapFooterNavAlt = document.getElementById('footer-nav-alt');
