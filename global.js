@@ -61,6 +61,3 @@ const externalPages = [{
     label: 'Open a new tab and see my profile on Stackshare',
     href: 'https://stackshare.io/kevinliozon/lead-product-designer-stack'
 }];
-
-/*** CONTAINERS ***/
-const wrapTemplate = document.getElementById('wrap');
