@@ -31,4 +31,4 @@ const moduleViewRenderer = (() => {
     return {
         getViewTemplate: getViewTemplate
     };
-})
+})();
