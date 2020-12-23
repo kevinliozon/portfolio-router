@@ -8,8 +8,8 @@ const wrapTemplate = document.getElementById('wrap');
  * On load or refresh
  */
 window.addEventListener('load', (event) => {
-    moduleNav.buildNavMain(wrapHeaderNav, wrapFooterNav);
-    moduleNav.buildNavAlt(wrapFooterNavAlt);
+    moduleNav.buildNavMain();
+    moduleNav.buildNavAlt();
 
     moduleRouter.navListener();
     moduleRouter.navHistoryHandler();

@@ -3,12 +3,9 @@ const moduleNav = (() => {
     /**
      * Generate the main navigation for header and footer
      * 
-     * @param {Object} wrapHeaderNav The element containing the header nav
-     * @param {Object} wrapFooterNav  The element containing the footer nav
-     * 
      * @private
      */
-    function _buildNavMain(wrapHeaderNav, wrapFooterNav) {
+    function _buildNavMain() {
         for (let page of pages) {
             if (page.isMain) {
                 wrapHeaderNav.innerHTML += '<a\
@@ -35,11 +32,9 @@ const moduleNav = (() => {
     /**
      * Generate the main navigation for header and footer
      * 
-     * @param {Object} wrapFooterNavAlt The element containing the footer secondary nav
-     * 
      * @private
      */
-    function _buildNavAlt(wrapFooterNavAlt) {
+    function _buildNavAlt() {
         for (let externalPage of externalPages) {
             wrapFooterNavAlt.innerHTML += '<a\
             class="nav__link--external"\
@@ -52,12 +47,12 @@ const moduleNav = (() => {
         }
     }
 
-    function buildNavMain(wrapHeaderNav, wrapFooterNav) {
-        _buildNavMain(wrapHeaderNav, wrapFooterNav);
+    function buildNavMain() {
+        _buildNavMain();
     }
 
-    function buildNavAlt(wrapFooterNavAlt) {
-        _buildNavAlt(wrapFooterNavAlt);
+    function buildNavAlt() {
+        _buildNavAlt();
     }
 
     return {
