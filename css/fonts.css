@@ -1,0 +1,82 @@
+/*** Font face definitions for Roboto ***/
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/roboto/bold/Roboto-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../assets/fonts/roboto/bold/Roboto-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/roboto/bold/Roboto-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/roboto/bold/Roboto-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../assets/fonts/roboto/bold/Roboto-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/roboto/bold/Roboto-Bold.svg#Roboto-Bold') format('svg'); /* Legacy iOS */
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/roboto/light/Roboto-Light.eot');
+  src: url('../assets/fonts/roboto/light/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/roboto/light/Roboto-Light.woff2') format('woff2'),
+       url('../assets/fonts/roboto/light/Roboto-Light.woff') format('woff'),
+       url('../assets/fonts/roboto/light/Roboto-Light.ttf') format('truetype'),
+       url('../assets/fonts/roboto/light/Roboto-Light.svg#Roboto-Light') format('svg');
+  font-weight: lighter;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*** Font face definitions for Roboto Slab ***/
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../assets/fonts/roboto_slab/bold/RobotoSlab-Bold.eot');
+  src: url('../assets/fonts/roboto_slab/bold/RobotoSlab-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/roboto_slab/bold/RobotoSlab-Bold.woff2') format('woff2'),
+       url('../assets/fonts/roboto_slab/bold/RobotoSlab-Bold.woff') format('woff'),
+       url('../assets/fonts/roboto_slab/bold/RobotoSlab-Bold.ttf') format('truetype'),
+       url('../assets/fonts/roboto_slab/bold/RobotoSlab-Bold.svg#RobotoSlab-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../assets/fonts/roboto_slab/light/RobotoSlab-Light.eot');
+  src: url('../assets/fonts/roboto_slab/light/RobotoSlab-Light.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/roboto_slab/light/RobotoSlab-Light.woff2') format('woff2'),
+       url('../assets/fonts/roboto_slab/light/RobotoSlab-Light.woff') format('woff'),
+       url('../assets/fonts/roboto_slab/light/RobotoSlab-Light.ttf') format('truetype'),
+       url('../assets/fonts/roboto_slab/light/RobotoSlab-Light.svg#RobotoSlab-Light') format('svg');
+  font-weight: lighter;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-size: 62.5%; /* Default browser font size is now 10px */
+}
+
+body {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 1.4rem; /* Body font size 14px */
+  font-weight: lighter;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+a {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
