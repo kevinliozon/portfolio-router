@@ -1,0 +1,9 @@
+#!/bin/bash
+
+title='Portfolio'
+echo -n -e "\033]0;$title\007"
+echo "Opening localhost in default browser"
+cd "$(dirname "$0")"
+open http://localhost:8000
+echo "Serving project"
+python -m SimpleHTTPServer
