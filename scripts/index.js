@@ -7,17 +7,18 @@ const wrapTemplate = document.getElementById('wrap');
 /**
  * On load or refresh
  */
-window.addEventListener('load', (event) => {
-    moduleNav.buildNavMain();
-    moduleNav.buildNavAlt();
-
-    moduleRouter.navListener();
-    moduleRouter.navHistoryHandler();
+window.addEventListener('load', e => {
+  // Building the navigations
+  moduleNav.buildNavMain();
+  moduleNav.buildNavAlt();
+  // Building the navigation listener
+  moduleRouter.navListener();
+  // Calls the template relevant to the page we are loading from
+  moduleRouter.callTemplate();
 });
 
 /**
- * On change in the url
+ * On change in the url or upon state change
  */
-window.addEventListener('hashchange', (event) => {
-    moduleRouter.navChecker();
-});
+window.addEventListener('hashchange', e => moduleRouter.navStateOrHashChange(), false);
+window.addEventListener('popstate', e => moduleRouter.navStateOrHashChange(), false);
