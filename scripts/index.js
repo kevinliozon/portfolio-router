@@ -21,4 +21,3 @@ window.addEventListener('load', e => {
  * On change in the url or upon state change
  */
 window.addEventListener('hashchange', e => moduleRouter.navStateOrHashChange(), false);
-window.addEventListener('popstate', e => moduleRouter.navStateOrHashChange(), false);

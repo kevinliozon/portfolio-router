@@ -120,9 +120,9 @@ const moduleRouter = (() => {
     // Array with all navigation links
     Array.from(document.getElementsByClassName('nav__link')).forEach((navLink) => {
       // Event listener on each link
-      navLink.addEventListener('click', function (e) {
+      navLink.addEventListener('click', function(e) {
         // If page selected is different than actual one we trigger a push state
-        if (this.dataset.template !== history.state.template) {
+        if(this.dataset.template !== history.state.template) {
           _getPageTemplate(this.dataset.template, navLink.text, this.href);
         }
         //This prevents the browser from actually following the link
