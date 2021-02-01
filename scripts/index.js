@@ -11,10 +11,10 @@ window.addEventListener('load', e => {
   // Building the navigations
   moduleNav.buildNavMain();
   moduleNav.buildNavAlt();
-  // Building the navigation listener
-  moduleRouter.navListener();
   // Calls the template relevant to the page we are loading from
   moduleRouter.callTemplate();
+  // Building the navigation listener
+  moduleRouter.navListener();
 });
 
 /**
