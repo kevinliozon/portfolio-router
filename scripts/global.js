@@ -2,7 +2,7 @@
 const pages = [{
     name: 'Overview',
     label: 'Navigate to overview page',
-    href: '#page=overview',
+    href: '#page=home',
     templatePath: '/pages/home',
     isMain: true
 }, {

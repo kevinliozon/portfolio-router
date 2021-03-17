@@ -117,17 +117,18 @@ const moduleRouter = (() => {
     * @private
     */
   function _navListener() {
+    console.log('building');
     // Array with all navigation links
     Array.from(document.getElementsByClassName('nav__link')).forEach((navLink) => {
       // Event listener on each link
       navLink.addEventListener('click', function(e) {
+        //This prevents the browser from actually following the default link
+        e.stopPropagation();
+        e.preventDefault();
         // If page selected is different than actual one we trigger a push state or no saved template
-        if(this.dataset.template !== history.state.template || history.state.template === null) {
+        if(history.state.template !== null && this.dataset !== undefined && this.dataset.template !== history.state.template) {
           _getPageTemplate(this.dataset.template, navLink.text, this.href);
         }
-        //This prevents the browser from actually following the link
-        e.preventDefault();
-        e.stopPropagation();
       }, false)
     })
   }
@@ -142,7 +143,7 @@ const moduleRouter = (() => {
   function _navStateOrHashChange() {
     wrapTemplate.innerHTML = 'loading...';
     // we check if the new url has got a corresponding template
-    fetch(location.href.replace('#page=',''), { method: 'GET' }).then(response => {
+    fetch(location.href.replace('#page=','pages/'), { method: 'GET' }).then(response => {
       if(response.status !== 404) {
         return response.text(); // has a template
       } else {
@@ -152,7 +153,7 @@ const moduleRouter = (() => {
     })
     .then(content => {
       wrapTemplate.innerHTML = content;  // page is filled with new template
-      return _getPageController(location.hash.replace('#page=','/')) // we get the controller for the page accessed
+      return _getPageController(location.hash.replace('#page=','/pages/')) // we get the controller for the page accessed
     })
     .catch(error => console.error('error: ', error))
   }
