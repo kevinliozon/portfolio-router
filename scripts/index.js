@@ -13,8 +13,6 @@ window.addEventListener('load', e => {
   moduleNav.buildNavAlt();
   // Calls the template relevant to the page we are loading from
   moduleRouter.callTemplate();
-  // Building the navigation listener
-  moduleRouter.navListener();
 });
 
 /**

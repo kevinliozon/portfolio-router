@@ -6,5 +6,8 @@
  * in router module
  */
 
+// Building the navigation listener
+moduleRouter.navListener();
+
 moduleViewRenderer.getViewTemplate('/projects/project1', document.getElementById('project1'));
 //moduleViewRenderer.getViewTemplate('/projects/project2', document.getElementById('project2'));

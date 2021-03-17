@@ -117,7 +117,6 @@ const moduleRouter = (() => {
     * @private
     */
   function _navListener() {
-    console.log('building');
     // Array with all navigation links
     Array.from(document.getElementsByClassName('nav__link')).forEach((navLink) => {
       // Event listener on each link
@@ -125,8 +124,10 @@ const moduleRouter = (() => {
         //This prevents the browser from actually following the default link
         e.stopPropagation();
         e.preventDefault();
-        // If page selected is different than actual one we trigger a push state or no saved template
-        if(history.state.template !== null && this.dataset !== undefined && this.dataset.template !== history.state.template) {
+        // If page selected is the same as actual one: do nothing
+        if(history.state !== null && history.state.template !== null && this.dataset !== undefined && this.dataset.template === history.state.template) {
+          return;
+        } else {
           _getPageTemplate(this.dataset.template, navLink.text, this.href);
         }
       }, false)
