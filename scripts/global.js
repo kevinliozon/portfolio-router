@@ -1,12 +1,12 @@
-/*** PAGES ***/
+/*** PAGES - Home page should be first ***/
 const pages = [{
-    name: 'Home',
-    label: 'Navigate to home page',
-    href: '#page=home',
+    name: 'Overview',
+    label: 'Navigate to overview page',
+    href: '#page=overview',
     templatePath: '/home',
     isMain: true
 }, {
-    name: 'About & ethics',
+    name: 'About',
     label: 'Navigate to this page to learn more about my education, previous roles and ethics',
     href: '#page=about',
     templatePath: '/about',
@@ -18,10 +18,10 @@ const pages = [{
     templatePath: '/projects',
     isMain: true
 }, {
-    name: 'Driving change',
-    label: 'Navigate to this page to learn more about a change management case study',
-    href: '#page=change',
-    templatePath: '/change',
+    name: 'Contact',
+    label: 'Navigate to contact page',
+    href: '#page=contact',
+    templatePath: '/contact',
     isMain: true
 }, {
     name: 'Sitemap',

@@ -107,7 +107,7 @@ const moduleRouter = (() => {
     // Are we refreshing an existing page, otherwise we fall back onto homepage
     (history && history.state) ? 
     _getCurrentPageTemplate() : 
-    _getPageTemplate('/home', 'Home', '#page=home');
+    _getPageTemplate(pages[0].templatePath, pages[0].name, pages[0].href);
   }
 
   /**
