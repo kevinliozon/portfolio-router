@@ -34,7 +34,7 @@ const moduleRouter = (() => {
     */
   function _getErrorPageTemplate() {
   wrapTemplate.innerHTML = 'loading...';
-  const activeTemplate = '/404';
+  const activeTemplate = '/pages/404';
   const activePage = 'Page not found';
   const activeUrl = location.origin + '#page=404';
   fetch(activeTemplate, { method: 'GET' })
