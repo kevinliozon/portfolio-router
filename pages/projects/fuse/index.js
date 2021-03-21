@@ -1,2 +1,2 @@
 // Detect the links and build their navigation listener
-moduleRouter.navListener();
+moduleRouter.linksListener('js-link--content');

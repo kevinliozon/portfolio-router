@@ -116,20 +116,22 @@ const moduleRouter = (() => {
     * within the single page wrap.
     * @private
     */
-  function _navListener() {
+  function _linksListener(linkClass) {
     // Array with all navigation links
-    Array.from(document.getElementsByClassName('nav__link')).forEach((navLink) => {
+    Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
+      console.log(link)
       // Event listener on each link
-      navLink.addEventListener('click', function(e) {
-        //This prevents the browser from actually following the default link
-        e.stopPropagation();
-        e.preventDefault();
+      link.addEventListener('click', function(e) {
+        console.log(this.dataset, this.dataset.template)
         // If page selected is the same as actual one: do nothing
         if(history.state !== null && history.state.template !== null && this.dataset !== undefined && this.dataset.template === history.state.template) {
           return;
         } else {
-          _getPageTemplate(this.dataset.template, navLink.text, this.href);
+          _getPageTemplate(this.dataset.template, link.text, this.href);
         }
+        //This prevents the browser from actually following the default link
+        e.stopPropagation();
+        e.preventDefault();
       }, false)
     })
   }
@@ -155,14 +157,17 @@ const moduleRouter = (() => {
     .then(content => {
       wrapTemplate.innerHTML = content;  // page is filled with new template
       return _getPageController(location.hash.replace('#page=','/pages/')) // we get the controller for the page accessed
+
+
+      //return _getPageTemplate(location.hash.replace('#page=','/pages/'), '', location.hash)
     })
     .catch(error => console.error('error: ', error))
   }
 
   /*** PUBLIC METHODS ***/
 
-  function navListener() {
-    _navListener();
+  function linksListener(linkClass) {
+    _linksListener(linkClass);
   }
 
   function callTemplate() {
@@ -174,7 +179,7 @@ const moduleRouter = (() => {
   }
 
   return {
-    navListener: navListener,
+    linksListener: linksListener,
     callTemplate: callTemplate,
     navStateOrHashChange: navStateOrHashChange
   };
