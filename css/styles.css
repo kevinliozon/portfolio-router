@@ -1,5 +1,33 @@
 /*** MAIN STYLESHEET ***/
 
+/*** CONTAINERS ***/
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.c-main,
+.c-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3em auto;
+  width: calc(100% - 6em);
+}
+
+.c-main__h,
+.c-section__h {
+  flex: 0 0 100%; /* Fills the entire space horizontally */
+}
+
+.c-main__desc,
+.c-section__desc {
+  flex: 0 0 60%;
+}
+
 .h__logo {
   font-size: 5rem;
 }
