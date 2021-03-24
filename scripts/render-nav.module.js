@@ -9,7 +9,7 @@ const moduleNav = (() => {
         for (let page of pages) {
             if (page.isMain) {
                 wrapHeaderNav.innerHTML += '<a\
-                class="nav__link"\
+                class="nav__link js-link--nav"\
                 href="'+page.href+'"\
                 aria-label="'+page.label+'"\
                 data-template="'+page.templatePath+'"\
@@ -18,7 +18,7 @@ const moduleNav = (() => {
                 </a>';
             } else {
                 wrapFooterNav.innerHTML += '<a\
-                class="nav__link"\
+                class="nav__link js-link--nav"\
                 href="'+page.href+'"\
                 aria-label="'+page.label+'"\
                 data-template="'+page.templatePath+'"\

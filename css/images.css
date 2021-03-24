@@ -1,0 +1,10 @@
+.c-main__fig,
+.c-section__fig {
+  flex: 0 0 40%;
+  margin: 0;
+  padding: 1em;
+}
+
+.c-section__fig__img {
+  width: 100%;
+}

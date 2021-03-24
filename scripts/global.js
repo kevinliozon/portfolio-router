@@ -1,45 +1,45 @@
-/*** PAGES ***/
+/*** PAGES - Home page should be first ***/
 const pages = [{
-    name: 'Home',
-    label: 'Navigate to home page',
+    name: 'Overview',
+    label: 'Navigate to overview page',
     href: '#page=home',
-    templatePath: '/home',
+    templatePath: '/pages/home',
     isMain: true
 }, {
-    name: 'About & ethics',
+    name: 'About',
     label: 'Navigate to this page to learn more about my education, previous roles and ethics',
     href: '#page=about',
-    templatePath: '/about',
+    templatePath: '/pages/about',
     isMain: true
 }, {
     name: 'Case studies',
     label: 'Navigate to this page to see some case studies from previous projects',
     href: '#page=projects',
-    templatePath: '/projects',
+    templatePath: '/pages/projects',
     isMain: true
 }, {
-    name: 'Driving change',
-    label: 'Navigate to this page to learn more about a change management case study',
-    href: '#page=change',
-    templatePath: '/change',
+    name: 'Contact',
+    label: 'Navigate to contact page',
+    href: '#page=contact',
+    templatePath: '/pages/contact',
     isMain: true
 }, {
     name: 'Sitemap',
     label: 'Navigate to the sitemap page',
     href: '#page=sitemap',
-    templatePath: '/sitemap',
+    templatePath: '/pages/sitemap',
     isMain: false
 }, {
     name: 'Cookie policy',
     label: 'Navigate to this page to learn more about this website\'s cookie policy',
     href: '#page=cookie',
-    templatePath: '/cookie',
+    templatePath: '/pages/cookie',
     isMain: false
 }, {
     name: 'Terms & Conditions',
     label: 'Navigate to this page to learn more about terms and conditions.',
     href: '#page=terms',
-    templatePath: '/terms',
+    templatePath: '/pages/terms',
     isMain: false
 }];
 

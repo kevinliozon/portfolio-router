@@ -1,0 +1,6 @@
+#!/bin/bash
+
+title='Flush DNS'
+echo -n -e "\033]0;$title\007"
+echo "Flushing DNS"
+killall -HUP mDNSResponder && exit
