@@ -104,16 +104,20 @@ const moduleRouter = (() => {
     * @private
     */
   function _callTemplate() {
-    // Are we refreshing an existing page, otherwise we fall back onto homepage
-    (history && history.state) ? 
-    _getCurrentPageTemplate() : 
-    _getPageTemplate(pages[0].templatePath, pages[0].name, pages[0].href);
+    if (!history) {
+      // There is no history registered, we fall back onto homepage
+      _getPageTemplate(pages[0].templatePath, pages[0].name, pages[0].href)
+    } else {
+      // Are we refreshing an existing page? otherwise we go back to the page before hashchange
+      (history.state) ? _getCurrentPageTemplate() :  history.back();
+    }
   }
 
   /**
     * Is called on load
     * Set up the event listeners for the navigation and the generation of templates
     * within the single page wrap.
+    * @param {String} linkClass The class of the links we want to listen to
     * @private
     */
   function _linksListener(linkClass) {
@@ -157,9 +161,6 @@ const moduleRouter = (() => {
     .then(content => {
       wrapTemplate.innerHTML = content;  // page is filled with new template
       return _getPageController(location.hash.replace('#page=','/pages/')) // we get the controller for the page accessed
-
-
-      //return _getPageTemplate(location.hash.replace('#page=','/pages/'), '', location.hash)
     })
     .catch(error => console.error('error: ', error))
   }
