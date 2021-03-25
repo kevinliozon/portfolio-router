@@ -141,6 +141,26 @@ const moduleRouter = (() => {
   }
 
   /**
+    * Is called on load
+    * Set up the event listeners for the side nav and scroll to the relevant content
+    * @param {String} linkClass The class of the links we want to listen to
+    * @private
+    */
+  function _hashListener(linkClass) {
+    // Array with all navigation links
+    Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
+      // Event listener on each link
+      link.addEventListener('click', function(e) {
+        // Scrolls to the content with matching fragment
+        document.getElementById(link.dataset.hash).scrollIntoView();
+        //This prevents the browser from actually following the default link
+        e.stopPropagation();
+        e.preventDefault();
+      }, false)
+    })
+  }
+
+  /**
     * Is called on hashchange or popstate event (back/forward)
     * Check if the page we try to access exists
     * If yes calls its template and controller
@@ -173,6 +193,10 @@ const moduleRouter = (() => {
     _linksListener(linkClass);
   }
 
+  function hashListener(linkClass) {
+    _hashListener(linkClass);
+  }
+
   function callTemplate() {
     _callTemplate();
   }
@@ -187,6 +211,7 @@ const moduleRouter = (() => {
 
   return {
     linksListener: linksListener,
+    hashListener: hashListener,
     callTemplate: callTemplate,
     navStateOrHashChange: navStateOrHashChange,
     getErrorPageTemplate : getErrorPageTemplate

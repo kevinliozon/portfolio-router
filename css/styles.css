@@ -28,6 +28,15 @@ html {
   flex: 0 0 60%;
 }
 
+.l-wrap {
+  margin: auto;
+  padding: 200px 0;
+}
+
+.h {
+  position: fixed;
+}
+
 .h__logo {
   font-size: 5rem;
 }
