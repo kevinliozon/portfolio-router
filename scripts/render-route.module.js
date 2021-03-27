@@ -82,7 +82,6 @@ const moduleRouter = (() => {
         if(response.status !== 404) {
           return response.text(); // turn HTML response into a string
         } else {
-          _getErrorPageTemplate()
           throw new Error('No template for this page - 404')
         }
       }) 
@@ -93,7 +92,10 @@ const moduleRouter = (() => {
         wrapTemplate.innerHTML = content; // Fills the wrap with template
         return _getPageController(activeTemplate) // Adds template's controller
       })
-      .catch(error => console.error('error: ', error))
+      .catch(error => {
+        _getErrorPageTemplate(); // no template => 404 page
+        console.error('error: ', error);
+      })
   }
 
   /**
@@ -104,31 +106,53 @@ const moduleRouter = (() => {
     * @private
     */
   function _callTemplate() {
-    // Are we refreshing an existing page, otherwise we fall back onto homepage
-    (history && history.state) ? 
-    _getCurrentPageTemplate() : 
-    _getPageTemplate(pages[0].templatePath, pages[0].name, pages[0].href);
+    if (location.href === location.origin + location.pathname || !history) {
+      // If no page selected or there is no history registered, we fall back onto homepage
+      _getPageTemplate(pages[0].templatePath, pages[0].name, pages[0].href)
+    } else {
+      // Are we refreshing an existing page? otherwise we go back to the page before hashchange
+      (history.state) ? _getCurrentPageTemplate() : history.back();
+    }
   }
 
   /**
     * Is called on load
     * Set up the event listeners for the navigation and the generation of templates
     * within the single page wrap.
+    * @param {String} linkClass The class of the links we want to listen to
     * @private
     */
   function _linksListener(linkClass) {
     // Array with all navigation links
     Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
-      console.log(link)
       // Event listener on each link
       link.addEventListener('click', function(e) {
-        console.log(this.dataset, this.dataset.template)
         // If page selected is the same as actual one: do nothing
         if(history.state !== null && history.state.template !== null && this.dataset !== undefined && this.dataset.template === history.state.template) {
           return;
         } else {
           _getPageTemplate(this.dataset.template, link.text, this.href);
         }
+        //This prevents the browser from actually following the default link
+        e.stopPropagation();
+        e.preventDefault();
+      }, false)
+    })
+  }
+
+  /**
+    * Is called on load
+    * Set up the event listeners for the side nav and scroll to the relevant content
+    * @param {String} linkClass The class of the links we want to listen to
+    * @private
+    */
+  function _hashListener(linkClass) {
+    // Array with all navigation links
+    Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
+      // Event listener on each link
+      link.addEventListener('click', function(e) {
+        // Scrolls to the content with matching fragment
+        document.getElementById(link.dataset.hash).scrollIntoView();
         //This prevents the browser from actually following the default link
         e.stopPropagation();
         e.preventDefault();
@@ -150,24 +174,27 @@ const moduleRouter = (() => {
       if(response.status !== 404) {
         return response.text(); // has a template
       } else {
-        _getErrorPageTemplate(); // no template => 404 page
         throw new Error('No template for this page - 404')
       }
     })
     .then(content => {
       wrapTemplate.innerHTML = content;  // page is filled with new template
       return _getPageController(location.hash.replace('#page=','/pages/')) // we get the controller for the page accessed
-
-
-      //return _getPageTemplate(location.hash.replace('#page=','/pages/'), '', location.hash)
     })
-    .catch(error => console.error('error: ', error))
+    .catch(error => {
+      _getErrorPageTemplate(); // no template => 404 page
+      console.error('error: ', error)
+    })
   }
 
   /*** PUBLIC METHODS ***/
 
   function linksListener(linkClass) {
     _linksListener(linkClass);
+  }
+
+  function hashListener(linkClass) {
+    _hashListener(linkClass);
   }
 
   function callTemplate() {
@@ -178,9 +205,15 @@ const moduleRouter = (() => {
     _navStateOrHashChange();
   }
 
+  function getErrorPageTemplate() {
+    _getErrorPageTemplate()
+  }
+
   return {
     linksListener: linksListener,
+    hashListener: hashListener,
     callTemplate: callTemplate,
-    navStateOrHashChange: navStateOrHashChange
+    navStateOrHashChange: navStateOrHashChange,
+    getErrorPageTemplate : getErrorPageTemplate
   };
 })();
