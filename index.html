@@ -11,16 +11,18 @@
   </head>
 
   <body>
-    <header class="h">
-      <h1 class="h__logo"><img src="assets/img/logo.png" alt="logo" class="h__logo__img"> Kevin Liozon</h1>
-      <nav id="header-nav"></nav>
+    <header class="l-header">
+      <h1 class="l-header__logo"><img src="assets/img/logo.png" alt="logo" class="l-header__logo__img"> Kevin Liozon</h1>
+      <nav id="header-nav" class="l-header__nav"></nav>
     </header>
-    <div id="wrap" class="l-wrap"></div>
-    <footer>
-      <nav id="footer-nav"></nav>
-      <nav id="footer-nav-alt"></nav>
+    <div id="wrap" class="l-container"></div>
+    <footer class="l-footer">
+      <nav id="footer-nav" class="l-footer__nav"></nav>
+      <nav id="footer-nav-alt" class="l-footer__nav"></nav>
     </footer>
     
+    <!-- Polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js"></script>
     <!-- Global variables -->
     <script src="scripts/global.js"></script>
     <!-- Renderer modules -->

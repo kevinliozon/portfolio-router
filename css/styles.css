@@ -10,12 +10,32 @@ html {
   box-sizing: inherit;
 }
 
+/* components */
+
+.c-title {
+  flex: 0 0 100%; /* Fills the entire space horizontally */
+}
+
+.c-main,
+.c-section,
+.c-side {
+  margin: 3em auto;
+}
+
+.c-side {
+  flex: 0 0 20%;
+}
+
+.c-side__nav {
+  position: fixed;
+}
+
 .c-main,
 .c-section {
   display: flex;
   flex-wrap: wrap;
-  margin: 3em auto;
-  width: calc(100% - 6em);
+  justify-content: space-between;
+  flex: 0 0 80%;
 }
 
 .c-main__h,
@@ -28,20 +48,30 @@ html {
   flex: 0 0 60%;
 }
 
-.l-wrap {
-  margin: auto;
-  padding: 200px 0;
+/* Layout */
+
+.l-container,
+.l-header,
+.l-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.h {
+.l-container {
+  margin: auto;
+  padding: 12em 0;
+}
+
+.l-header {
   position: fixed;
 }
 
-.h__logo {
+.l-header__logo {
   font-size: 5rem;
 }
 
-.h__logo__img {
+.l-header__logo__img {
   width: 50px;
 }
 

@@ -54,13 +54,13 @@ const moduleNav = (() => {
     */
   function _buildNavProject(el) {
     for (let projectFragment of projectFragments) {
-      el.innerHTML += '<a\
-      class="js-link--hash"\
+      el.innerHTML += '<div>\
+      <a class="js-link--hash"\
       href="'+projectFragment.href+'"\
       aria-label="'+projectFragment.label+'"\
       data-hash="'+projectFragment.hash+'">\
       '+projectFragment.name+'\
-      </a>';
+      </a></div>';
     }
   }
 
