@@ -23,11 +23,17 @@ html {
 }
 
 .c-side {
-  flex: 0 0 20%;
+  flex: 0 0 calc(100% - 80%);
 }
 
 .c-side__nav {
   position: fixed;
+  text-align: center;
+  width: calc(100% - 80%);
+}
+
+.l-wrap-contents {
+  flex: 0 0 80%;
 }
 
 .c-main,
@@ -35,7 +41,6 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  flex: 0 0 80%;
 }
 
 .c-main__h,
@@ -58,17 +63,29 @@ html {
   justify-content: space-between;
 }
 
+.l-header,
+.l-footer {
+  align-items: center;
+  padding: 0 3em;
+}
+
 .l-container {
   margin: auto;
   padding: 12em 0;
 }
 
 .l-header {
+  height: 50px;
   position: fixed;
+  width: 100%;
+}
+
+.l-footer {
+  height: 100px;
 }
 
 .l-header__logo {
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .l-header__logo__img {
