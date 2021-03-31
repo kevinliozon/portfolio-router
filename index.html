@@ -3,7 +3,12 @@
   <head>
     <title>Portfolio</title>
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-control" content="no-cache"> <!-- Only for dev -->
+    <!-- Only for dev -->
+    <meta http-equiv="Cache-control" content="no-cache">
+    <!-- Polyfills: general - default - fetch - babel -->
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=default%2Cfetch"></script>
+    <script src="https://unpkg.com/@babel/polyfill@7.12.1/browser.js"></script>
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="css/fonts.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.min.css">
@@ -21,8 +26,6 @@
       <nav id="footer-nav-alt" class="l-footer__nav"></nav>
     </footer>
     
-    <!-- Polyfills -->
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js"></script>
     <!-- Global variables -->
     <script src="scripts/global.js"></script>
     <!-- Renderer modules -->
