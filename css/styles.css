@@ -14,18 +14,22 @@ html {
 
 .c-title {
   flex: 0 0 100%; /* Fills the entire space horizontally */
+  margin: 0;
+  text-align: center;
 }
 
 .c-main,
-.c-section,
-.c-side {
+.c-section {
   margin: 3em auto;
 }
 
 .c-side {
+  box-shadow: 2px -2px 5px #000;
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: calc(100% - 80%); /* We separate for IE */
+  padding: 3em 0;
+  padding: 12em 0;
 }
 
 .c-side__nav {
@@ -34,8 +38,9 @@ html {
   width: calc(100% - 80%);
 }
 
-.l-wrap-contents {
+.c-content-wrap {
   flex: 0 0 80%;
+  padding: 12em 3em;
 }
 
 .c-main,
@@ -55,6 +60,14 @@ html {
   flex: 0 0 60%;
 }
 
+.l-main {
+  display: flex;
+}
+
+.l-main__cell {
+  width: 33%;
+}
+
 /* Layout */
 
 .l-container,
@@ -68,26 +81,35 @@ html {
 .l-header,
 .l-footer {
   align-items: center;
-  padding: 0 3em;
+  padding: 2em 3em;
 }
 
 .l-container {
   margin: auto;
-  padding: 12em 0;
 }
 
-.l-header {
-  height: 50px;
+.l-footer {
+  background-color: #e2e2e2;
+  position: relative; /* avoid side bar from overlaping */
+}
+
+.l-header-wrap {
+  filter: drop-shadow(0px 2px 5px #000);
   position: fixed;
   width: 100%;
 }
 
-.l-footer {
-  height: 100px;
+.l-header {
+  background-color: #fcfcfc;
+  /*box-shadow: 0px 2px 5px #000;*/
+  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
 }
 
 .l-header__logo {
-  font-size: 3rem;
+  align-items: center;
+  display: flex;
+  font-size: 2rem;
+  margin: 0;
 }
 
 .l-header__logo__img {
