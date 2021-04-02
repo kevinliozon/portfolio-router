@@ -94,16 +94,34 @@ html {
 }
 
 .l-header-wrap {
-  filter: drop-shadow(0px 2px 5px #000);
+  /*filter: drop-shadow(0px 2px 5px #000);*/
   position: fixed;
   width: 100%;
+  background-color: #fcfcfc;
+  background-image: url('/assets/ui/header.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .l-header {
-  background-color: #fcfcfc;
-  /*box-shadow: 0px 2px 5px #000;*/
-  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
+  width: 60%;
 }
+
+
+
+/*.l-header-wrap {
+  filter: drop-shadow(0px 2px 5px #000);
+  position: fixed;
+  width: 100%;
+}*/
+
+/*.l-header {
+  background-color: #fcfcfc;
+  box-shadow: 0px 2px 5px #000;
+  clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
+}*/
+
+
 
 .l-header__logo {
   align-items: center;
