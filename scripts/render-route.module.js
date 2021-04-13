@@ -151,11 +151,20 @@ const moduleRouter = (() => {
     Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
       // Event listener on each link
       link.addEventListener('click', function(e) {
+
         // Scrolls to the content with matching fragment
-        document.getElementById(link.dataset.hash).scrollIntoView();
+        const elementPosition = document.getElementById(link.dataset.hash).getBoundingClientRect().top;
+        const offsetPosition = elementPosition - 100;
+
+        window.scrollBy({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+
         //This prevents the browser from actually following the default link
         e.stopPropagation();
         e.preventDefault();
+
       }, false)
     })
   }
