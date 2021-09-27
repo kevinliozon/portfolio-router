@@ -9,7 +9,7 @@ const moduleNav = (() => {
     for (let page of pages) {
       if (page.isMain) {
         wrapHeaderNav.innerHTML += '<a\
-        class="nav__link js-link--nav"\
+        class="c-nav__link l-header__nav__link js-link--nav"\
         href="'+page.href+'"\
         aria-label="'+page.label+'"\
         data-template="'+page.templatePath+'"\
@@ -18,7 +18,7 @@ const moduleNav = (() => {
         </a>';
       } else {
         wrapFooterNav.innerHTML += '<a\
-        class="nav__link js-link--nav"\
+        class="c-nav__link l-footer__nav__link js-link--nav"\
         href="'+page.href+'"\
         aria-label="'+page.label+'"\
         data-template="'+page.templatePath+'"\
@@ -37,7 +37,7 @@ const moduleNav = (() => {
   function _buildNavAlt() {
     for (let externalPage of externalPages) {
       wrapFooterNavAlt.innerHTML += '<a\
-      class="nav__link--external"\
+      class="c-nav__link l-footer__nav__link"\
       href="'+externalPage.href+'"\
       aria-label="'+externalPage.label+'"\
       data-template="'+externalPage.templatePath+'"\
@@ -55,7 +55,7 @@ const moduleNav = (() => {
   function _buildNavProject(el) {
     for (let projectFragment of projectFragments) {
       el.innerHTML += '<div>\
-      <a class="js-link--hash"\
+      <a class="c-nav__link js-link--hash"\
       href="'+projectFragment.href+'"\
       aria-label="'+projectFragment.label+'"\
       data-hash="'+projectFragment.hash+'">\

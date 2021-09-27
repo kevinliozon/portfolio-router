@@ -55,17 +55,19 @@ html {
 
 .l-side {
   background-color: #f8fffe;
-  box-shadow: -2px 2px 5px #CCC;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: calc(100% - 80%); /* We separate for IE */
-  max-width: 20%; /* For IE */
+  box-shadow: -2px 2px 5px #ccc;
+  width: 20%;
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  z-index: 0;
 }
 
 .c-side {
   padding: 12rem 1rem;
   position: fixed;
   width: 20%;
+  z-index: 2;
 }
 
 .c-side_section {
@@ -128,18 +130,14 @@ html {
   position: relative; /* avoid side bar from overlaping */
 }
 
-.l-header-wrap {
-  /*filter: drop-shadow(0px 2px 5px #000);*/
-  position: fixed;
-  width: 100%;
-  background-image: url('/assets/ui/header.png');
+.l-header {
+  background-image: url(/assets/ui/header.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-}
-
-.l-header {
-  padding: 0.5rem 6rem;
-  width: 80%;
+  padding: .5rem 25% .5rem 6rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 
@@ -169,6 +167,7 @@ html {
   width: 7rem;
 }
 
-.nav__link {
-  padding-right: 15px;
+.c-nav__link {
+  display: inline-block;
+  margin-right: 2rem;
 }

@@ -45,10 +45,6 @@ const pages = [{
 
 /*** EXTERNAL LINKS ***/
 const externalPages = [{
-  name: 'Email me',
-  label: 'Open your email application to contact me via email',
-  href: 'mailto:kevinliozonpro@gmail.com'
-}, {
   name: 'LinkedIn',
   label: 'Open a new tab and see my profile on Linkedin',
   href: 'https://www.linkedin.com/in/kevin-liozon-39117bb3'

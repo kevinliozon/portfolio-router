@@ -6,23 +6,58 @@ body {
 input,
 select,
 textarea,
-button,
+button {
+  color: #5f5e5e;
+}
+
 a,
-a:visited {
+a:visited,
+a:focus,
+a:before {
   color: #063C72;
+  transition: all .1s ease-in;
 }
 
 a:hover {
   background-color: #063C72;
   color: #82F4B6;
+  padding: 0 5px;
+}
+
+.c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:visited,
+.c-nav__link:focus {
+  color: #063C72;
+}
+
+.c-nav__link:before {
+  color: #82F4B6;
+  content: "\25FC";
+  opacity: 0;
+  text-shadow: -1px -1px 0px #063C72, 1px -1px 0px #063C72, -1px 1px 0px #063C72, 1px 1px 0px #063C72;
+}
+
+.l-footer__nav__link,
+.l-footer__nav__link:hover,
+.l-footer__nav__link:visited,
+.l-footer__nav__link:focus {
+  color: #82F4B6;
+}
+
+.c-nav__link:hover {
+  background-color: transparent;
+  padding: 0;
+}
+
+.c-nav__link:hover:before {
+  opacity: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: #063C72;
 }
 
-.l-footer__nav a {
+.l-footer__nav__link {
   color: #82F4B6;
 }
-
-.l-footer__nav a:hover {}
