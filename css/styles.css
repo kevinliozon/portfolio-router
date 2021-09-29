@@ -23,9 +23,12 @@ html {
 }
 
 .l-content {
+  padding: 12rem 6rem;
+}
+
+.l-content--hasside {
   flex: 0 0 80%;
   max-width: 80%; /* For IE */
-  padding: 12rem 6rem;
 }
 
 .c-main,
@@ -38,11 +41,13 @@ html {
 .c-main__h,
 .c-section__h {
   flex: 0 0 100%; /* Fills the entire space horizontally */
+  max-width: 100%; /* For IE */
 }
 
 .c-main__desc,
 .c-section__desc {
   flex: 0 0 60%;
+  max-width: 60%; /* For IE */
 }
 
 .l-main {
@@ -66,6 +71,7 @@ html {
 .c-side {
   padding: 12rem 1rem;
   position: fixed;
+  text-align: center;
   width: 20%;
   z-index: 2;
 }
@@ -170,4 +176,18 @@ html {
 .c-nav__link {
   display: inline-block;
   margin-right: 2rem;
+}
+
+/* Desktops and laptops */
+@media only screen and (max-width : 800px) {
+  .l-side {
+    display: none;
+  }
+
+  .c-main__desc,
+  .c-section__desc,
+  .l-content--hasside {
+    flex: 0 0 100%;
+    max-width: 100%; /* For IE */
+  }
 }

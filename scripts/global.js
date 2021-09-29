@@ -1,61 +1,71 @@
 /*** PAGES - Home page should be first ***/
 const pages = [{
-  name: 'Overview',
+  name: 'About',
   label: 'Navigate to overview page',
   href: '#page=home',
   templatePath: '/pages/home',
-  isMain: true
+  isMain: true,
+  isVisible: true
 }, {
   name: 'About',
   label: 'Navigate to this page to learn more about my education, previous roles and ethics',
   href: '#page=about',
   templatePath: '/pages/about',
-  isMain: true
+  isMain: true,
+  isVisible: false
 }, {
   name: 'Case studies',
   label: 'Navigate to this page to see some case studies from previous projects',
   href: '#page=projects',
   templatePath: '/pages/projects',
-  isMain: true
+  isMain: true,
+  isVisible: true
 }, {
   name: 'Contact',
   label: 'Navigate to contact page',
   href: '#page=contact',
   templatePath: '/pages/contact',
-  isMain: true
+  isMain: true,
+  isVisible: true
 }, {
   name: 'Sitemap',
   label: 'Navigate to the sitemap page',
   href: '#page=sitemap',
   templatePath: '/pages/sitemap',
-  isMain: false
+  isMain: false,
+  isVisible: true
 }, {
-  name: 'Cookie policy',
+  name: 'Cookies',
   label: 'Navigate to this page to learn more about this website\'s cookie policy',
   href: '#page=cookie',
   templatePath: '/pages/cookie',
-  isMain: false
+  isMain: false,
+  isVisible: true
 }, {
-  name: 'Terms & Conditions',
+  name: 'Terms',
   label: 'Navigate to this page to learn more about terms and conditions.',
   href: '#page=terms',
   templatePath: '/pages/terms',
-  isMain: false
+  isMain: false,
+  isVisible: true
 }];
 
 /*** EXTERNAL LINKS ***/
 const externalPages = [{
   name: 'LinkedIn',
   label: 'Open a new tab and see my profile on Linkedin',
-  href: 'https://www.linkedin.com/in/kevin-liozon-39117bb3'
+  href: 'https://www.linkedin.com/in/kevin-liozon-39117bb3',
+  isVisible: true
 }, {
   name: 'Github',
   label: 'Open a new tab and see my profile on Github',
-  href: 'https://github.com/kevinliozon'
+  href: 'https://github.com/kevinliozon',
+  isVisible: true
 }, {
   name: 'Stackshare',
   label: 'Open a new tab and see my profile on Stackshare',
-  href: 'https://stackshare.io/kevinliozon/lead-product-designer-stack'
+  href: 'https://stackshare.io/kevinliozon/lead-product-designer-stack',
+  isVisible: true
 }];
 
 /*** SIDENAVS FRAGMENTS ***/
