@@ -50,12 +50,17 @@ html {
   max-width: 60%; /* For IE */
 }
 
+.c-section__card {
+  flex: 0 0 33%;
+  max-width: 33%; /* For IE */
+}
+
 .l-main {
   display: flex;
+  flex-direction: column;
 }
 
 .l-main__cell {
-  width: 33%;
 }
 
 .l-side {

@@ -60,7 +60,7 @@
 
 body {
   font-family: 'Roboto Slab', sans-serif;
-  font-size: 1.8rem; /* Body font size 18px */
+  font-size: 1.6rem; /* Body font size 18px */
   font-weight: lighter;
 }
 
@@ -86,18 +86,18 @@ h1, h2, h3, h4, h5, h6 {
 /* Desktops and laptops */
 @media only screen and (max-width : 800px) {
   body {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 }
 
 @media only screen and (max-width : 600px) {
   body {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }
 
 @media only screen and (max-width : 400px) {
   body {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
