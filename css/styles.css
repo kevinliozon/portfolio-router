@@ -22,15 +22,6 @@ html {
   margin: 3rem auto;
 }
 
-.l-content {
-  padding: 12rem 6rem;
-}
-
-.l-content--hasside {
-  flex: 0 0 80%;
-  max-width: 80%; /* For IE */
-}
-
 .c-main,
 .c-section {
   display: flex;
@@ -55,24 +46,6 @@ html {
   max-width: 33%; /* For IE */
 }
 
-.l-main {
-  display: flex;
-  flex-direction: column;
-}
-
-.l-main__cell {
-}
-
-.l-side {
-  background-color: #f8fffe;
-  box-shadow: -2px 2px 5px #ccc;
-  width: 20%;
-  position: fixed;
-  height: 100vh;
-  right: 0;
-  z-index: 0;
-}
-
 .c-side {
   padding: 12rem 1rem;
   position: fixed;
@@ -85,6 +58,61 @@ html {
   position: relative;
   z-index: 1;
 }
+
+
+
+
+
+.radio--filter {
+  display: none;
+}
+
+.c-filters {
+  padding: 5% 0;
+  display: flex;
+  justify-content: center;
+}
+
+.c-filters__label {
+  display: inline-block;
+  border: 4px solid green;
+  padding: 10px 20px;
+  font-size: 1.4em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.c-filters__label:hover {
+  background-color: #505050;
+  color: #FFF;
+}
+
+.is-content {
+  padding: 3% 10%;
+  display: none;
+}
+
+.date {
+  padding: 5px 30px;
+  font-style: italic;
+}
+
+#radio-all:checked ~ .c-filters #filter-all,
+#radio-featured:checked ~ .c-filters #filter-featured,
+#radio-personal:checked ~ .c-filters #filter-personal,
+#radio-tech:checked ~ .c-filters #filter-tech {
+  background-color: green;
+  color: #FFF;
+}
+
+
+#radio-all:checked ~ .c-grid .is-content,
+#radio-featured:checked ~ .c-grid .is-featured,
+#radio-personal:checked ~ .c-grid .is-personal,
+#radio-tech:checked ~ .c-grid .is-tech {
+  display: block;
+}
+
 
 /*.c-side__nav {
   padding: 0 2rem;
@@ -151,6 +179,32 @@ html {
   z-index: 1;
 }
 
+.l-content {
+  padding: 12rem 6rem;
+}
+
+.l-content--hasside {
+  flex: 0 0 80%;
+  max-width: 80%; /* For IE */
+}
+
+.l-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.l-main__cell {
+}
+
+.l-side {
+  background-color: #f8fffe;
+  box-shadow: -2px 2px 5px #ccc;
+  width: 20%;
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  z-index: 0;
+}
 
 
 /*.l-header-wrap {

@@ -90,3 +90,20 @@ const projectFragments = [{
   href: '#results',
   hash: 'results'
 }];
+
+/*** PROJECTS LIST ***/
+const projects = [{
+  name: 'Project 1',
+  label: 'Show all projects',
+  href: '#page=projects/fuse',
+  filters: 'is-content',
+  templatePath: '/pages/projects/fuse',
+  isVisible: true
+}, {
+  name: 'Project 2',
+  label: 'Show all projects',
+  href: '#page=projects/fuse',
+  filters: 'is-content is-tech',
+  templatePath: '/pages/projects/fuse',
+  isVisible: true
+}];
