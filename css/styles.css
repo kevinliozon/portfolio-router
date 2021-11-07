@@ -59,27 +59,46 @@ html {
   z-index: 1;
 }
 
+/*** PROJECTS PAGES ***/
 
+.l-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-
+.c-filters,
+.c-grid {
+  padding: 12rem 0;
+}
 
 .radio--filter {
   display: none;
 }
 
 .c-filters {
-  padding: 5% 0;
+  align-self: flex-start;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-basis: 20%;
+  order: 1;
+  padding-left: 6rem;
+  position: sticky;
+  top: 0;
 }
 
 .c-filters__label {
-  display: inline-block;
-  border: 4px solid green;
-  padding: 10px 20px;
-  font-size: 1.4em;
-  text-align: center;
   cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+/*.c-filters__label {
+  border: 4px solid green;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
 }
 
 .c-filters__label:hover {
@@ -87,31 +106,71 @@ html {
   color: #FFF;
 }
 
+#radio-all:checked ~ .c-filters #filter-all:before,
+#radio-featured:checked ~ .c-filters #filter-featured:before,
+#radio-personal:checked ~ .c-filters #filter-personal:before,
+#radio-tech:checked ~ .c-filters #filter-tech:before {
+  opacity: 1;
+}*/
+
+
+
+
 .is-content {
-  padding: 3% 10%;
   display: none;
 }
 
-.date {
-  padding: 5px 30px;
-  font-style: italic;
-}
-
-#radio-all:checked ~ .c-filters #filter-all,
+/*#radio-all:checked ~ .c-filters #filter-all,
 #radio-featured:checked ~ .c-filters #filter-featured,
 #radio-personal:checked ~ .c-filters #filter-personal,
 #radio-tech:checked ~ .c-filters #filter-tech {
   background-color: green;
   color: #FFF;
+}*/
+
+#radio-all:checked ~ .c-grid .c-cell.is-content,
+#radio-featured:checked ~ .c-grid .c-cell.is-featured,
+#radio-personal:checked ~ .c-grid .c-cell.is-personal,
+#radio-tech:checked ~ .c-grid .c-cell.is-tech {
+  display: flex;
 }
 
+.c-grid {
+  display: flex;
+  flex-basis: 80%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: -1rem;
+}
 
-#radio-all:checked ~ .c-grid .is-content,
-#radio-featured:checked ~ .c-grid .is-featured,
-#radio-personal:checked ~ .c-grid .is-personal,
-#radio-tech:checked ~ .c-grid .is-tech {
+.c-cell {
+  flex-basis: 300px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 1rem;
+  position: relative;
+}
+
+.c-cell__header,
+.c-cell__info {
+  padding: 0 1rem;
+}
+
+.c-cell__link::after {
+  content: "";
   display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
+
+.c-badge {
+  line-height: 4rem;
+  padding: 0.4rem;
+}
+
 
 
 /*.c-side__nav {
@@ -237,8 +296,10 @@ html {
   margin-right: 2rem;
 }
 
-/* Desktops and laptops */
-@media only screen and (max-width : 800px) {
+
+
+
+@media only screen and (max-width : 1000px) {
   .l-side {
     display: none;
   }
@@ -247,6 +308,78 @@ html {
   .c-section__desc,
   .l-content--hasside {
     flex: 0 0 100%;
-    max-width: 100%; /* For IE */
+    max-width: 100%;
+  }
+
+  .c-filters {
+    align-self: center;
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: center;
+    order: -1;
+    padding: 3rem 0 0;
+    position: relative;
+  }
+
+  .l-grid {
+    justify-content: center;
+  }
+
+  .c-grid {
+    flex-basis: 100%;
+    justify-content: center;
+    padding: 3rem 0;
   }
 }
+
+
+/* Desktops and laptops
+@media only screen
+and (-webkit-device-pixel-ratio : 3),
+(-webkit-device-pixel-ratio : 2),
+(max-width : 1000px) {
+  .l-side {
+    display: none;
+  }
+
+  .c-main__desc,
+  .c-section__desc,
+  .l-content--hasside {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .c-filters {
+    align-self: center;
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: center;
+    order: -1;
+    padding: 3rem 0 0;
+    position: relative;
+  }
+
+  .c-grid {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3rem 0;
+  }
+
+  .c-cell {
+    margin-right: 0;
+  }
+}
+
+@media only screen 
+and (max-device-width : 500px) 
+and (max-device-height : 812px) 
+and (-webkit-device-pixel-ratio : 3), 
+(max-device-width : 500px) 
+and (max-device-height : 812px)
+and (-webkit-device-pixel-ratio : 2),
+(max-width : 1000px) {
+  .c-cell {
+    margin-right: 0;
+  }
+} */

@@ -20,17 +20,42 @@ new Promise((resolve, reject) => {
 })
 .then(result => {
   for (let project of projects) {
-    document.getElementById('grid').innerHTML += '<div>\
-    <a class="'+project.filters+' js-link--content"\
-    href="'+project.href+'"\
-    aria-label="'+project.label+'"\
-    data-template="'+project.templatePath+'"\
-    target="_top">\
-    '+project.name+'\
-    </a></div>';
+    if (project.isVisible) {
+      document.getElementById('grid').innerHTML += '<article class="c-cell '+project.filters+'">\
+        <header class="c-cell__header">\
+          <h3 class="c-cell__title">\
+            <a class="js-link--content c-cell__link"\
+            href="'+project.href+'"\
+            aria-label="'+project.label+'"\
+            data-template="'+project.templatePath+'"\
+            target="_top">'+project.name+'</a>\
+          </h3>\
+        </header>\
+        <figure class="c-cell__fig">\
+          <img src="'+project.img+'" alt="'+project.imgAlt+'" class="c-cell__img">\
+        </figure>\
+        <div class="c-cell__info">\
+          <p>'+ badger(project.themes) +'</p>\
+          <p>For: '+project.beneficiary+'</p>\
+          <p>'+project.desc+'</p>\
+        </div>\
+      </article>';
+    }
   }
 }, err => console.error('error:', err))
 .finally(() => moduleRouter.linksListener('js-link--content'))
+
+/**
+ * Fetch an array of values and turn them into badges
+ * 
+ * @param {Array} items 
+ * @returns badgesList
+ */
+function badger(items) {
+  let badgesList = '';
+  for (let item of items) badgesList += '<span class="c-badge">'+item+'</span> '
+  return badgesList;
+}
 
 //moduleViewRenderer.getViewTemplate('/projects/project1', document.getElementById('project1'));
 //moduleViewRenderer.getViewTemplate('/projects/project2', document.getElementById('project2'));

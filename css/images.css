@@ -5,7 +5,13 @@
   padding: 1em;
 }
 
-.c-section__fig__img {
+.c-cell__fig {
+  margin: 0;
+  order: -1; /* Image appears at the top of the cell */
+}
+
+.c-section__fig__img,
+.c-cell__img {
   width: 100%;
 }
 

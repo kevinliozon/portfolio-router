@@ -95,15 +95,49 @@ const projectFragments = [{
 const projects = [{
   name: 'Project 1',
   label: 'Show all projects',
+  filters: 'is-content  is-personal',
+  themes: ['Design systems', 'consistency'],
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  beneficiary: 'Fuse',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
   href: '#page=projects/fuse',
-  filters: 'is-content',
   templatePath: '/pages/projects/fuse',
   isVisible: true
 }, {
   name: 'Project 2',
   label: 'Show all projects',
-  href: '#page=projects/fuse',
   filters: 'is-content is-tech',
+  themes: ['Management', 'HR', 'upskilling'],
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  beneficiary: 'Migros via Fuse',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse',
+  isVisible: true
+}, {
+  name: 'Project 3',
+  label: 'Show all projects',
+  filters: 'is-content is-featured',
+  themes: ['Management', 'HR', 'upskilling'],
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  beneficiary: 'Migros via Fuse',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse',
+  isVisible: true
+}, {
+  name: 'Project 4',
+  label: 'Show all projects',
+  filters: 'is-content is-featured',
+  themes: ['Management', 'HR', 'upskilling'],
+  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  beneficiary: 'Migros via Fuse',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
   templatePath: '/pages/projects/fuse',
   isVisible: true
 }];

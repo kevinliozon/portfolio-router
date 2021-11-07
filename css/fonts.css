@@ -77,10 +77,28 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 1rem 0;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   margin: 1rem 0;
+}
+
+.c-filters__label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.c-badge {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.c-cell__info {
+  font-size: 1.4rem;
 }
 
 /* Desktops and laptops */
@@ -101,3 +119,23 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
   }
 }
+
+/* Mobile
+@media only screen 
+and (device-width : 375px) 
+and (device-height : 667px) 
+and (-webkit-device-pixel-ratio : 2) { 
+  body {
+    font-size: 3rem;
+  }
+}
+
+@media only screen 
+  and (device-width : 375px) 
+  and (device-height : 812px) 
+  and (-webkit-device-pixel-ratio : 3) { 
+    body {
+      font-size: 3rem;
+    }
+  }
+ */
