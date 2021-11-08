@@ -10,6 +10,11 @@ button {
   color: #5f5e5e;
 }
 
+.l-header__ctrl--btn {
+  border: 0;
+  background-color: transparent;
+}
+
 .c-link,
 .c-link:visited,
 .c-link:focus,
