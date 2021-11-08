@@ -236,7 +236,7 @@ html {
   background-image: url(/assets/ui/header.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding: .5rem 25% .5rem 6rem;
+  padding: .5rem 20% .5rem 6rem;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -249,16 +249,20 @@ html {
   justify-content: space-around;
 }
 
+.c-nav.l-header__nav {
+  padding-right: 1rem; /* higher specificity to prevent media query override */
+}
+
 .l-header__logo {
   align-items: center;
   display: flex;
+  flex-grow: 2;
   font-size: 2rem;
   margin: 0;
 }
 
-.c-nav__link,
 .l-header__ctrl {
-  margin-right: 2rem;
+  margin: 0 1rem;
 }
 
 .l-header__ctrl--mobile,
@@ -369,14 +373,12 @@ html {
   .l-header__ctrls {
     justify-content: space-between;
     padding: 1.5rem 0;
-    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
   }
 
-  .l-header__ctrl--mobile,
-  .l-header__ctrl--btn,
-  .l-header__ctrl--logo {
+  .l-header__ctrl {
     display: block;
-    margin: 0 1rem;
   }
 
   .l-header__logo {
