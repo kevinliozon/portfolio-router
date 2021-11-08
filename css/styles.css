@@ -86,6 +86,10 @@ html {
   top: 0;
 }
 
+.c-filters__heading {
+  margin: 0 1rem 3rem 0;
+}
+
 .c-filters__label {
   cursor: pointer;
   margin-bottom: 2rem;
@@ -316,12 +320,21 @@ html {
 
   .c-filters {
     align-self: center;
-    flex-direction: row;
     flex-basis: 100%;
-    justify-content: center;
-    order: -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    order: 0;
     padding: 3rem 0 0;
     position: relative;
+  }
+
+  .c-filters__heading {
+    width: 100%;
+  }
+
+  .c-filters__label {
+    cursor: pointer;
+    margin-bottom: 2rem;
   }
 
   .l-grid {

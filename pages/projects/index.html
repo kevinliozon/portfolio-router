@@ -24,21 +24,22 @@
 
 
 <main class="l-grid">
+  <h2>Some projects I have worked on</h2>
 
-<input id="radio-all" class="radio--filter" type="radio" name="content-filter" checked="checked">
-<input id="radio-featured" class="radio--filter" type="radio" name="content-filter">
-<input id="radio-personal" class="radio--filter" type="radio" name="content-filter">
-<input id="radio-tech" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-all" class="radio--filter" type="radio" name="content-filter" checked="checked">
+  <input id="radio-featured" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-personal" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-tech" class="radio--filter" type="radio" name="content-filter">
 
-<nav role="navigation" class="c-filters">
-  <label id="filter-all" for="radio-all" class="c-filters__label">All</label>
-  <label id="filter-featured" for="radio-featured" class="c-filters__label">Featured</label>
-  <label id="filter-personal" for="radio-personal" class="c-filters__label">Personal</label>
-  <label id="filter-tech" for="radio-tech" class="c-filters__label">Tech</label>
-</nav>
+  <nav role="navigation" class="c-filters" aria-labelledby="nav-filters">
+    <h3 id="nav-filters" class="c-filters__heading">Show</h3>
+    <label id="filter-all" for="radio-all" class="c-filters__label">All</label>
+    <label id="filter-featured" for="radio-featured" class="c-filters__label">Featured</label>
+    <label id="filter-personal" for="radio-personal" class="c-filters__label">Personal</label>
+    <label id="filter-tech" for="radio-tech" class="c-filters__label">Tech</label>
+  </nav>
 
-<div id="grid" class="c-grid js-grid"></div>
-
+  <div id="grid" class="c-grid js-grid"></div>
 </main>
 
 <!--
