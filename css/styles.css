@@ -19,14 +19,15 @@ html {
 
 .c-main,
 .c-section {
-  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 3rem 0;
 }
 
 .c-main,
 .c-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: calc(80% + 6rem);
 }
 
 .c-main__h,
@@ -46,15 +47,14 @@ html {
   max-width: 33%; /* For IE */
 }
 
-.c-side {
+.l-widget {
   padding: 12rem 1rem;
   position: fixed;
-  text-align: center;
   width: 20%;
   z-index: 2;
 }
 
-.c-side_section {
+.l-widget__section {
   position: relative;
   z-index: 1;
 }
@@ -170,9 +170,24 @@ html {
   right: 0;
 }
 
+.l-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.l-list.l-widget__list {
+  padding-left: 3rem;
+}
+
 .c-badge {
-  line-height: 4rem;
+  display: inline-block;
+  line-height: 2rem;
+  margin: 0 1rem 1rem 0;
   padding: 0.4rem;
+}
+
+.l-list__item {
+  margin-bottom: 0.5rem;
 }
 
 
@@ -205,7 +220,6 @@ html {
 
 /* Layout */
 
-.l-container,
 .l-header,
 .l-footer {
   display: flex;
@@ -250,7 +264,7 @@ html {
 }
 
 .c-nav.l-header__nav {
-  padding-right: 1rem; /* higher specificity to prevent media query override */
+  padding-right: 3rem; /* higher specificity to prevent media query override */
 }
 
 .l-header__logo {
@@ -261,8 +275,9 @@ html {
   margin: 0;
 }
 
+.c-nav__link,
 .l-header__ctrl {
-  margin: 0 1rem;
+  margin: 0 0.5rem;
 }
 
 .l-header__ctrl--mobile,
@@ -274,9 +289,15 @@ html {
   padding: 12rem 6rem;
 }
 
-.l-content--hasside {
+.l-content.has-side {
+  display: flex;
+  padding: 0;
+}
+
+.l-content.has-side .c-content {
   flex: 0 0 80%;
   max-width: 80%; /* For IE */
+  padding: 12rem 6rem;
 }
 
 .l-main {
@@ -284,7 +305,7 @@ html {
   flex-direction: column;
 }
 
-.l-side {
+.c-side {
   background-color: #f8fffe;
   box-shadow: -2px 2px 5px #ccc;
   width: 20%;
@@ -311,13 +332,13 @@ html {
 
 
 @media only screen and (max-width : 1000px) {
-  .l-side {
+  .c-side {
     display: none;
   }
 
   .c-main__desc,
   .c-section__desc,
-  .l-content--hasside {
+  .l-content.has-side {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -357,6 +378,11 @@ html {
     padding: 3rem;
   }
 
+  .c-main,
+  .c-section {
+    width: 100%;
+  }
+
   .l-footer {
     background: #063C72;
     height: 120px;
@@ -372,9 +398,13 @@ html {
   .l-header__nav,
   .l-header__ctrls {
     justify-content: space-between;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 0;
     max-width: 400px;
     min-width: 300px;
+  }
+
+  .l-header__nav {
+    padding-bottom: 1.5rem;
   }
 
   .l-header__ctrl {

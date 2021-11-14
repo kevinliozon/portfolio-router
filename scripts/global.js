@@ -93,6 +93,7 @@ const projectFragments = [{
 
 /*** PROJECTS LIST ***/
 const projects = [{
+  id: 'p1',
   name: 'Project 1',
   label: 'Show all projects',
   filters: 'is-content  is-personal',
@@ -105,6 +106,7 @@ const projects = [{
   templatePath: '/pages/projects/fuse',
   isVisible: true
 }, {
+  id: 'p2',
   name: 'Project 2',
   label: 'Show all projects',
   filters: 'is-content is-tech',
@@ -117,6 +119,7 @@ const projects = [{
   templatePath: '/pages/projects/fuse',
   isVisible: true
 }, {
+  id: 'p3',
   name: 'Project 3',
   label: 'Show all projects',
   filters: 'is-content is-featured',
@@ -129,6 +132,7 @@ const projects = [{
   templatePath: '/pages/projects/fuse',
   isVisible: true
 }, {
+  id: 'p4',
   name: 'Project 4',
   label: 'Show all projects',
   filters: 'is-content is-featured',

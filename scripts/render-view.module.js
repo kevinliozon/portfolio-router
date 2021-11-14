@@ -22,13 +22,28 @@ const moduleViewRenderer = (() => {
             .catch( (error) => console.error('error:', error));
     }
 
+    /**
+     * Fetch an array of values and turn them into badges
+     * 
+     * @param {Array} items 
+     * @returns badgesList
+     */
+    function _getViewBadges(items, el) {
+      for (let item of items) el.innerHTML += '<li class="c-badge">'+item+'</li>';
+    }
+
     /*** PUBLIC METHODS ***/
 
     function getViewTemplate(activeTemplate, wrapView) {
         _getViewTemplate(activeTemplate, wrapView);
     }
 
+    function getViewBadges(items, el) {
+        _getViewBadges(items, el);
+    }
+
     return {
-        getViewTemplate: getViewTemplate
+        getViewTemplate: getViewTemplate,
+        getViewBadges: getViewBadges
     };
 })();

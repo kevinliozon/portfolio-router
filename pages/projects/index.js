@@ -35,27 +35,18 @@ new Promise((resolve, reject) => {
           <img src="'+project.img+'" alt="'+project.imgAlt+'" class="c-cell__img">\
         </figure>\
         <div class="c-cell__info">\
-          <p>'+ badger(project.themes) +'</p>\
+          <ul id="badge-'+project.id+'" class="l-list"></ul>\
           <p>For: '+project.beneficiary+'</p>\
           <p>'+project.desc+'</p>\
         </div>\
       </article>';
+      moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badge-'+project.id));
     }
   }
 }, err => console.error('error:', err))
-.finally(() => moduleRouter.linksListener('js-link--content'))
-
-/**
- * Fetch an array of values and turn them into badges
- * 
- * @param {Array} items 
- * @returns badgesList
- */
-function badger(items) {
-  let badgesList = '';
-  for (let item of items) badgesList += '<span class="c-badge">'+item+'</span> '
-  return badgesList;
-}
+.finally(() => {
+  moduleRouter.linksListener('js-link--content');
+})
 
 //moduleViewRenderer.getViewTemplate('/projects/project1', document.getElementById('project1'));
 //moduleViewRenderer.getViewTemplate('/projects/project2', document.getElementById('project2'));
