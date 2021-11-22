@@ -1,3 +1,14 @@
+<button class="c-burger">
+  <svg id="burger-open" class="c-burger__ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path d="M16 288h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16z" class="c-burger__bar--middle"/>
+    <path d="M432 384H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 80v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16z" class="c-burger__bar"/>
+  </svg>
+  <svg id="burger-close" class="c-burger__ico--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-54.4 289.1a12 12 0 0 1 0 17L306 377.6a12 12 0 0 1-17 0L224 312l-65.1 65.6a12 12 0 0 1-17 0L102.4 338a12 12 0 0 1 0-17l65.6-65-65.6-65.1a12 12 0 0 1 0-17l39.6-39.6a12 12 0 0 1 17 0l65 65.7 65.1-65.6a12 12 0 0 1 17 0l39.6 39.6a12 12 0 0 1 0 17L280 256z" class="c-burger__bar--middle"/>
+    <path d="M102.4 190.9a12 12 0 0 1 0-17l39.6-39.6a12 12 0 0 1 17 0l65 65.7 65.1-65.6a12 12 0 0 1 17 0l39.6 39.6a12 12 0 0 1 0 17L280 256l65.6 65.1a12 12 0 0 1 0 17L306 377.6a12 12 0 0 1-17 0L224 312l-65.1 65.6a12 12 0 0 1-17 0L102.4 338a12 12 0 0 1 0-17l65.6-65z" class="c-burger__bar"/>
+  </svg>
+</button>
+
 <div id="content" class="l-content has-side">
 
   <div class="c-content">
@@ -114,7 +125,7 @@
     </section>
   </div>
 
-  <aside class="c-side">
+  <aside id="sidebar" class="c-side">
     <div class="l-widget">
       <section class="l-widget__section">
         <h2>Skip to</h2>
@@ -128,7 +139,7 @@
         <h2>Related contents</h2>
         <ul class="l-list l-widget__list">
           <li class="l-list__item"><a class="js-link--content c-link"
-            href="#page=projects/fuse" 
+            href="#page=home" 
             target="_top" 
             data-template="/pages/projects/fuse" 
             aria-label="Read about Defining a design process">

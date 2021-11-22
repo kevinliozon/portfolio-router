@@ -305,13 +305,26 @@ html {
   flex-direction: column;
 }
 
+.c-burger {
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  right: 1rem;
+  top: 3rem;
+  z-index: 1;
+}
+
+.c-burger__ico--close {
+  display: none;
+}
+
 .c-side {
   background-color: #f8fffe;
   box-shadow: -2px 2px 5px #ccc;
-  width: 20%;
-  position: fixed;
   height: 100vh;
+  position: fixed;
   right: 0;
+  width: 20%; /* visible by default on large screens */
   z-index: 0;
 }
 
@@ -332,8 +345,25 @@ html {
 
 
 @media only screen and (max-width : 1000px) {
-  .c-side {
+  .c-burger {
+    display: block;
+  }
+
+  .c-burger__ico.is-open {
     display: none;
+  }
+
+  .c-burger__ico.is-open ~ .c-burger__ico--close {
+    display: block;
+  }
+
+  .c-side {
+    width: 0; /* hidden by default on small screens */
+  }
+
+  .c-side.is-open,
+  .l-widget {
+    width: 40%;
   }
 
   .c-main__desc,
@@ -413,6 +443,15 @@ html {
 
   .l-header__logo {
     display: none;
+  }
+
+  .c-side.is-open,
+  .l-widget {
+    width: 75%;
+  }
+
+  .l-widget {
+    padding: 6rem 1rem;
   }
 }
 

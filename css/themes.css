@@ -10,9 +10,21 @@ button {
   color: #5f5e5e;
 }
 
-.l-header__ctrl--btn {
+button {
   border: 0;
   background-color: transparent;
+}
+
+.c-burger__bar {
+  fill: #063C72;
+}
+
+.c-burger__bar--middle {
+  fill: #82F4B6;
+}
+
+.c-side {
+  transition: all .1s ease-in;
 }
 
 .c-link,
