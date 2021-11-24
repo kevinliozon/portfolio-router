@@ -267,6 +267,10 @@ html {
   padding-right: 3rem; /* higher specificity to prevent media query override */
 }
 
+.l-header__nav__link {
+  white-space: nowrap; /* before stays aligned with label */
+}
+
 .l-header__logo {
   align-items: center;
   display: flex;
@@ -349,11 +353,11 @@ html {
     display: block;
   }
 
-  .c-burger__ico.is-open {
+  .c-burger.is-open .c-burger__ico {
     display: none;
   }
 
-  .c-burger__ico.is-open ~ .c-burger__ico--close {
+  .c-burger.is-open .c-burger__ico--close {
     display: block;
   }
 
@@ -452,6 +456,12 @@ html {
 
   .l-widget {
     padding: 6rem 1rem;
+  }
+}
+
+@media only screen and (max-height : 600px) {
+  .l-widget__section:nth-child(n+3) {
+    display: none; /* On screens with small height the sections following the second do not appear to prevent overflow */
   }
 }
 

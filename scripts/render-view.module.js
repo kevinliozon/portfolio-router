@@ -33,25 +33,29 @@ const moduleViewRenderer = (() => {
   }
 
   /**
-   * On click:
-   * - Build the header and footer navs as well as their respective listeners
-   * - Call the template
+   * Handles the logic for side menu of single project page on mobile
+   * Side menu is always closed when interracting with the page
+   * apart if already closed and we click on the burger icon
    * 
    */
   function _getViewSidebar() {
     const sidebar = document.getElementById('sidebar');
-    const burger = document.getElementById('burger-open');
-    // 
-    burger.addEventListener('click', e => {
-      sidebar.classList.add('is-open');
-      burger.classList.add('is-open');
-    });
+    const burger = document.getElementById('burger-menu');
+    let isOpen = false;
 
-    for (let sidebarCanceller of document.querySelectorAll('#content, #header, #footer, #burger-close, .js-link--hash')) {
-      sidebarCanceller.addEventListener('click', e => {
-        if (document.getElementsByClassName('c-side is-open').length > 0) {
+    // we list all the elements that handle the side menu toggling (both open and close)
+    for (let sidebarTrigger of document.querySelectorAll('#content, #header, #footer, #burger-menu, .js-link--hash')) {
+      sidebarTrigger.addEventListener('click', e => {
+        if (sidebarTrigger === document.getElementById('burger-menu') && !isOpen){
+          // Are we interracting with the burger menu icon while the menu is closed?
+          sidebar.classList.add('is-open');
+          burger.classList.add('is-open');
+          isOpen = true;
+        } else if (isOpen) {
+          // Are we interracting with all the content while the menu is open?
           sidebar.classList.remove('is-open');
           burger.classList.remove('is-open');
+          isOpen = false;
         }
       });
     }
