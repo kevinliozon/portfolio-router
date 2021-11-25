@@ -461,12 +461,11 @@ html {
     display: none;
   }
 
-
   .c-btn--top {
     bottom: auto;
-    left: 5rem;
+    left: 1rem;
     right: auto;
-    top: 5rem;
+    top: 3rem;
   }
 
   .c-side.is-open,
