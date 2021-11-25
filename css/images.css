@@ -10,8 +10,7 @@
   height: 2rem;
 }
 
-.c-burger__ico,
-.c-burger__ico--close {
+.c-btn__wrap {
   height: 4rem;
 }
 

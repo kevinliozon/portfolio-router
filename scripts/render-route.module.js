@@ -213,7 +213,7 @@ const moduleRouter = (() => {
     })
   }
 
-  /*** PUBLIC METHODS ***/
+  /*** @public ***/
 
   function linksListener(linkClass) {
     _linksListener(linkClass);

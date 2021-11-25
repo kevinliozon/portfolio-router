@@ -10,16 +10,17 @@ button {
   color: #5f5e5e;
 }
 
-button {
+.c-btn {
   border: 0;
   background-color: transparent;
+  cursor: pointer;
 }
 
-.c-burger__bar {
+.c-btn__ico {
   fill: #063C72;
 }
 
-.c-burger__bar--middle {
+.c-btn__ico--alt {
   fill: #82F4B6;
 }
 
