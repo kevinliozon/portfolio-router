@@ -264,7 +264,7 @@ html {
 }
 
 .c-nav.l-header__nav {
-  padding-right: 3rem; /* higher specificity to prevent media query override */
+  padding-right: 1.5rem; /* higher specificity to prevent media query override */
 }
 
 .l-header__nav__link {
@@ -317,7 +317,7 @@ html {
 }
 
 .c-btn--top {
-  bottom: 15rem;
+  bottom: 9rem;
   z-index: 2;
 }
 
@@ -442,8 +442,8 @@ html {
   .l-header__ctrls {
     justify-content: space-between;
     padding: 1.5rem 0 0;
-    max-width: 400px;
-    min-width: 300px;
+    max-width: 40rem;
+    min-width: 30rem;
   }
 
   .l-header__nav {
@@ -454,10 +454,19 @@ html {
     display: block;
     flex-basis: 0px;
     flex-grow: 1;
+    text-align: center;
   }
 
   .l-header__logo {
     display: none;
+  }
+
+
+  .c-btn--top {
+    bottom: auto;
+    left: 5rem;
+    right: auto;
+    top: 5rem;
   }
 
   .c-side.is-open,
