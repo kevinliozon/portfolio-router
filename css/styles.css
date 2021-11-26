@@ -358,6 +358,11 @@ html {
 
 
 @media only screen and (max-width : 1000px) {
+  .l-footer {
+    background: #063C72;
+    height: 12rem;
+  }
+
   .c-btn--burger {
     display: block;
   }
@@ -421,14 +426,15 @@ html {
     padding: 3rem;
   }
 
+  .l-footer {
+    background: #063C72;
+    height: 24rem;
+    padding-bottom: 14rem;
+  }
+
   .c-main,
   .c-section {
     width: 100%;
-  }
-
-  .l-footer {
-    background: #063C72;
-    height: 120px;
   }
   
   .l-header {
