@@ -28,14 +28,6 @@ window.addEventListener('load', e => {
  * - Call the template
  */
  ctrlScrollTop.addEventListener('click', e => {
-  /* Sample function that returns boolean in case the browser is Internet Explorer*/
-  function isIE() {
-    var ua = navigator.userAgent;
-    /* MSIE used to detect old browsers and Trident used to newer ones*/
-    var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
-    
-    return is_ie; 
-  }
   /* Create an alert to show if the browser is IE or not */
   if (isIE()) {
     window.scrollTo(0);
@@ -68,3 +60,13 @@ window.addEventListener('hashchange', e => {
     moduleRouter.getErrorPageTemplate(); // no template => 404 page
   }
 }, false);
+
+
+/* Sample function that returns boolean in case the browser is Internet Explorer*/
+function isIE() {
+  var ua = navigator.userAgent;
+  /* MSIE used to detect old browsers and Trident used to newer ones*/
+  var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+  
+  return is_ie; 
+}
