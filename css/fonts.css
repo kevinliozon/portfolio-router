@@ -64,6 +64,14 @@ body {
   font-weight: lighter;
 }
 
+body.t-fontbig {
+  font-size: 1.7rem;
+}
+
+body.t-fontbigger {
+  font-size: 1.8rem; /* Body font size 18px */
+}
+
 input,
 select,
 textarea,
