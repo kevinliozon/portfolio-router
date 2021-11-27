@@ -57,13 +57,16 @@ const moduleCommands = (() => {
 
     if (!activeFont) {
       localStorage.setItem('font', 'normal')
+      fontSizeCount.innerHTML = 'x1';
     } else {
       switch(localStorage.getItem('font')) {
         case 'big':
           wrapBody.classList.add('t-fontbig');
+          fontSizeCount.innerHTML = 'x2';
           break;
         case 'bigger':
           wrapBody.classList.add('t-fontbigger');
+          fontSizeCount.innerHTML = 'x3';
           break;
         default:
           console.log(`Font is ${activeFont}.`);
@@ -111,15 +114,18 @@ const moduleCommands = (() => {
       case 'normal':
         localStorage.setItem('font', 'big');
         wrapBody.classList.add('t-fontbig');
+        fontSizeCount.innerHTML = 'x2';
         break;
       case 'big':
         localStorage.setItem('font', 'bigger');
         wrapBody.classList.remove('t-fontbig');
         wrapBody.classList.add('t-fontbigger');
+        fontSizeCount.innerHTML = 'x3';
         break;
       case 'bigger':
         localStorage.setItem('font', 'normal');
         wrapBody.classList.remove('t-fontbigger');
+        fontSizeCount.innerHTML = 'x1';
         break;
       default:
         console.log(`Sorry, we are out of ${this.dataset.command}.`);
