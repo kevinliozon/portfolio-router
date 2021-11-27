@@ -284,8 +284,7 @@ html {
   margin: 0 0.5rem;
 }
 
-.l-header__ctrl--mobile,
-.l-header__ctrl--logo {
+.is-mobile {
   display: none;
 }
 

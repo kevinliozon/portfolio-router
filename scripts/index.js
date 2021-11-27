@@ -18,22 +18,10 @@ window.addEventListener('load', e => {
   moduleNav.buildNavAlt();
   // Building the navigation listener
   moduleRouter.linksListener('js-link--nav');
+  // Building the command listener
+  moduleCommands.commandsListener('js-btn');
   // Calls the template relevant to the page we are loading from
   moduleRouter.callTemplate();
-});
-
-/**
- * On load or refresh:
- * - Build the header and footer navs as well as their respective listeners
- * - Call the template
- */
- ctrlScrollTop.addEventListener('click', e => {
-  /* Create an alert to show if the browser is IE or not */
-  if (isIE()) {
-    window.scrollTo(0);
-  } else {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
 });
 
 /**
