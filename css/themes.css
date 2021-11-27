@@ -118,3 +118,12 @@ h1, h2, h3, h4, h5, h6 {
 .l-footer__nav__link {
   color: #82F4B6;
 }
+
+#light,
+.t-dark #dark {
+  display: none;
+}
+
+.t-dark #light {
+  display: block;
+}
