@@ -1,11 +1,13 @@
 /*** CONTAINERS ***/
+const wrapBody = document.body;
 const wrapHeaderNav = document.getElementById('header-nav');
 const wrapFooterNav = document.getElementById('footer-nav');
 const wrapFooterNavAlt = document.getElementById('footer-nav-alt');
 const wrapTemplate = document.getElementById('wrap');
 
-/*** CONTROLS ***/
-const ctrlScrollTop = document.getElementById('scroll-top');
+/*** LOCAL STORAGE ***/
+localStorage.setItem('theme', 'light');
+localStorage.setItem('font', 'normal');
 
 /**
  * On load or refresh:
