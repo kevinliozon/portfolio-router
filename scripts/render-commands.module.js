@@ -34,6 +34,44 @@ const moduleCommands = (() => {
   }
 
   /**
+    * Is called on load
+    * Checks if no UI settings have been applied from localstorage
+    * - if no active setting => set the default setting
+    * - if active setting => apply the class relevant to the localstorage item
+    * @param {String} activeTheme The localstorage item value for theme
+    * @param {String} activeFont The localstorage item value for font
+    * @private
+    */
+   function _settingsGetter(activeTheme, activeFont) {
+    if (!activeTheme) {
+      localStorage.setItem('theme', 'light')
+    } else {
+      switch(localStorage.getItem('theme')) {
+        case 'dark':
+          wrapBody.classList.add('t-dark');
+          break;
+        default:
+          console.log(`Theme is ${activeTheme}.`);
+      }
+    };
+
+    if (!activeFont) {
+      localStorage.setItem('font', 'normal')
+    } else {
+      switch(localStorage.getItem('font')) {
+        case 'big':
+          wrapBody.classList.add('t-fontbig');
+          break;
+        case 'bigger':
+          wrapBody.classList.add('t-fontbigger');
+          break;
+        default:
+          console.log(`Font is ${activeFont}.`);
+      }
+    };
+  }
+
+  /**
    * Scroll to top of the page
    * @private
    */
@@ -94,7 +132,12 @@ const moduleCommands = (() => {
     _commandsListener(commandClass);
   }
 
+  function settingsGetter(activeTheme, activeFont) {
+    _settingsGetter(activeTheme, activeFont);
+  }
+
   return {
     commandsListener: commandsListener,
+    settingsGetter: settingsGetter
   };
 })();

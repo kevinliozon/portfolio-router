@@ -5,9 +5,8 @@ const wrapFooterNav = document.getElementById('footer-nav');
 const wrapFooterNavAlt = document.getElementById('footer-nav-alt');
 const wrapTemplate = document.getElementById('wrap');
 
-/*** LOCAL STORAGE ***/
-localStorage.setItem('theme', 'light');
-localStorage.setItem('font', 'normal');
+/*** ELEMENTS ***/
+const fontSizeCount = document.getElementById('fontSize');
 
 /**
  * On load or refresh:
@@ -22,6 +21,8 @@ window.addEventListener('load', e => {
   moduleRouter.linksListener('js-link--nav');
   // Building the command listener
   moduleCommands.commandsListener('js-btn');
+  // Checks if UI settings have been defined
+  moduleCommands.settingsGetter(localStorage.getItem('theme'), localStorage.getItem('font'));
   // Calls the template relevant to the page we are loading from
   moduleRouter.callTemplate();
 });
