@@ -353,8 +353,19 @@ html {
   clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
 }*/
 
+/*** HIDDEN ELEMENTS ***/
 
+.u-outofbound {
+  padding: 0.8rem;
+  position: absolute;
+  top: 8.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
 
+.u-outofbound:focus {
+  transform: translateX(0%);
+}
 
 @media only screen and (max-width : 1000px) {
   .l-footer {
@@ -480,6 +491,15 @@ html {
 
   .l-widget {
     padding: 6rem 1rem;
+  }
+  
+  .u-outofbound {
+    top: 0.5rem;
+    transform: translate(50%, -100%);
+  }
+
+  .u-outofbound:focus {
+    transform: translate(50%, 0%);
   }
 }
 

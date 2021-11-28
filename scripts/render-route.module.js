@@ -151,12 +151,15 @@ const moduleRouter = (() => {
     Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
       // Event listener on each link
       link.addEventListener('click', function(e) {
-
-        // Scrolls to the content with matching fragment
-        const elementPosition = document.getElementById(link.dataset.hash).getBoundingClientRect().top;
+        // The element, its position and the offset for scroll
+        const el = document.getElementById(link.dataset.hash);
+        const elementPosition = el.getBoundingClientRect().top;
         const offsetPosition = elementPosition - 100;
 
-        /* Create an alert to show if the browser is IE or not */
+        // We focus the element
+        el.focus();
+
+        // Scrolls to the content with matching fragment
         if (isIE()) {
           window.scrollBy(0, offsetPosition);
         } else {
@@ -165,11 +168,10 @@ const moduleRouter = (() => {
             behavior: "smooth"
           });
         }
-        
+
         //This prevents the browser from actually following the default link
         e.stopPropagation();
         e.preventDefault();
-
       }, false)
     })
   }

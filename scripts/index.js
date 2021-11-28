@@ -19,6 +19,8 @@ window.addEventListener('load', e => {
   moduleNav.buildNavAlt();
   // Building the navigation listener
   moduleRouter.linksListener('js-link--nav');
+  // Building the fragments listener
+  moduleRouter.hashListener('js-link--hash');
   // Building the command listener
   moduleCommands.commandsListener('js-btn');
   // Checks if UI settings have been defined

@@ -104,6 +104,7 @@ button {
 #radio-personal:checked ~ .c-filters #filter-personal,
 #radio-tech:checked ~ .c-filters #filter-tech,
 .c-nav__link:hover:before,
+.c-nav__link:focus:before,
 #radio-all:checked ~ .c-filters #filter-all:before,
 #radio-featured:checked ~ .c-filters #filter-featured:before,
 #radio-personal:checked ~ .c-filters #filter-personal:before,
