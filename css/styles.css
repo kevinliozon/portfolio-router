@@ -17,11 +17,33 @@ html {
   text-align: center;
 }
 
+.l-content {
+  padding-top: 12rem;
+}
+
+.l-content.has-side {
+  display: flex;
+  padding: 0;
+}
+
+.c-section {
+  box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 25%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 6rem;
+  width: 100%;
+}
+
+.l-content.has-side .c-section,
+.c-section:last-child {
+  box-shadow: none;
+}
+
 .c-jumbo {
   background: url(/assets/img/placeholder.jpg) center / cover no-repeat;
-  box-shadow: 0 0 0.5em rgb(0 0 0 / 25%);
-  margin: -12rem -6rem 0px;
-  padding: 12rem 6rem 3rem;
+  margin-top: -12rem;
+  padding-top: 12rem;
 }
 
 .c-jumbo__info {
@@ -30,17 +52,9 @@ html {
   width: 50vw;
 }
 
-.c-main,
-.c-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 3rem 0;
-}
-
-.c-main,
-.c-section {
-  width: calc(80% + 6rem);
+.l-content.has-side .c-content {
+  flex: 0 0 80%;
+  max-width: 80%; /* For IE */
 }
 
 .c-main__h,
@@ -77,11 +91,12 @@ html {
 .l-grid {
   display: flex;
   flex-wrap: wrap;
+  padding-top: 0;
 }
 
 .c-filters,
 .c-grid {
-  padding: 12rem 0;
+  padding: 12rem 0 6rem;
 }
 
 .radio--filter {
@@ -301,21 +316,6 @@ html {
   display: none;
 }
 
-.l-content {
-  padding: 12rem 6rem;
-}
-
-.l-content.has-side {
-  display: flex;
-  padding: 0;
-}
-
-.l-content.has-side .c-content {
-  flex: 0 0 80%;
-  max-width: 80%; /* For IE */
-  padding: 12rem 6rem;
-}
-
 .l-main {
   display: flex;
   flex-direction: column;
@@ -445,18 +445,13 @@ html {
 }
 
 @media only screen and (max-width : 600px) {
-  .l-content {
-    padding: 3rem;
-  }
-
   .l-footer {
-    background: #063C72;
     height: 24rem;
     padding-bottom: 14rem;
   }
 
-  .c-main,
   .c-section {
+    padding: 2rem;
     width: 100%;
   }
   

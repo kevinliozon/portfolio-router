@@ -120,6 +120,8 @@ h1, h2, h3, h4, h5, h6 {
   color: #82F4B6;
 }
 
+/*** THEMES RULES ***/
+
 #light,
 .t-dark #dark {
   display: none;
@@ -127,4 +129,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .t-dark #light {
   display: block;
+}
+
+@media only screen and (max-width : 600px) {
+  .l-footer {
+    background: #063C72;
+  }
 }
