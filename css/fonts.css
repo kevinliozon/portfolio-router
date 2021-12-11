@@ -64,6 +64,10 @@ body {
   font-weight: lighter;
 }
 
+.c-cell__info {
+  font-size: 1.4rem;
+}
+
 body.t-fontbig {
   font-size: 1.7rem;
 }
@@ -103,10 +107,6 @@ h1, h2, h3, h4, h5, h6 {
 .c-badge {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-}
-
-.c-cell__info {
-  font-size: 1.4rem;
 }
 
 /* Mobile

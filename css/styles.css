@@ -47,7 +47,7 @@ html {
 }
 
 .c-jumbo__info {
-  background-color: #FFF;
+  background-color: #F8FFFE;
   padding: 1.5rem;
   width: 50vw;
 }
@@ -176,10 +176,11 @@ html {
 }
 
 .c-cell {
-  flex-basis: 300px;
+  flex-basis: calc(50% - 2rem);
   flex-direction: column;
   flex-wrap: wrap;
   margin: 1rem;
+  min-width: 300px;
   position: relative;
 }
 
