@@ -21,7 +21,7 @@ new Promise((resolve, reject) => {
 .then(result => {
   for (let project of projects) {
     if (project.isVisible) {
-      document.getElementById('grid').innerHTML += '<article class="c-cell '+project.filters+'">\
+      document.getElementById('grid').innerHTML += '<article class="c-cell '+project.filters+' u-radius">\
         <header class="c-cell__header">\
           <h3 class="c-cell__title">\
             <a class="js-link--content c-cell__link"\
@@ -30,15 +30,16 @@ new Promise((resolve, reject) => {
             data-template="'+project.templatePath+'"\
             target="_top">'+project.name+'</a>\
           </h3>\
+          <aside class="c-cell__mark u-radius"><img src="/assets/icons/'+project.type+'.svg" alt="Case study about '+project.type+'" class="c-cell__icn"></aside>\
         </header>\
         <figure class="c-cell__fig">\
           <img src="'+project.img+'" alt="'+project.imgAlt+'" class="c-cell__img">\
         </figure>\
-        <div class="c-cell__info">\
+        <footer class="c-cell__info">\
           <ul id="badge-'+project.id+'" class="l-list"></ul>\
           <p>For: '+project.beneficiary+'</p>\
           <p>'+project.desc+'</p>\
-        </div>\
+        </footer>\
       </article>';
       moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badge-'+project.id));
     }

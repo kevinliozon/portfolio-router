@@ -40,6 +40,11 @@ button {
   transition: all .1s ease-in;
 }
 
+.c-cell,
+.c-cell__mark {
+  transition: all .25s ease-in;
+}
+
 .c-link:hover,
 .c-link:focus-within {
   background-color: #063C72;
@@ -48,26 +53,26 @@ button {
 }
 
 .c-cell {
-  background-color: #FFF;
-  border: 4px solid #063C72;
+  background-color: #F8FFFE;
+  box-shadow: 0 0 .5rem rgba(0,0,0,.25);
 }
 
 .c-cell:hover,
 .c-cell:focus-within {
-  background-color: #063C72;
-  border-color: #82F4B6;
-  color: #82F4B6;
-  box-shadow: 0 0 .5em rgba(0,0,0,.25);
+  box-shadow: 0 0 .5rem rgba(0,0,0,.5);
 }
 
-.c-cell:hover .c-cell__link,
-.c-cell:focus-within .c-cell__link {
-  color: #82F4B6;
+.c-cell:hover .c-cell__mark,
+.c-cell:focus-within .c-cell__mark {
+  transform: translateY(-3rem);
+}
+
+.c-cell__mark {
+  background-color: #82F4B6;
 }
 
 .c-badge {
   background-color: #82F4B6;
-  border: 2px solid #063C72;
   color: #063C72;
 }
 
@@ -130,6 +135,14 @@ h1, h2, h3, h4, h5, h6 {
 .t-dark #light {
   display: block;
 }
+
+/*** UTILITY ***/
+
+.u-radius {
+  border-radius: 0.3rem;
+}
+
+/*** MEDIA QUERIES ***/
 
 @media only screen and (max-width : 600px) {
   .l-footer {

@@ -176,17 +176,22 @@ html {
 }
 
 .c-cell {
-  flex-basis: calc(50% - 2rem);
+  flex-basis: calc(33% - 2rem);
   flex-direction: column;
   flex-wrap: wrap;
   margin: 1rem;
   min-width: 300px;
+  overflow: hidden;
   position: relative;
 }
 
 .c-cell__header,
 .c-cell__info {
   padding: 0 1rem;
+}
+
+.c-cell__title {
+  margin-top: 2rem;
 }
 
 .c-cell__link::after {
@@ -197,6 +202,14 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.c-cell__mark {
+  padding: 1rem;
+  position: absolute;
+  right: 1rem;
+  text-align: center;
+  top: 14rem;
 }
 
 .l-list {
