@@ -28,9 +28,14 @@
   overflow: hidden;
 }
 
-.c-cell__mark {
+.c-cell__type {
   height: 5rem;
   width: 5rem;
+}
+
+.c-cell__feat {
+  height: 3rem;
+  width: 3rem;
 }
 
 .c-section__fig__img,
@@ -40,6 +45,14 @@
 
 .c-cell__icn {
   height: 100%;
+  width: 100%;
+}
+
+.c-filters__icn {
+  height: 2rem;
+  margin-right: 0.5rem;
+  vertical-align: top;
+  width: 2rem;
 }
 
 /* Desktops and laptops */

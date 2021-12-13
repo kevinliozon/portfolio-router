@@ -108,6 +108,7 @@ html {
   display: flex;
   flex-direction: column;
   flex-basis: 20%;
+  margin-left: -6rem; /* Flex does not consider padding in calculation, this averts the content to wrap under the grid */
   order: 1;
   padding-left: 6rem;
   position: sticky;
@@ -120,7 +121,9 @@ html {
 
 .c-filters__label {
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin: 0 auto 1rem 0;
+  padding: 1rem;
+  white-space: nowrap;
 }
 
 /*.c-filters__label {
@@ -152,18 +155,12 @@ html {
   display: none;
 }
 
-/*#radio-all:checked ~ .c-filters #filter-all,
-#radio-featured:checked ~ .c-filters #filter-featured,
-#radio-personal:checked ~ .c-filters #filter-personal,
-#radio-tech:checked ~ .c-filters #filter-tech {
-  background-color: green;
-  color: #FFF;
-}*/
-
 #radio-all:checked ~ .c-grid .c-cell.is-content,
 #radio-featured:checked ~ .c-grid .c-cell.is-featured,
-#radio-personal:checked ~ .c-grid .c-cell.is-personal,
-#radio-tech:checked ~ .c-grid .c-cell.is-tech {
+#radio-manage:checked ~ .c-grid .c-cell.is-manage,
+#radio-tools:checked ~ .c-grid .c-cell.is-tools,
+#radio-doc:checked ~ .c-grid .c-cell.is-doc,
+#radio-proj:checked ~ .c-grid .c-cell.is-proj {
   display: flex;
 }
 
@@ -204,12 +201,24 @@ html {
   right: 0;
 }
 
-.c-cell__mark {
+.c-cell__type {
   padding: 1rem;
   position: absolute;
   right: 1rem;
   text-align: center;
   top: 14rem;
+}
+
+.c-cell__feat {
+  display: none;
+  position: absolute;
+  left: 1rem;
+  text-align: center;
+  top: 1rem;
+}
+
+.is-featured .c-cell__feat {
+  display: block;
 }
 
 .l-list {
@@ -433,6 +442,7 @@ html {
     flex-basis: 100%;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-left: auto;
     order: 0;
     padding: 3rem 0 0;
     position: relative;
@@ -444,7 +454,7 @@ html {
 
   .c-filters__label {
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-right: 1rem;
   }
 
   .l-grid {

@@ -30,19 +30,41 @@
 
 
 <main class="c-section l-grid">
-  <h2>Some projects I have worked on</h2>
-
   <input id="radio-all" class="radio--filter" type="radio" name="content-filter" checked="checked">
   <input id="radio-featured" class="radio--filter" type="radio" name="content-filter">
-  <input id="radio-personal" class="radio--filter" type="radio" name="content-filter">
-  <input id="radio-tech" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-manage" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-tools" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-doc" class="radio--filter" type="radio" name="content-filter">
+  <input id="radio-proj" class="radio--filter" type="radio" name="content-filter">
 
   <nav role="navigation" class="c-filters" aria-labelledby="nav-filters">
-    <h3 id="nav-filters" class="c-filters__heading">Show</h3>
-    <label id="filter-all" for="radio-all" class="c-filters__label">All</label>
-    <label id="filter-featured" for="radio-featured" class="c-filters__label">Featured</label>
-    <label id="filter-personal" for="radio-personal" class="c-filters__label">Personal</label>
-    <label id="filter-tech" for="radio-tech" class="c-filters__label">Tech</label>
+    <h2 id="nav-filters" class="c-filters__heading">Show case studies</h2>
+    <label id="filter-all" for="radio-all" class="c-filters__label u-radius">
+      All
+    </label>
+    <label id="filter-featured" for="radio-featured" class="c-filters__label u-radius">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="c-filters__icn">
+        <path d="M528.53 171.5l-146.36-21.3-65.43-132.39c-11.71-23.59-45.68-23.89-57.48 0L193.83 150.2 47.47 171.5c-26.27 3.79-36.79 36.08-17.75 54.58l105.91 103-25 145.49c-4.52 26.3 23.22 46 46.48 33.69L288 439.56l130.93 68.69c23.26 12.21 51-7.39 46.48-33.69l-25-145.49 105.91-103c19-18.49 8.48-50.78-17.79-54.57zm-90.89 71l-66.05 64.23 15.63 90.86a12 12 0 0 1-17.4 12.66L288 367.27l-81.82 42.94a12 12 0 0 1-17.4-12.66l15.63-90.86-66-64.23A12 12 0 0 1 145 222l91.34-13.28 40.9-82.81a12 12 0 0 1 21.52 0l40.9 82.81L431 222a12 12 0 0 1 6.64 20.46z" class="c-btn__ico"/>
+        <path d="M437.64 242.46l-66.05 64.23 15.63 90.86a12 12 0 0 1-17.4 12.66L288 367.27l-81.82 42.94a12 12 0 0 1-17.4-12.66l15.63-90.86-66-64.23A12 12 0 0 1 145 222l91.34-13.28 40.9-82.81a12 12 0 0 1 21.52 0l40.9 82.81L431 222a12 12 0 0 1 6.64 20.46z" class="c-btn__ico--alt"/>
+      </svg>
+      Featured
+    </label>
+    <label id="filter-manage" for="radio-manage" class="c-filters__label u-radius">
+      <img src="/assets/icons/management.svg" alt="Case study about " class="c-filters__icn">
+      Management
+    </label>
+    <label id="filter-tools" for="radio-tools" class="c-filters__label u-radius">
+      <img src="/assets/icons/tools.svg" alt="Case study about " class="c-filters__icn">
+      Tools
+    </label>
+    <label id="filter-doc" for="radio-doc" class="c-filters__label u-radius">
+      <img src="/assets/icons/documentation.svg" alt="Case study about " class="c-filters__icn">
+      Documentation
+    </label>
+    <label id="filter-proj" for="radio-proj" class="c-filters__label u-radius">
+      <img src="/assets/icons/projects.svg" alt="Case study about " class="c-filters__icn">
+      Projects
+    </label>
   </nav>
 
   <div id="grid" class="c-grid js-grid"></div>
