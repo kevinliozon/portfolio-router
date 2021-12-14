@@ -133,22 +133,22 @@ h1, h2, h3, h4, h5, h6 {
 
 #filter-manage,
 .is-manage .c-cell__type {
-  background-color: #A19AF5;
+  background-color: #8EF3F5;
 }
 
 #filter-tools,
 .is-tools .c-cell__type {
-  background-color: #F5E176;
+  background-color: #6ADEBF;
 }
 
 #filter-doc,
 .is-doc .c-cell__type {
-  background-color: #8EF3F5;
+  background-color: #53C0C2;
 }
 
 #filter-proj,
 .is-proj .c-cell__type {
-  background-color: #F57569;
+  background-color: #D29AF5;
 }
 
 /*** THEMES RULES ***/
