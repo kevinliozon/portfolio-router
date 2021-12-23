@@ -21,13 +21,6 @@
   padding: 1em;
 }
 
-.c-cell__fig {
-  height: 18rem;
-  margin: 0;
-  order: -1; /* Image appears at the top of the cell */
-  overflow: hidden;
-}
-
 .c-cell__type {
   height: 5rem;
   width: 5rem;

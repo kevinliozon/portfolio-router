@@ -148,8 +148,41 @@ html {
   opacity: 1;
 }*/
 
+.c-grid {
+  display: flex;
+  flex-basis: 80%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: -1rem;
+}
 
+.c-grid--lg {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+}
 
+.c-cell {
+  display: flex;
+  flex-basis: calc(33% - 2rem);
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 1rem;
+  min-width: 30rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.c-cell--lg {
+  flex-basis: calc(50% - 2rem);
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-width: 40rem;
+}
+
+.c-cell.is-filtered {
+  display: none;
+}
 
 .is-content {
   display: none;
@@ -164,26 +197,8 @@ html {
   display: flex;
 }
 
-.c-grid {
-  display: flex;
-  flex-basis: 80%;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: -1rem;
-}
-
-.c-cell {
-  flex-basis: calc(33% - 2rem);
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 1rem;
-  min-width: 300px;
-  overflow: hidden;
-  position: relative;
-}
-
 .c-cell__header,
-.c-cell__info {
+.c-cell__footer {
   padding: 0 1rem;
 }
 
@@ -199,6 +214,26 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1; /* so the link stays on top of every element in the card */
+}
+
+.c-cell__fig {
+  height: 18rem;
+  margin: 0;
+  order: -1; /* Image appears at the top of the cell */
+  overflow: hidden;
+}
+
+.c-cell--lg .c-cell__fig {
+  height: 20rem;
+  min-width: 15rem;
+  width: 33%;
+}
+
+.c-cell--lg .c-cell__img {
+  height: 100%;
+  width: auto;
+  transform: translateX(-25%);
 }
 
 .c-cell__type {
@@ -409,6 +444,10 @@ html {
     height: 12rem;
   }
 
+  .c-section {
+    padding: 3rem;
+  }
+
   .c-btn--burger {
     display: block;
   }
@@ -475,8 +514,7 @@ html {
   }
 
   .c-section {
-    padding: 2rem;
-    width: 100%;
+    padding: 1.5rem;
   }
   
   .l-header {
@@ -484,6 +522,11 @@ html {
     bottom: 0;
     justify-content: space-around;
     padding: 0 1rem;
+  }
+
+  .c-cell--lg {
+    min-width: 300px;
+    width: 100%;
   }
 
   .l-header__nav,
