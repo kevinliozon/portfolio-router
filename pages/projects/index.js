@@ -8,7 +8,7 @@
 /**
  * PROMISE - Generates projects as links
  * Final state: Building the navigation listener
- * todo: Make sure the const projects has been declared in global file
+ * 
  */
 new Promise((resolve, reject) => {
   if (projects) {

@@ -91,6 +91,49 @@ const projectFragments = [{
   hash: 'results'
 }];
 
+/*** HOME - PROJECTS LIST ***/
+const projectsHome = [{
+  id: 'ph1',
+  name: 'Need to optimise your design process?',
+  label: 'About Defining a design process',
+  themes: ['Process', 'consistency'],
+  desc: 'See how together with our product managers at Fuse we managed to nail a process that works and defines accountability for everyone.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse'
+}, {
+  id: 'ph2',
+  name: 'Want to upskill your pool of design talents?',
+  label: 'Getting the best from your people',
+  themes: ['Design systems', 'consistency'],
+  desc: 'We can work together towards making sure your designers stay involved and are motivated to upskills, even through periods of change.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse'
+}, {
+  id: 'ph3',
+  name: 'Aim to design a consistent, accessible and scalable product?',
+  label: 'Building a bullet proof design system',
+  themes: ['Design systems', 'consistency'],
+  desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse'
+}, {
+  id: 'ph4',
+  name: 'Not sure what tools can help your user research?',
+  label: 'Building a bullet proof design system',
+  themes: ['Design systems', 'consistency'],
+  desc: 'Basing your research on user interviews is ideal but you could make the most of these insights for your future projects.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse'
+}];
+
 /*** PROJECTS LIST ***/
 const projects = [{
   id: 'p1',
