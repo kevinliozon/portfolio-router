@@ -1,3 +1,11 @@
+/*** RESET ***/
+
+figure {
+  margin: 0;
+}
+
+/*** HEADER ***/
+
 .l-header__logo__img {
   width: 7rem;
 }
@@ -15,9 +23,8 @@
 }
 
 .c-main__fig,
-.c-section__fig {
+.c-fig {
   flex: 0 0 40%;
-  margin: 0;
   padding: 1em;
 }
 
@@ -31,7 +38,7 @@
   width: 3rem;
 }
 
-.c-section__fig__img,
+.c-fig__img,
 .c-cell__img {
   width: 100%;
 }
@@ -55,7 +62,7 @@
   }
 
   .c-main__fig,
-  .c-section__fig {
+  .c-fig {
     flex: 0 0 100%;
     max-width: 100%; /* For IE */
   }

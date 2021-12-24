@@ -1,5 +1,19 @@
 /*** MAIN STYLESHEET ***/
 
+/*** 
+CHILD ELEMENTS NAMING CONVENTIONS
+
+__c: caption
+__t: title
+__h: header
+__f: footer
+__fig: figure
+__d: description
+__i: item
+__img: image
+
+***/
+
 /*** CONTAINERS ***/
 
 html {
@@ -60,11 +74,12 @@ html {
 .c-main__h,
 .c-section__h {
   flex: 0 0 100%; /* Fills the entire space horizontally */
+  margin-bottom: 3rem;
   max-width: 100%; /* For IE */
 }
 
 .c-main__desc,
-.c-section__desc {
+.c-section__d {
   flex: 0 0 60%;
   max-width: 60%; /* For IE */
 }
@@ -87,17 +102,6 @@ html {
 }
 
 /*** PROJECTS PAGES ***/
-
-.l-grid {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 0;
-}
-
-.c-filters,
-.c-grid {
-  padding: 6rem 0;
-}
 
 .radio--filter {
   display: none;
@@ -168,6 +172,13 @@ html {
 
 .c-block:nth-child(odd) .c-block__title {
   color: #82F4B6;
+}
+
+.c-fig.c-section__i {
+  max-width: 20rem;
+  min-width: 10rem;
+  padding: 1rem;
+  width: 15%;
 }
 
 .c-grid {
@@ -361,7 +372,7 @@ html {
   padding: .5rem 20% .5rem 6rem;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2; /* Avoiding cards links (:after) to overlap */
 }
 
 .l-header__nav,
@@ -446,8 +457,15 @@ html {
   clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
 }*/
 
-/*** HIDDEN ELEMENTS ***/
+/*** UTILITY CLASSES ***/
 
+.u-center {
+  justify-content: space-around;
+  margin: auto;
+  text-align: center;
+}
+
+/* hidden elements */
 .u-outofbound {
   padding: 0.8rem;
   position: absolute;
@@ -459,6 +477,8 @@ html {
 .u-outofbound:focus {
   transform: translateX(0%);
 }
+
+/*** MEDIA QUERIES ***/
 
 @media only screen and (max-width : 1000px) {
   .l-footer {
