@@ -96,7 +96,7 @@ html {
 
 .c-filters,
 .c-grid {
-  padding: 12rem 0 6rem;
+  padding: 6rem 0;
 }
 
 .radio--filter {
@@ -147,6 +147,28 @@ html {
 #radio-tech:checked ~ .c-filters #filter-tech:before {
   opacity: 1;
 }*/
+
+.c-blocks {
+  box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 25%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.c-block {
+  background-color: #82F4B6;
+  padding: 10rem;
+  width: 50%;
+}
+
+.c-block:nth-child(odd) {
+  background-color: #063C72;
+  color: #F8FFFE;
+}
+
+.c-block:nth-child(odd) .c-block__title {
+  color: #82F4B6;
+}
 
 .c-grid {
   display: flex;
@@ -505,6 +527,10 @@ html {
     justify-content: center;
     padding: 3rem 0;
   }
+
+  .c-block {
+    padding: 5rem;
+  }
 }
 
 @media only screen and (max-width : 600px) {
@@ -515,6 +541,11 @@ html {
 
   .c-section {
     padding: 1.5rem;
+  }
+
+  .c-block {
+    padding: 5rem;
+    width: 100%;
   }
   
   .l-header {
