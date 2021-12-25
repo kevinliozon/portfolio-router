@@ -91,6 +91,49 @@ const projectFragments = [{
   hash: 'results'
 }];
 
+/*** BRANDS LIST ***/
+const brands = [{
+  id: 'b1',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b2',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b3',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b4',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b5',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b6',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b7',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}, {
+  id: 'b8',
+  name: 'Placeholder',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+}];
+
 /*** HOME - PROJECTS LIST ***/
 const projectsHome = [{
   id: 'ph1',

@@ -460,7 +460,7 @@ html {
 /*** UTILITY CLASSES ***/
 
 .u-center {
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
   text-align: center;
 }

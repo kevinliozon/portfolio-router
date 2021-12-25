@@ -22,7 +22,7 @@ new Promise((resolve, reject) => {
   for (let project of projects) {
     if (project.isVisible) {
       document.getElementById('grid').innerHTML += '\
-      <article class="c-cell is-filtered u-radius '+project.filters+'">\
+      <article id="project-'+project.id+'" class="c-cell is-filtered u-radius '+project.filters+'">\
         <aside class="c-cell__feat"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-20.69 165.94l-184 184a16 16 0 0 1-22.62 0l-104-104a16 16 0 0 1 0-22.63l22.62-22.62a16 16 0 0 1 22.63 0L184 302.75l150.06-150.06a16 16 0 0 1 22.63 0l22.62 22.62a16 16 0 0 1 0 22.63z" class="c-btn__ico"/><path d="M195.31 381.94a16 16 0 0 1-22.62 0l-104-104a16 16 0 0 1 0-22.63l22.62-22.62a16 16 0 0 1 22.63 0L184 302.74l150.06-150a16 16 0 0 1 22.63 0l22.62 22.62a16 16 0 0 1 0 22.63l-184 184z" class="c-btn__ico--alt"/></svg></aside>\
         <div class="c-cell__info">\
           <header class="c-cell__header">\

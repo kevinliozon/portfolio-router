@@ -6,12 +6,12 @@
  */
 
 /**
- * PROMISE - Generates projects as links
+ * PROMISE - Generates projects as links and brands
  * Final state: Building the navigation listener
  * 
  */
  new Promise((resolve, reject) => {
-  if (projectsHome) {
+  if (projectsHome && brands) {
     resolve(); // Detect the links and build their navigation listener
   } else {
     // Will listen to the links across the page in all cases
@@ -21,7 +21,7 @@
 .then(result => {
   for (let project of projectsHome) {
     document.getElementById('grid').innerHTML += '\
-    <article class="c-cell c-cell--lg u-radius">\
+    <article id="project-'+project.id+'" class="c-cell c-cell--lg u-radius">\
       <div class="c-cell__info">\
         <header class="c-cell__header">\
           <h3 class="c-cell__title">\
@@ -42,6 +42,14 @@
       </figure>\
     </article>';
     moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badge-'+project.id));
+  }
+
+  for (let brand of brands) {
+    document.getElementById('brands').innerHTML += '\
+    <figure id="brand-'+brand.id+'" class="c-fig c-section__i">\
+      <img src="'+brand.img+'" alt="'+brand.imgAlt+'" class="c-fig__img">\
+      <figcaption class="c-fig__c">'+brand.name+'</figcaption>\
+    </figure>';
   }
 }, err => console.error('error:', err))
 .finally(() => {
