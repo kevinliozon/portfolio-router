@@ -33,7 +33,7 @@
           </h3>\
         </header>\
         <footer class="c-cell__footer">\
-          <ul id="badge-'+project.id+'" class="l-list"></ul>\
+          <ul id="badges-'+project.id+'" class="l-list"></ul>\
           <p>'+project.desc+'</p>\
         </footer>\
       </div>\
@@ -41,7 +41,7 @@
         <img src="'+project.img+'" alt="'+project.imgAlt+'" class="c-cell__img">\
       </figure>\
     </article>';
-    moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badge-'+project.id));
+    moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badges-'+project.id));
   }
 
   for (let brand of brands) {

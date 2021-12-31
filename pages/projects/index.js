@@ -36,7 +36,7 @@ new Promise((resolve, reject) => {
             <aside class="c-cell__type u-radius"><img src="/assets/icons/'+project.type+'.svg" alt="Case study about '+project.type+'" class="c-cell__icn"></aside>\
           </header>\
           <footer class="c-cell__footer">\
-            <ul id="badge-'+project.id+'" class="l-list"></ul>\
+            <ul id="badges-'+project.id+'" class="l-list"></ul>\
             <p>For: '+project.beneficiary+'</p>\
             <p>'+project.desc+'</p>\
           </footer>\
@@ -45,7 +45,7 @@ new Promise((resolve, reject) => {
           <img src="'+project.img+'" alt="'+project.imgAlt+'" class="c-cell__img">\
         </figure>\
       </article>';
-      moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badge-'+project.id));
+      moduleViewRenderer.getViewBadges(project.themes, document.getElementById('badges-'+project.id));
     }
   }
 }, err => console.error('error:', err))

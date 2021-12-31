@@ -55,15 +55,30 @@ html {
 }
 
 .c-jumbo {
+  box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 25%);
   background: url(/assets/img/placeholder.jpg) center / cover no-repeat;
+  display: flex;
   margin-top: -12rem;
-  padding-top: 12rem;
+  padding: 12rem 6rem 6rem;
+  position: relative;
+  width: 100%;
+}
+
+.l-content.has-side .c-jumbo {
+  margin-top: 0px;
 }
 
 .c-jumbo__info {
   background-color: #F8FFFE;
   padding: 1.5rem;
   width: 50vw;
+}
+
+.c-jumbo__badges {
+  bottom: 0px;
+  margin: 0px;
+  position: absolute;
+  right: 1rem;
 }
 
 .l-content.has-side .c-content {
@@ -291,6 +306,7 @@ html {
 
 .l-list {
   list-style-type: none;
+  margin: 1rem 0;
   padding-left: 0;
 }
 
@@ -427,7 +443,7 @@ html {
 .c-btn--burger {
   display: none;
   top: 3rem;
-  z-index: 1;
+  z-index: 3; /* Sits on top of everything */
 }
 
 .c-btn__wrap--alt {
@@ -484,6 +500,15 @@ html {
   .l-footer {
     background: #063C72;
     height: 12rem;
+  }
+
+  .c-jumbo__info {
+    width: 100vw;
+  }
+
+  .l-content.has-side .c-content {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 
   .c-section {
