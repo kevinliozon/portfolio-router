@@ -45,6 +45,10 @@ figure {
 
 .c-fig__img,
 .c-cell__img {
+  width: 100%;
+}
+
+.c-cell__img {
   height: auto;
   left: 50%;
   position: absolute;
@@ -83,7 +87,6 @@ figure {
 }
 
 @media only screen and (max-width : 600px) {
-  .c-fig__img,
   .c-cell__img {
     height: auto;
     left: 50%;
