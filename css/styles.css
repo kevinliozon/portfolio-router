@@ -62,6 +62,7 @@ html {
   padding: 12rem 6rem 6rem;
   position: relative;
   width: 100%;
+  z-index: 1; /* stands above background */
 }
 
 .l-content.has-side .c-jumbo {
@@ -254,6 +255,10 @@ html {
   margin-top: 2rem;
 }
 
+.c-cell__d {
+  margin-top: 0;
+}
+
 .c-cell__link::after {
   content: "";
   display: block;
@@ -270,18 +275,17 @@ html {
   margin: 0;
   order: -1; /* Image appears at the top of the cell */
   overflow: hidden;
+  position: relative;
 }
 
 .c-cell--lg .c-cell__fig {
-  height: 20rem;
-  min-width: 20rem;
-  width: 33%;
+  height: 100%;
+  min-width: 20rem; /* fix bugs which prevents the width to stay 20rem */
+  width: 20rem;
 }
 
-.c-cell--lg .c-cell__img {
-  height: 100%;
-  width: auto;
-  transform: translateX(-25%);
+.c-cell--lg:nth-child(even) .c-cell__fig {
+  order: 0;
 }
 
 .c-cell__type {
@@ -306,7 +310,7 @@ html {
 
 .l-list {
   list-style-type: none;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   padding-left: 0;
 }
 
@@ -570,12 +574,37 @@ html {
   .c-grid {
     flex-basis: 100%;
     justify-content: center;
+    margin: 0;
     padding: 3rem 0;
   }
 
   .c-block {
     padding: 5rem;
   }
+
+  .c-cell {
+    min-width: calc(50% - 3rem);
+    width: calc(50% - 3rem);
+  }
+
+  .c-cell--lg {
+    flex-basis: calc(100% - 2rem);
+  }
+  
+  /*.c-cell--lg .c-cell__fig {
+    width: 100%;
+  }
+  
+  .c-cell--lg .c-cell__img {
+    transform: translateX(0);
+    width: 100%;
+  }
+
+  .c-cell--lg {
+    flex-basis: calc(50% - 2rem);
+    flex-direction: column;
+    flex-wrap: wrap;
+  }*/
 }
 
 @media only screen and (max-width : 600px) {
@@ -598,6 +627,11 @@ html {
     bottom: 0;
     justify-content: space-around;
     padding: 0 1rem;
+  }
+
+  .c-cell {
+    min-width: calc(100% - 1.5rem);
+    width: calc(100% - 1.5rem);
   }
 
   .c-cell--lg {

@@ -34,7 +34,7 @@
         </header>\
         <footer class="c-cell__footer">\
           <ul id="badges-'+project.id+'" class="l-list"></ul>\
-          <p>'+project.desc+'</p>\
+          <p class="c-cell__d">'+project.desc+'</p>\
         </footer>\
       </div>\
       <figure class="c-cell__fig">\
