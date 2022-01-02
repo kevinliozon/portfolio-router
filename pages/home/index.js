@@ -21,7 +21,7 @@
 .then(result => {
   for (let project of projectsHome) {
     document.getElementById('grid').innerHTML += '\
-    <article id="project-'+project.id+'" class="c-cell c-cell--lg u-radius">\
+    <article id="project-'+project.id+'" class="c-cell c-cell--lg">\
       <div class="c-cell__info">\
         <header class="c-cell__header">\
           <h3 class="c-cell__title">\

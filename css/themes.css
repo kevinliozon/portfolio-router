@@ -129,6 +129,23 @@ h1, h2, h3, h4, h5, h6 {
   color: #82F4B6;
 }
 
+/*** SHADOWS ***/
+
+.c-section,
+.c-blocks,
+.c-jumbo__info,
+.c-cell {
+  box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 25%);
+}
+
+/*** RADIUS ***/
+
+.c-jumbo__info,
+.c-cell,
+.c-cell__type {
+  border-radius: 0.3rem;
+}
+
 /*** FILTERS TYPES ***/
 
 #filter-manage,
@@ -163,10 +180,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*** UTILITY ***/
-
-.u-radius {
-  border-radius: 0.3rem;
-}
 
 /*** MEDIA QUERIES ***/
 
