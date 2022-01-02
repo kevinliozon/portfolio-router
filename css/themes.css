@@ -133,6 +133,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .c-section,
 .c-blocks,
+.c-jumbo,
 .c-jumbo__info,
 .c-cell {
   box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 25%);
