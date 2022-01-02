@@ -143,7 +143,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .c-jumbo__info,
 .c-cell,
-.c-cell__type {
+.c-cell__type,
+.c-badge {
   border-radius: 0.3rem;
 }
 

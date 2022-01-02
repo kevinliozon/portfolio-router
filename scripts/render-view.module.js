@@ -29,7 +29,7 @@ const moduleViewRenderer = (() => {
    * @returns badgesList
    */
   function _getViewBadges(items, el) {
-    for (let item of items) el.innerHTML += '<li class="c-badge u-radius">'+item+'</li>';
+    for (let item of items) el.innerHTML += '<li class="c-badge">'+item+'</li>';
   }
 
   /**
