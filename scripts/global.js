@@ -143,8 +143,8 @@ const projectsHome = [{
   desc: 'See how together with our product managers at Fuse we managed to nail a process that works and defines accountability for everyone.',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse'
+  href: '#page=projects/fuse-process',
+  templatePath: '/pages/projects/fuse-process'
 }, {
   id: 'ph2',
   name: 'Want to upskill your pool of design talents?',
