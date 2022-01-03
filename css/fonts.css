@@ -68,6 +68,11 @@ body {
   font-size: 1.4rem;
 }
 
+.c-section__q {
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
 body.t-fontbig {
   font-size: 1.7rem;
 }

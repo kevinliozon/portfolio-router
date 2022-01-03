@@ -129,6 +129,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #82F4B6;
 }
 
+.c-section__q {
+  border: 0.75rem solid #063C71;
+  border-left: 0;
+  border-top: 0;
+  color: #063C72;
+}
+
 /*** SHADOWS ***/
 
 .c-section,

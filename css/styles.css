@@ -11,6 +11,7 @@ __fig: figure
 __d: description
 __i: item
 __img: image
+__q: quote
 
 ***/
 
@@ -99,6 +100,12 @@ html {
 .c-jumbo__info,
 .c-section__d {
   max-width: 60rem;
+}
+
+.c-section__q {
+  margin: auto 0;
+  max-width: 30rem;
+  padding: 0 2rem 2rem 0;
 }
 
 .c-section__card {
