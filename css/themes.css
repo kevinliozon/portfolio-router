@@ -73,7 +73,8 @@ button {
   background-color: #82F4B6;
 }
 
-.c-badge {
+.c-badge,
+.c-quote {
   color: #063C72;
 }
 
@@ -133,7 +134,6 @@ h1, h2, h3, h4, h5, h6 {
   border: 0.75rem solid #063C71;
   border-left: 0;
   border-top: 0;
-  color: #063C72;
 }
 
 /*** SHADOWS ***/

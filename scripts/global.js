@@ -71,24 +71,29 @@ const externalPages = [{
 /*** SIDENAVS FRAGMENTS ***/
 const projectFragments = [{
   name: 'Specifics',
-  label: 'Move to section about the specifics',
+  label: 'Go to specifics',
   href: '#specifics',
   hash: 'specifics'
 }, {
   name: 'Problem',
-  label: 'Move to section about the problem',
+  label: 'Go to problem',
   href: '#problem',
   hash: 'problem'
 }, {
+  name: 'Context',
+  label: 'Go to context',
+  href: '#context',
+  hash: 'context'
+}, {
   name: 'Solution',
-  label: 'Move to section about the solution',
+  label: 'Go to  solution',
   href: '#solution',
   hash: 'solution'
 }, {
-  name: 'Results',
-  label: 'Move to section about results',
-  href: '#results',
-  hash: 'results'
+  name: 'Outcomes',
+  label: 'Go to outcomes',
+  href: '#outcomes',
+  hash: 'outcomes'
 }];
 
 /*** BRANDS LIST ***/
