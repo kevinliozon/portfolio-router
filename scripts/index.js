@@ -25,16 +25,12 @@ window.addEventListener('load', e => {
   moduleNav.buildNavAlt();
   // Building the navigation listener
   moduleRouter.linksListener('js-link--nav');
-  // Building the fragments listener
-  moduleRouter.hashListener('js-link--hash');
   // Building the command listener
   moduleCommands.commandsListener('js-btn');
   // Checks if UI settings have been defined
   moduleCommands.settingsGetter(localStorage.getItem('theme'), localStorage.getItem('font'));
   // Building the listeners for closing modals
   moduleCommands.closeViewModal(wrapModal.container, wrapModal.close);
-  // Building the images listener
-  moduleViewRenderer.imagesListener(wrapTemplate, wrapModal);
   // Calls the template relevant to the page we are loading from
   moduleRouter.callTemplate();
 });
@@ -54,8 +50,6 @@ window.addEventListener('hashchange', e => {
     if (location.hash.replace(/[^#]/g, '').length <= 1) {
       // There are less than two # in the url: it means we have no fragment selected (just the one of the active page)
       moduleRouter.navStateOrHashChange();
-      // Building the images listener
-      moduleViewRenderer.imagesListener(wrapTemplate, wrapModal);
     } else {
       // There are at least two # in the url: it means we have a fragment selected
       // We parse the hash in order to retrieve the id of the element we want to target (we get what stands after the second #: the fragment)
