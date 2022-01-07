@@ -33,6 +33,48 @@ const moduleViewRenderer = (() => {
   }
 
   /**
+   * Turn each image into a listener for displaying a modal
+   * The modal populates from the content of the clicked image 
+   * 
+   * @param {Object} wrapModal the modal window
+   * @private
+   */
+  function _getViewImageModal(wrapModal) {
+    // Array with all image links
+    Array.from(document.getElementsByClassName('js-img')).forEach((imgWrap) => {
+      let img = imgWrap.getElementsByClassName('c-fig__img')[0]; // get the image in the link
+      let caption = imgWrap.getElementsByClassName('c-fig__c')[0]; // get the caption in the link
+      
+      // Event listener on each image
+      imgWrap.addEventListener('click', function(e) {
+        wrapModal.container.style.display = 'flex'; // display the modal
+        wrapModal.image.src = img.src; // populate the modal with the image
+        wrapModal.caption.innerHTML = caption.innerHTML; // populate the modal with the cpation
+        wrapModal.close.focus(); // focus the close button for easy dismissal
+      }, false)
+    })
+  }
+
+  /**
+   * Monitor the DOM
+   * If clickable images are detected => run the script to make them clickable then disconnect
+   * 
+   * @param {Object} wrapTemplate the main wrap
+   * @param {Object} wrapModal the modal window
+   * @private
+   */
+  function _imagesListener(wrapTemplate, wrapModal) {
+    let observer = new MutationObserver(() => {
+      // If there is at least one image
+      if (document.getElementsByClassName('js-img').length > 0) {
+        _getViewImageModal(wrapModal);
+        observer.disconnect(); // We can disconnect since images have been found
+      }
+    })   
+    observer.observe(wrapTemplate, { attributes: false, childList: true, subtree: true }); // observes the main wrap for DOM changes
+  }
+
+  /**
    * Handles the logic for side menu of single project page on mobile
    * Side menu is always closed when interracting with the page
    * apart if already closed and we click on the burger icon
@@ -61,7 +103,7 @@ const moduleViewRenderer = (() => {
     }
   }
 
-  /*** PUBLIC METHODS ***/
+  /*** @public METHODS ***/
 
   function getViewTemplate(activeTemplate, wrapView) {
     _getViewTemplate(activeTemplate, wrapView);
@@ -71,6 +113,10 @@ const moduleViewRenderer = (() => {
     _getViewBadges(items, el);
   }
 
+  function imagesListener(wrapTemplate, wrapModal) {
+    _imagesListener(wrapTemplate, wrapModal);
+  }
+
   function getViewSidebar() {
     _getViewSidebar();
   }
@@ -78,6 +124,7 @@ const moduleViewRenderer = (() => {
   return {
     getViewTemplate: getViewTemplate,
     getViewBadges: getViewBadges,
+    imagesListener: imagesListener,
     getViewSidebar: getViewSidebar
   };
 })();

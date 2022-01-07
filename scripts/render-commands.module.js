@@ -132,6 +132,23 @@ const moduleCommands = (() => {
     }
   }
 
+  /**
+   * Close modal window when visible
+   * 
+   * @param {Object} modalContainer the modal window
+   * @param {Object} modalClose the modal close button
+   * @private
+   */
+  function _closeViewModal(modalContainer, modalClose) {
+    modalClose.addEventListener('click', function(e) {
+      modalContainer.style.display = 'none';
+    }, false)
+
+    modalContainer.addEventListener('click', function(e) {
+      modalContainer.style.display = 'none';
+    }, false)
+  }
+
   /*** @public ***/
 
   function commandsListener(commandClass) {
@@ -142,8 +159,13 @@ const moduleCommands = (() => {
     _settingsGetter(activeTheme, activeFont);
   }
 
+  function closeViewModal(modalContainer, modalClose) {
+    _closeViewModal(modalContainer, modalClose);
+  }
+
   return {
     commandsListener: commandsListener,
-    settingsGetter: settingsGetter
+    settingsGetter: settingsGetter,
+    closeViewModal: closeViewModal
   };
 })();
