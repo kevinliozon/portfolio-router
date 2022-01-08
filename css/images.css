@@ -95,4 +95,8 @@ figure {
     transform: translate(-50%, -50%);
     width: auto;
   }
+  
+  .c-modal__img {
+    width: 100%;
+  }
 }
