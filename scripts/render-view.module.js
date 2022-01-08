@@ -39,20 +39,11 @@ const moduleViewRenderer = (() => {
    * @param {Object} wrapModal the modal window
    * @private
    */
-  function _getViewImageModal(wrapModal) {
-    // Array with all image links
-    Array.from(document.getElementsByClassName('js-img')).forEach((imgWrap) => {
-      let img = imgWrap.getElementsByClassName('c-fig__img')[0]; // get the image in the link
-      let caption = imgWrap.getElementsByClassName('c-fig__c')[0]; // get the caption in the link
-      
-      // Event listener on each image
-      imgWrap.addEventListener('click', function(e) {
-        wrapModal.container.style.display = 'flex'; // display the modal
-        wrapModal.image.src = img.src; // populate the modal with the image
-        wrapModal.caption.innerHTML = caption.innerHTML; // populate the modal with the cpation
-        wrapModal.close.focus(); // focus the close button for easy dismissal
-      }, false)
-    })
+  function _getViewImageModal(wrapModal, img, caption) {
+    wrapModal.container.style.display = 'flex'; // display the modal
+    wrapModal.image.src = img.src; // populate the modal with the image
+    wrapModal.caption.innerHTML = caption.innerHTML; // populate the modal with the cpation
+    wrapModal.close.focus(); // focus the close button for easy dismissal
   }
 
   /**
@@ -67,8 +58,17 @@ const moduleViewRenderer = (() => {
     let observer = new MutationObserver(() => {
       // If there is at least one image
       if (document.getElementsByClassName('js-img').length > 0) {
-        _getViewImageModal(wrapModal);
-        observer.disconnect(); // We can disconnect since images have been found
+        // Array with all image links
+        Array.from(document.getElementsByClassName('js-img')).forEach((imgWrap) => {
+          let img = imgWrap.getElementsByClassName('c-fig__img')[0]; // get the image in the link
+          let caption = imgWrap.getElementsByClassName('c-fig__c')[0]; // get the caption in the link
+          
+          // Event listener on each image
+          imgWrap.addEventListener('click', function(e) {
+            _getViewImageModal(wrapModal, img, caption);
+            observer.disconnect(); // We can disconnect since images have been found
+          }, false)
+        })
       }
     })   
     observer.observe(wrapTemplate, { attributes: false, childList: true, subtree: true }); // observes the main wrap for DOM changes
