@@ -49,12 +49,19 @@ figure {
   width: 100%;
 }
 
-.c-cell__img {
+.c-cell__img,
+.c-slide__img {
   height: auto;
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
   width: 100%;
+}
+
+.c-slide__img {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: auto;
 }
 
 .c-cell--lg .c-cell__img {
@@ -95,7 +102,7 @@ figure {
     transform: translate(-50%, -50%);
     width: auto;
   }
-  
+
   .c-modal__img {
     width: 100%;
   }

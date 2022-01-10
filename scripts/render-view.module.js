@@ -47,6 +47,34 @@ const moduleViewRenderer = (() => {
   }
 
   /**
+   * Turn each image into a listener for displaying a modal
+   * The modal populates from the content of the clicked image 
+   * 
+   * @param {Object} wrapModal the modal window
+   * @private
+   */
+  function _getViewSlide(index) {
+    let slides = document.querySelectorAll('.c-slide'); // Get a NodeList of all .c-slide elements
+    let slideToDisplay = document.body.querySelector('.c-slide[data-slide="'+index+'"]');  // Get the slide with equivalent index
+    selectedSlideIndex = index;
+    slides.forEach(slide => slide.style.display = 'none'); // Hide all slides
+    console.log(index)
+
+    if (index === 1) {
+      document.getElementById('sliderPrev').disabled = true; // if first slide, prev button is disabled
+      document.getElementById('sliderNext').disabled = false; // if first slide, prev button is disabled
+    } else if (index === document.querySelectorAll('.c-slideselector__btn').length) {
+      document.getElementById('sliderNext').disabled = true; // if first slide, prev button is disabled
+      document.getElementById('sliderPrev').disabled = false; // if first slide, prev button is disabled
+    } else {
+      document.getElementById('sliderPrev').disabled = false; // if first slide, prev button is disabled
+      document.getElementById('sliderNext').disabled = false; // if first slide, prev button is disabled
+    }
+
+    slideToDisplay.style.display = 'flex'; // display the relevant slide
+  }
+
+  /**
    * Monitor the DOM
    * If clickable images are detected => run the script to make them clickable then disconnect
    * 
@@ -56,21 +84,28 @@ const moduleViewRenderer = (() => {
    */
   function _imagesListener(wrapTemplate, wrapModal) {
     let observer = new MutationObserver(() => {
+      let images = document.querySelectorAll('.js-img'); // all images we can interact with
+
       // If there is at least one image
-      if (document.getElementsByClassName('js-img').length > 0) {
+      if (images.length > 0) {
         // Array with all image links
-        Array.from(document.getElementsByClassName('js-img')).forEach((imgWrap) => {
-          let img = imgWrap.getElementsByClassName('c-fig__img')[0]; // get the image in the link
-          let caption = imgWrap.getElementsByClassName('c-fig__c')[0]; // get the caption in the link
-          
+        images.forEach((imgWrap) => {
           // Event listener on each image
           imgWrap.addEventListener('click', function(e) {
-            _getViewImageModal(wrapModal, img, caption);
+            if (this.hasAttribute('data-slideindex')) {
+              images.forEach(img => img.classList.remove('u-active')); // all images are not active anymore
+              this.classList.add('u-active'); // selected image is active
+              //selectedSlideIndex = parseInt(this.dataset.slideindex.replace( /^\D+/g, '')); // the index become the same as the selected thumbnail (we consider the number, not the full id)
+              _getViewSlide(parseInt(this.dataset.slideindex)); // the image we click on is a slider selector
+            } else {
+              _getViewImageModal(wrapModal, imgWrap.querySelector('.c-fig__img'), imgWrap.querySelector('.c-fig__c'));
+            }
             observer.disconnect(); // We can disconnect since images have been found
           }, false)
         })
       }
-    })   
+    });
+
     observer.observe(wrapTemplate, { attributes: false, childList: true, subtree: true }); // observes the main wrap for DOM changes
   }
 
@@ -121,10 +156,15 @@ const moduleViewRenderer = (() => {
     _getViewSidebar();
   }
 
+  function getViewSlide(selectedSlide) {
+    _getViewSlide(selectedSlide)
+  }
+
   return {
     getViewTemplate: getViewTemplate,
     getViewBadges: getViewBadges,
     imagesListener: imagesListener,
-    getViewSidebar: getViewSidebar
+    getViewSidebar: getViewSidebar,
+    getViewSlide: getViewSlide
   };
 })();

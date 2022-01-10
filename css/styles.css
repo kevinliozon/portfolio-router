@@ -254,19 +254,24 @@ html {
 }
 
 .c-cell__header,
-.c-cell__footer {
+.c-cell__footer,
+.c-slide__header,
+.c-slide__footer {
   padding: 0 1rem;
 }
 
-.c-cell__title {
+.c-cell__title,
+.c-slide__title {
   margin-top: 2rem;
 }
 
-.c-cell__d {
+.c-cell__d,
+.c-slide__d {
   margin-top: 0;
 }
 
-.c-cell__link::after {
+.c-cell__link::after,
+.c-slide__link::after {
   content: "";
   display: block;
   position: absolute;
@@ -400,7 +405,7 @@ html {
   padding: .5rem 20% .5rem 6rem;
   position: fixed;
   width: 100%;
-  z-index: 2; /* Avoiding cards links (:after) to overlap */
+  z-index: 3; /* Avoiding cards links (:after) to overlap */
 }
 
 .l-header__nav,
@@ -444,18 +449,16 @@ html {
 .c-btn--burger {
   position: fixed;
   right: 1rem;
-  z-index: 1;
+  z-index: 3; /* Sits on top of everything */
 }
 
 .c-btn--top {
   bottom: 9rem;
-  z-index: 2;
 }
 
 .c-btn--burger {
   display: none;
   top: 3rem;
-  z-index: 3; /* Sits on top of everything */
 }
 
 .c-btn__wrap--alt {
@@ -467,11 +470,6 @@ html {
   cursor: pointer;
   margin-bottom: 1rem;
   transition: 0.3s;
-}
-
-.c-btn:hover .c-btn__img,
-.c-btn:focus .c-btn__img {
-  transform: translateY(-0.3rem);
 }
 
 .c-side {
@@ -768,92 +766,96 @@ and (-webkit-device-pixel-ratio : 2),
 
 
 
-* {
-  box-sizing: border-box;
-}
-
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-  position: relative;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
-}
 
 /* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
+
+.c-slider__nav {
   position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
+  top: 2rem;
+  right: 2rem;
+  z-index: 2;
+}
+
+.c-slider__btn {
+  cursor: pointer;
   font-weight: bold;
   font-size: 20px;
-  border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
 }
 
+.c-btn__ico {
+  fill: #063C72;
+}
+
+.c-btn__ico--alt {
+  fill: #82F4B6;
+}
+
 /* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+.c-slider__btn:nth-child(2) {
+  margin-left: 1rem;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.c-slider__btn:disabled {
+  opacity: 0.7
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.l-slider {
+  display: flex;
+  height: 60vh;
 }
 
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
+.c-slider,
+.c-sliderselector {
+  display: flex;
+  height: 100%;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.c-slider {
+  flex-basis: 70%;
+  max-width: 70%;
+  position: relative;
 }
 
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
+.c-slide {
+  display: none;
+  overflow: hidden;
 }
 
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
+.c-slide__info {
+  flex-basis: 30%;
 }
 
-.active,
-.demo:hover {
-  opacity: 1;
+.c-slide__fig {
+  overflow: hidden;
+  flex-basis: 70%;
+  position: relative;
 }
+
+.c-sliderselector {
+  flex-basis: 30%;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 30%;
+}
+
+.c-sliderselector .c-btn {
+  height: 33%;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.c-sliderselector .c-btn:last-child {
+  margin-bottom: 0;
+}
+
+.c-sliderselector .c-fig__img {
+  height: 100%;
+  width: auto;
+}
+
+
 
 
 

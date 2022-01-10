@@ -11,8 +11,10 @@ const wrapModal = {
   image: document.getElementById('modalImage')
 };
 
-/*** ELEMENTS ***/
+/*** COUNTS ***/
 const fontSizeCount = document.getElementById('fontSize');
+let slideIndex = 1;
+let selectedSlideIndex = 1;
 
 /**
  * On load or refresh:

@@ -54,12 +54,6 @@ button {
 
 .c-cell {
   background-color: #F8FFFE;
-  box-shadow: 0 0 .5rem rgba(0,0,0,.25);
-}
-
-.c-cell:hover,
-.c-cell:focus-within {
-  box-shadow: 0 0 .5rem rgba(0,0,0,.5);
 }
 
 .c-cell:hover .c-cell__type,
@@ -69,12 +63,14 @@ button {
 
 .c-cell__type,
 .c-filters__label,
-.c-badge {
+.c-badge,
+.c-slider__btn {
   background-color: #82F4B6;
 }
 
 .c-badge,
-.c-quote {
+.c-quote,
+.c-slider__btn {
   color: #063C72;
 }
 
@@ -160,8 +156,22 @@ h1, h2, h3, h4, h5, h6 {
 .c-jumbo,
 .c-jumbo__info,
 .c-cell,
-.c-btn__img {
-  box-shadow: 0 0.25rem 0.25rem rgb(0 0 0 / 25%);
+.c-slide,
+.c-btn__img,
+.c-slider__btn {
+  box-shadow: 0 0 .5rem rgba(0,0,0,.25);
+}
+
+.c-cell:hover,
+.c-cell:focus-within,
+.c-slide:hover,
+.c-slide:focus-within,
+.c-slider__btn:hover,
+.c-slider__btn:focus-within,
+.c-btn:hover .c-btn__img,
+.c-btn:focus .c-btn__img,
+.c-slideselector__btn.u-active .c-btn__img {
+  box-shadow: 0 0 .5rem rgba(0,0,0,.75);
 }
 
 /*** RADIUS ***/
@@ -169,8 +179,10 @@ h1, h2, h3, h4, h5, h6 {
 .c-jumbo__info,
 .c-cell,
 .c-cell__type,
+.c-slide,
 .c-badge,
-.c-btn__img {
+.c-btn__img,
+.c-slider__btn {
   border-radius: 0.3rem;
 }
 

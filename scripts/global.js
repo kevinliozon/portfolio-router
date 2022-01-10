@@ -139,7 +139,7 @@ const brands = [{
   imgAlt: 'placeholder',
 }];
 
-/*** HOME - PROJECTS LIST ***/
+/*** HOME - PROJECTS GRID ***/
 const projectsHome = [{
   id: 'ph1',
   name: 'Need to optimise your design process?',
@@ -182,7 +182,40 @@ const projectsHome = [{
   templatePath: '/pages/projects/fuse'
 }];
 
-/*** PROJECTS LIST ***/
+/*** HOME - PROJECTS CAROUSEL ***/
+const projectsCarousel = [{
+  id: 'pc1',
+  name: 'Need to optimise your design process?',
+  label: 'About Defining a design process',
+  themes: ['Process', 'consistency'],
+  desc: 'See how together with our product managers at Fuse we managed to nail a process that works and defines accountability for everyone.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse-process',
+  templatePath: '/pages/projects/fuse-process'
+}, {
+  id: 'pc2',
+  name: 'Want to upskill your pool of design talents?',
+  label: 'Getting the best from your people',
+  themes: ['Design systems', 'consistency'],
+  desc: 'We can work together towards making sure your designers stay involved and are motivated to upskills, even through periods of change.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse'
+}, {
+  id: 'pc3',
+  name: 'Aim to design a consistent, accessible and scalable product?',
+  label: 'Building a bullet proof design system',
+  themes: ['Design systems', 'consistency'],
+  desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
+  img: '/assets/img/placeholder.jpg',
+  imgAlt: 'placeholder',
+  href: '#page=projects/fuse',
+  templatePath: '/pages/projects/fuse'
+}];
+
+/*** PROJECTS GRID ***/
 const projects = [{
   id: 'p1',
   name: 'Project 1',
