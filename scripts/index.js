@@ -62,7 +62,6 @@ window.addEventListener('hashchange', e => {
   }
 }, false);
 
-
 /* Sample function that returns boolean in case the browser is Internet Explorer*/
 function isIE() {
   var ua = navigator.userAgent;

@@ -47,18 +47,19 @@ const moduleViewRenderer = (() => {
   }
 
   /**
-   * Turn each image into a listener for displaying a modal
-   * The modal populates from the content of the clicked image 
+   * Displays the slide relevant to the active index
+   * Updates controls depending on slide number:
+   * - first disables prev button
+   * - last disables next button
    * 
-   * @param {Object} wrapModal the modal window
+   * @param {Number} index the index of the slide
+   * @param {Object} slideToDisplay the slide item
    * @private
    */
-  function _getViewSlide(index) {
+  function _getViewSlide(index, slideToDisplay) {
     let slides = document.querySelectorAll('.c-slide'); // Get a NodeList of all .c-slide elements
-    let slideToDisplay = document.body.querySelector('.c-slide[data-slide="'+index+'"]');  // Get the slide with equivalent index
     selectedSlideIndex = index;
     slides.forEach(slide => slide.style.display = 'none'); // Hide all slides
-    console.log(index)
 
     if (index === 1) {
       document.getElementById('sliderPrev').disabled = true; // if first slide, prev button is disabled
@@ -72,6 +73,20 @@ const moduleViewRenderer = (() => {
     }
 
     slideToDisplay.style.display = 'flex'; // display the relevant slide
+  }
+
+  /**
+   * Highlights the thumbnail relevant to the active slide and tone done the rest
+   * 
+   * @param {Array} slideThumbs All slides thumbnails
+   * @param {Object} slideThumbActive the slide thumbnail item
+   * @param {Number} index the index of the slide
+   * @private
+   */
+  function _getActiveSlideThumbnail(slideThumbs, slideThumbActive, selectedSlideIndex) {
+    slideThumbs.forEach(slideThumb => slideThumb.classList.remove('u-active')); // all images are not active anymore
+    slideThumbActive = document.body.querySelector('.c-slideselector__btn[data-slideindex="'+selectedSlideIndex+'"]');  // Get the slide with equivalent index
+    slideThumbActive.classList.add('u-active'); // selected image is active
   }
 
   /**
@@ -93,10 +108,10 @@ const moduleViewRenderer = (() => {
           // Event listener on each image
           imgWrap.addEventListener('click', function(e) {
             if (this.hasAttribute('data-slideindex')) {
+              let index = parseInt(this.dataset.slideindex);
               images.forEach(img => img.classList.remove('u-active')); // all images are not active anymore
               this.classList.add('u-active'); // selected image is active
-              //selectedSlideIndex = parseInt(this.dataset.slideindex.replace( /^\D+/g, '')); // the index become the same as the selected thumbnail (we consider the number, not the full id)
-              _getViewSlide(parseInt(this.dataset.slideindex)); // the image we click on is a slider selector
+              _getViewSlide(index, document.body.querySelector('.c-slide[data-slide="'+index+'"]')); // the image we click on is a slider selector
             } else {
               _getViewImageModal(wrapModal, imgWrap.querySelector('.c-fig__img'), imgWrap.querySelector('.c-fig__c'));
             }
@@ -156,8 +171,12 @@ const moduleViewRenderer = (() => {
     _getViewSidebar();
   }
 
-  function getViewSlide(selectedSlide) {
-    _getViewSlide(selectedSlide)
+  function getViewSlide(index, slideToDisplay) {
+    _getViewSlide(index, slideToDisplay);
+  }
+
+  function getActiveSlideThumbnail(slideThumbs, slideThumbActive, selectedSlideIndex) {
+    _getActiveSlideThumbnail(slideThumbs, slideThumbActive, selectedSlideIndex)
   }
 
   return {
@@ -165,6 +184,7 @@ const moduleViewRenderer = (() => {
     getViewBadges: getViewBadges,
     imagesListener: imagesListener,
     getViewSidebar: getViewSidebar,
-    getViewSlide: getViewSlide
+    getViewSlide: getViewSlide,
+    getActiveSlideThumbnail: getActiveSlideThumbnail
   };
 })();
