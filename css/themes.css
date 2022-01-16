@@ -35,7 +35,11 @@ button {
 .c-cell__link,
 .c-cell__link:visited,
 .c-cell__link:focus,
-.c-cell__link:before {
+.c-cell__link:before,
+.c-slide__link,
+.c-slide__link:visited,
+.c-slide__link:focus,
+.c-slide__link:before {
   color: #063C72;
   transition: all .1s ease-in;
 }
@@ -172,6 +176,15 @@ h1, h2, h3, h4, h5, h6 {
 .c-btn:focus .c-btn__img,
 .c-slideselector__btn.u-active .c-btn__img {
   box-shadow: 0 0 .5rem rgba(0,0,0,.75);
+}
+
+.c-cell__info {
+  box-shadow: 0 0 .5rem rgba(0,0,0,.25);
+}
+
+.c-slide__info,
+.c-cell--lg .c-cell__info {
+  box-shadow: 0 0 .5rem rgba(0,0,0,.25);
 }
 
 /*** RADIUS ***/

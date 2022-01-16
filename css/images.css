@@ -53,6 +53,8 @@ figure {
 .c-slide__img {
   height: auto;
   left: 50%;
+  min-height: 18rem;
+  min-width: 30rem;
   position: absolute;
   transform: translateX(-50%);
   width: 100%;
@@ -66,6 +68,8 @@ figure {
 
 .c-cell--lg .c-cell__img {
   height: 100%;
+  min-height: auto;
+  min-width: auto;
   width: auto;
 }
 
@@ -95,12 +99,13 @@ figure {
 
 @media only screen and (max-width : 600px) {
   .c-cell__img {
-    height: auto;
-    left: 50%;
-    position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     width: auto;
+  }
+
+  .c-cell--lg .c-cell__img {
+    height: auto;
   }
 
   .c-modal__img {
