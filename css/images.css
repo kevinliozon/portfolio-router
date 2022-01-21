@@ -6,10 +6,7 @@ figure {
 
 /*** HEADER ***/
 
-.l-header__logo__img {
-  width: 7rem;
-}
-
+.l-header__logo__img,
 .l-header__ctrl__img {
   width: 5rem;
 }

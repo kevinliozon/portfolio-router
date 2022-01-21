@@ -1,4 +1,5 @@
-body {
+body,
+.c-side {
   background-color: #F8FFFE;
   color: #5f5e5e;
 }
@@ -25,6 +26,7 @@ button {
 }
 
 .c-side {
+  box-shadow: -.2rem .2rem .5rem #ccc;
   transition: all .1s ease-in;
 }
 
@@ -235,6 +237,13 @@ h1, h2, h3, h4, h5, h6 {
 /*** UTILITY ***/
 
 /*** MEDIA QUERIES ***/
+
+@media only screen and (max-width : 1000px) {
+  .l-header {
+    background: #F8FFFE;
+    box-shadow: -.2rem .2rem .5rem #ccc;
+  }
+}
 
 @media only screen and (max-width : 600px) {
   .l-footer {

@@ -407,6 +407,7 @@ html {
   background-image: url(/assets/ui/header.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  min-height: 8.5rem;
   padding: .5rem 20% .5rem 6rem;
   position: fixed;
   width: 100%;
@@ -463,7 +464,7 @@ html {
 
 .c-btn--burger {
   display: none;
-  top: 3rem;
+  top: 2rem;
 }
 
 .c-btn__wrap--alt {
@@ -478,8 +479,6 @@ html {
 }
 
 .c-side {
-  background-color: #f8fffe;
-  box-shadow: -2px 2px 5px #ccc;
   height: 100vh;
   position: fixed;
   right: 0;
@@ -524,6 +523,10 @@ html {
 /*** MEDIA QUERIES ***/
 
 @media only screen and (max-width : 1000px) {
+  .l-header {
+    padding-right: 6rem;
+  }
+
   .l-footer {
     background: #063C72;
     height: 12rem;
@@ -630,6 +633,12 @@ html {
 }
 
 @media only screen and (max-width : 600px) {
+  .l-header {
+    bottom: 0;
+    justify-content: space-around;
+    padding: 0 1rem;
+  }
+  
   .l-footer {
     height: 24rem;
     padding-bottom: 14rem;
@@ -642,13 +651,6 @@ html {
   .c-block {
     padding: 5rem;
     width: 100%;
-  }
-  
-  .l-header {
-    background: #FFF;
-    bottom: 0;
-    justify-content: space-around;
-    padding: 0 1rem;
   }
 
   .c-cell {
@@ -687,7 +689,7 @@ html {
     bottom: auto;
     left: 1rem;
     right: auto;
-    top: 3rem;
+    top: 2rem;
   }
 
   .c-side.is-open,
