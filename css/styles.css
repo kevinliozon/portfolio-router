@@ -89,9 +89,9 @@ html {
   max-width: 80%; /* For IE */
 }
 
-.c-main__h,
-.c-section__h {
-  flex: 0 0 100%; /* Fills the entire space horizontally */
+.c-section__h,
+.c-form {
+  flex-basis: 100%; /* Fills the entire space horizontally */
   margin-bottom: 3rem;
   max-width: 100%; /* For IE */
 }
@@ -446,9 +446,16 @@ html {
   display: none;
 }
 
-.l-main {
-  display: flex;
-  flex-direction: column;
+/*** BUTTONS ***/
+
+.c-btn--block {
+  margin-left: 2rem;
+  max-width: 15rem;
+  width: 100%;
+}
+
+.c-btn--link {
+  padding: 0.1rem 0;
 }
 
 .c-btn--top,

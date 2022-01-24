@@ -110,9 +110,17 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+.c-form__input::placeholder,
+.c-form__smprint {
+  font-style: italic;
+}
+
 .c-badge,
+.c-form__label,
+.c-form__btn,
 .c-filters__label,
-.c-fig__c {
+.c-fig__c,
+.c-btn {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
