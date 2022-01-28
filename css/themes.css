@@ -33,7 +33,6 @@ button {
 
 .c-link,
 .c-link:visited,
-.c-link:focus,
 .c-link:before,
 .c-cell__link,
 .c-cell__link:visited,
@@ -53,27 +52,23 @@ button {
   transition: all .25s ease-in;
 }
 
-.c-link:hover,
-.c-link:focus-within,
 .c-btn--block {
   background-color: #063C72;
   color: #82F4B6;
   transition: all .25s ease-in;
 }
 
+.c-link,
 .c-btn--link {
   border-bottom: 0.2rem solid #063C72;
   transition: all .25s ease-in;
 }
 
+.c-link:hover,
+.c-link:focus,
 .c-btn--link:hover,
 .c-btn--link:focus {
   border-bottom-width: 0.3rem;
-}
-
-.c-link:hover,
-.c-link:focus-within {
-  padding: 0 0.5rem;
 }
 
 .c-btn--block:hover,
@@ -119,7 +114,7 @@ button {
 
 .c-nav__link:before {
   color: #82F4B6;
-  content: "\25FC";
+  content: '\25FC'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
   opacity: 0;
   text-shadow: -1px -1px 0px #063C72, 1px -1px 0px #063C72, -1px 1px 0px #063C72, 1px 1px 0px #063C72;
 }
@@ -228,7 +223,8 @@ h1, h2, h3, h4, h5, h6 {
 .c-btn__img,
 .c-slider__btn,
 .c-form__input,
-.c-btn--block {
+.c-btn--block,
+.c-filters__label {
   border-radius: 0.3rem;
 }
 

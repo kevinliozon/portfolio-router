@@ -52,7 +52,7 @@ const moduleNav = (() => {
   }
 
   /**
-    * Generate the main navigation for header and footer
+    * Generate the hash nav for project page
     * 
     * @private
     */

@@ -38,7 +38,7 @@
           </h3>\
         </header>\
         <footer class="c-cell__footer">\
-          <ul id="badges-'+project.id+'" class="l-list"></ul>\
+          <ul id="badges-'+project.id+'" class="c-list"></ul>\
           <p class="c-cell__d">'+project.desc+'</p>\
         </footer>\
       </div>\
@@ -65,7 +65,7 @@
           </h3>\
         </header>\
         <footer class="c-slide__footer">\
-          <ul id="badges-'+project.id+'" class="l-list"></ul>\
+          <ul id="badges-'+project.id+'" class="c-list"></ul>\
           <p class="c-slide__d">'+project.desc+'</p>\
         </footer>\
       </div>\

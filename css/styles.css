@@ -140,7 +140,7 @@ html {
   order: 1;
   padding-left: 6rem;
   position: sticky;
-  top: 0;
+  top: 10rem; /* So it sits under the header */
 }
 
 .c-filters__heading {
@@ -325,16 +325,6 @@ html {
   display: block;
 }
 
-.l-list {
-  list-style-type: none;
-  margin: 1rem 0 0;
-  padding-left: 0;
-}
-
-.l-list.l-widget__list {
-  padding-left: 3rem;
-}
-
 .c-badge {
   display: inline-block;
   line-height: 2rem;
@@ -342,9 +332,6 @@ html {
   padding: 0.4rem;
 }
 
-.l-list__item {
-  margin-bottom: 0.5rem;
-}
 
 
 
@@ -484,6 +471,59 @@ html {
   margin-bottom: 1rem;
   transition: 0.3s;
 }
+
+/*** LISTS ***/
+
+.c-list {
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+.c-list__i:before {
+  color: #063C72;
+  content: '\25FC'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+  margin-right: 0.5rem;
+}
+
+.c-list__i {
+  margin-bottom: 1rem;
+  display: flex; /* Content does not wrap under bullet point */
+}
+
+.c-list--links {
+  margin: 1rem 0 0;
+}
+
+.c-list.l-widget__list {
+  padding-left: 3rem;
+}
+
+.c-list--links .c-list__i:before {
+  content: '\25A3'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+}
+
+.c-list--links .c-list__i:hover:before {
+  content: '\25C8'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+  margin-right: 0.5rem;
+}
+
+.c-list--links .c-link {
+  border-bottom: 0;
+}
+
+.c-list--sub {
+  padding-left: 1.5rem;
+}
+
+.c-list--sub .c-list__i:before {
+  content: '\25FB';
+}
+
+.c-list--sub .c-list__i:hover:before {
+  content: '\25FC';
+}
+
 
 .c-side {
   height: 100vh;

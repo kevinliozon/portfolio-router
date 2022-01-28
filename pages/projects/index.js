@@ -36,7 +36,7 @@ new Promise((resolve, reject) => {
             <aside class="c-cell__type"><img src="/assets/icons/'+project.type+'.svg" alt="Case study about '+project.type+'" class="c-cell__icn"></aside>\
           </header>\
           <footer class="c-cell__footer">\
-            <ul id="badges-'+project.id+'" class="l-list"></ul>\
+            <ul id="badges-'+project.id+'" class="c-list"></ul>\
             <p class="c-cell__d">For: '+project.beneficiary+'</p>\
             <p class="c-cell__d">'+project.desc+'</p>\
           </footer>\
