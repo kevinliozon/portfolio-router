@@ -1,51 +1,51 @@
 /*** PAGES - Home page should be first ***/
 const pages = [{
-  name: 'About',
+  name: 'Home',
   label: 'Navigate to overview page',
-  href: '#page=home',
-  templatePath: '/pages/home',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: true,
   isVisible: true
 }, {
   name: 'About',
   label: 'Navigate to this page to learn more about my education, previous roles and ethics',
-  href: '#page=about',
-  templatePath: '/pages/about',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: true,
   isVisible: false
 }, {
-  name: 'Case studies',
+  name: 'Projects',
   label: 'Navigate to this page to see some case studies from previous projects',
-  href: '#page=projects',
-  templatePath: '/pages/projects',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: true,
   isVisible: true
 }, {
   name: 'Contact',
   label: 'Navigate to contact page',
-  href: '#page=contact',
-  templatePath: '/pages/contact',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: true,
   isVisible: true
 }, {
   name: 'Sitemap',
   label: 'Navigate to the sitemap page',
-  href: '#page=sitemap',
-  templatePath: '/pages/sitemap',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: false,
   isVisible: true
 }, {
   name: 'Cookies',
   label: 'Navigate to this page to learn more about this website\'s cookie policy',
-  href: '#page=cookie',
-  templatePath: '/pages/cookie',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: false,
   isVisible: true
 }, {
   name: 'Terms',
   label: 'Navigate to this page to learn more about terms and conditions.',
-  href: '#page=terms',
-  templatePath: '/pages/terms',
+  get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
+  get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: false,
   isVisible: true
 }];

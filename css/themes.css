@@ -60,8 +60,8 @@ button {
 
 .c-link,
 .c-btn--link {
-  border-bottom: 0.2rem solid #063C72;
-  transition: all .25s ease-in;
+  border-bottom: 0rem solid #063C72;
+  transition: all .1s ease-in;
 }
 
 .c-link:hover,
@@ -135,6 +135,7 @@ button {
 #radio-proj:checked ~ .c-filters #filter-proj,
 .c-nav__link:hover:before,
 .c-nav__link:focus:before,
+.c-nav__link.u-active:before,
 #radio-all:checked ~ .c-filters #filter-all:before,
 #radio-featured:checked ~ .c-filters #filter-featured:before,
 #radio-manage:checked ~ .c-filters #filter-manage:before,

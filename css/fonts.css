@@ -121,7 +121,9 @@ h1, h2, h3, h4, h5, h6 {
 .c-filters__label,
 .c-fig__c,
 .c-btn,
-.c-list--links {
+.c-link,
+.c-list--links,
+.c-nav__link {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }

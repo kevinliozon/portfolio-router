@@ -14,18 +14,16 @@ const moduleNav = (() => {
           href="'+page.href+'"\
           aria-label="'+page.label+'"\
           data-template="'+page.templatePath+'"\
-          target="_top">\
-          '+page.name+'\
-          </a>';
+          data-name="'+page.name.replace(/\s/g, '').toLowerCase()+'"\
+          target="_top">'+page.name+'</a>';
         } else {
           wrapFooterNav.innerHTML += '<a\
           class="c-nav__link l-footer__nav__link js-link--nav"\
           href="'+page.href+'"\
           aria-label="'+page.label+'"\
           data-template="'+page.templatePath+'"\
-          target="_top">\
-          '+page.name+'\
-          </a>';
+          data-name="'+page.name.replace(/\s/g, '').toLowerCase()+'"\
+          target="_top">'+page.name+'</a>';
         }
       }
     }
@@ -44,6 +42,7 @@ const moduleNav = (() => {
         href="'+externalPage.href+'"\
         aria-label="'+externalPage.label+'"\
         data-template="'+externalPage.templatePath+'"\
+        data-name="'+externalPage.name.replace(/\s/g, '').toLowerCase()+'"\
         target="_blank">\
         '+externalPage.name+'\
         </a>';

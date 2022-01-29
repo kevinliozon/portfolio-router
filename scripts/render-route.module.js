@@ -63,6 +63,7 @@ const moduleRouter = (() => {
       //This is where we update the address bar with the 'activeUrl' parameter
       history.replaceState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl);
       document.title = activePage; // Defines tab title
+      _setPageAsActive(activePage); // Set as active
       wrapTemplate.innerHTML = content; // Fills the wrap with template
       return _getPageController(activeTemplate) // Adds template's controller
     })
@@ -77,25 +78,26 @@ const moduleRouter = (() => {
     * @private
     */
   function _getPageTemplate(activeTemplate, activePage, activeUrl) {
-      wrapTemplate.innerHTML = 'loading...';
-      fetch(activeTemplate, { method: 'GET' }).then(response => {
-        if(response.status !== 404) {
-          return response.text(); // turn HTML response into a string
-        } else {
-          throw new Error('No template for this page - 404')
-        }
-      }) 
-      .then(content => {
-        //This is where we update the address bar with the 'activeUrl' parameter
-        window.history.pushState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl)
-        document.title = activePage; // Defines tab title
-        wrapTemplate.innerHTML = content; // Fills the wrap with template
-        return _getPageController(activeTemplate) // Adds template's controller
-      })
-      .catch(error => {
-        _getErrorPageTemplate(); // no template => 404 page
-        console.error('error: ', error);
-      })
+    wrapTemplate.innerHTML = 'loading...';
+    fetch(activeTemplate, { method: 'GET' }).then(response => {
+      if(response.status !== 404) {
+        return response.text(); // turn HTML response into a string
+      } else {
+        throw new Error('No template for this page - 404')
+      }
+    }) 
+    .then(content => {
+      //This is where we update the address bar with the 'activeUrl' parameter
+      window.history.pushState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl)
+      document.title = activePage; // Defines tab title
+      _setPageAsActive(activePage); // Set as active
+      wrapTemplate.innerHTML = content; // Fills the wrap with template
+      return _getPageController(activeTemplate) // Adds template's controller
+    })
+    .catch(error => {
+      _getErrorPageTemplate(); // no template => 404 page
+      console.error('error: ', error);
+    })
   }
 
   /**
@@ -113,6 +115,19 @@ const moduleRouter = (() => {
       // Are we refreshing an existing page? otherwise we go back to the page before hashchange
       (history.state) ? _getCurrentPageTemplate() : history.back();
     }
+  }
+
+  /**
+    * 
+    * @private
+    */
+   function _setPageAsActive(activePage) {
+    Array.from(document.getElementsByClassName('c-nav__link')).forEach((link) => {
+      link.classList.remove('u-active')
+      link.blur();
+
+      if(link.dataset.name === activePage.replace(/\s/g, '').toLowerCase()) link.classList.add('u-active');
+    });
   }
 
   /**
@@ -194,8 +209,20 @@ const moduleRouter = (() => {
       }
     })
     .then(content => {
-      wrapTemplate.innerHTML = content;  // page is filled with new template
-      return _getPageController(location.hash.replace('#page=','/pages/')) // we get the controller for the page accessed
+      for (let page of pages) {
+        if (location.hash.replace('#page=','/pages/') === page.templatePath) {
+          const activeTemplate = page.templatePath;
+          const activePage = page.name;
+          const activeUrl = page.href;
+          //This is where we update the address bar with the 'activeUrl' parameter
+          history.replaceState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl);
+          document.title = activePage; // Defines tab title
+          _setPageAsActive(activePage); // Set as active
+          wrapTemplate.innerHTML = content; // Fills the wrap with template
+
+          return _getPageController(activeTemplate) // we get the controller for the page accessed
+        }
+      }
     })
     .catch(error => {
       _getErrorPageTemplate(); // no template => 404 page
