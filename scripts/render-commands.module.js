@@ -42,7 +42,7 @@ const moduleCommands = (() => {
     * @param {String} activeFont The localstorage item value for font
     * @private
     */
-   function _settingsGetter(activeTheme, activeFont) {
+  function _settingsGetter(activeTheme, activeFont) {
     if (!activeTheme) {
       localStorage.setItem('theme', 'light')
     } else {
@@ -92,7 +92,7 @@ const moduleCommands = (() => {
    * - if no => set the localStorage to light and remove dark theme class from body
    * @private
    */
-   function _changeTheme() {
+  function _changeTheme() {
     if (localStorage.getItem('theme') === 'light') {
       localStorage.setItem('theme', 'dark');
       wrapBody.classList.add('t-dark');
@@ -109,7 +109,7 @@ const moduleCommands = (() => {
    * - if bigger => set the localStorage to normal and remove bigger theme class from body
    * @private
    */
-   function _changeFontSize() {
+  function _changeFontSize() {
     switch(localStorage.getItem('font')) {
       case 'normal':
         localStorage.setItem('font', 'big');

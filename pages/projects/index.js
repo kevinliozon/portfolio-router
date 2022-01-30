@@ -27,10 +27,11 @@ new Promise((resolve, reject) => {
         <div class="c-cell__info">\
           <header class="c-cell__header">\
             <h3 class="c-cell__title">\
-              <a class="js-link--content c-cell__link"\
+              <a class="js-link c-cell__link"\
               href="'+project.href+'"\
               aria-label="'+project.label+'"\
               data-template="'+project.templatePath+'"\
+              data-name="'+project.name+'"\
               target="_top">'+project.name+'</a>\
             </h3>\
             <aside class="c-cell__type"><img src="/assets/icons/'+project.type+'.svg" alt="Case study about '+project.type+'" class="c-cell__icn"></aside>\
@@ -50,7 +51,7 @@ new Promise((resolve, reject) => {
   }
 }, err => console.error('error:', err))
 .finally(() => {
-  moduleRouter.linksListener('js-link--content');
+  moduleRouter.linksListener('js-link');
 })
 
 //moduleViewRenderer.getViewTemplate('/projects/project1', document.getElementById('project1'));

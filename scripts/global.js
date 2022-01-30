@@ -142,8 +142,8 @@ const brands = [{
 /*** HOME - PROJECTS GRID ***/
 const projectsHome = [{
   id: 'ph1',
-  name: 'Need to optimise your design process?',
-  label: 'About Defining a design process',
+  name: 'Fuse: Design process',
+  label: 'Need to optimise your design process?',
   themes: ['Process', 'consistency'],
   desc: 'See how together with our product managers at Fuse we managed to nail a process that works and defines accountability for everyone.',
   img: '/assets/img/placeholder.jpg',
@@ -153,7 +153,7 @@ const projectsHome = [{
 }, {
   id: 'ph2',
   name: 'Want to upskill your pool of design talents?',
-  label: 'Getting the best from your people',
+  label: 'Want to upskill your pool of design talents?',
   themes: ['Design systems', 'consistency'],
   desc: 'We can work together towards making sure your designers stay involved and are motivated to upskills, even through periods of change.',
   img: '/assets/img/placeholder.jpg',
@@ -163,7 +163,7 @@ const projectsHome = [{
 }, {
   id: 'ph3',
   name: 'Aim to design a consistent, accessible and scalable product?',
-  label: 'Building a bullet proof design system',
+  label: 'Aim to design a consistent, accessible and scalable product?',
   themes: ['Design systems', 'consistency'],
   desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
   img: '/assets/img/placeholder.jpg',
@@ -173,7 +173,7 @@ const projectsHome = [{
 }, {
   id: 'ph4',
   name: 'Not sure what tools can help your user research?',
-  label: 'Building a bullet proof design system',
+  label: 'Not sure what tools can help your user research?',
   themes: ['Design systems', 'consistency'],
   desc: 'Basing your research on user interviews is ideal but you could make the most of these insights for your future projects.',
   img: '/assets/img/placeholder.jpg',
@@ -218,8 +218,8 @@ const projectsCarousel = [{
 /*** PROJECTS GRID ***/
 const projects = [{
   id: 'p1',
-  name: 'Project 1',
-  label: 'Show all projects',
+  name: 'Fuse: Design process',
+  label: 'Design process at Fuse',
   type: 'management',
   filters: 'is-content is-manage is-featured',
   themes: ['Design systems', 'consistency'],
@@ -227,8 +227,8 @@ const projects = [{
   beneficiary: 'Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse',
+  href: '#page=projects/fuse-process',
+  templatePath: '/pages/projects/fuse-process',
   isVisible: true
 }, {
   id: 'p2',

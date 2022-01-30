@@ -34,7 +34,8 @@
             href="'+project.href+'"\
             aria-label="'+project.label+'"\
             data-template="'+project.templatePath+'"\
-            target="_top">'+project.name+'</a>\
+            data-name="'+project.name+'"\
+            target="_top">'+project.label+'</a>\
           </h3>\
         </header>\
         <footer class="c-cell__footer">\
@@ -61,7 +62,8 @@
             href="'+project.href+'"\
             aria-label="'+project.label+'"\
             data-template="'+project.templatePath+'"\
-            target="_top">'+project.name+'</a>\
+            data-name="'+project.name+'"\
+            target="_top">'+project.label+'</a>\
           </h3>\
         </header>\
         <footer class="c-slide__footer">\

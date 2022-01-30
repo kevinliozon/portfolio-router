@@ -27,6 +27,7 @@
         href="'+project.href+'"\
         aria-label="'+project.label+'"\
         data-template="'+project.templatePath+'"\
+        data-name="'+project.name+'"\
         target="_top">'+project.name+'</a>\
       </li>';
     }

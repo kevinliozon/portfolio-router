@@ -14,7 +14,7 @@ const moduleNav = (() => {
           href="'+page.href+'"\
           aria-label="'+page.label+'"\
           data-template="'+page.templatePath+'"\
-          data-name="'+page.name.replace(/\s/g, '').toLowerCase()+'"\
+          data-name="'+page.name+'"\
           target="_top">'+page.name+'</a>';
         } else {
           wrapFooterNav.innerHTML += '<a\
@@ -22,7 +22,7 @@ const moduleNav = (() => {
           href="'+page.href+'"\
           aria-label="'+page.label+'"\
           data-template="'+page.templatePath+'"\
-          data-name="'+page.name.replace(/\s/g, '').toLowerCase()+'"\
+          data-name="'+page.name+'"\
           target="_top">'+page.name+'</a>';
         }
       }
@@ -42,7 +42,7 @@ const moduleNav = (() => {
         href="'+externalPage.href+'"\
         aria-label="'+externalPage.label+'"\
         data-template="'+externalPage.templatePath+'"\
-        data-name="'+externalPage.name.replace(/\s/g, '').toLowerCase()+'"\
+        data-name="'+externalPage.name+'"\
         target="_blank">\
         '+externalPage.name+'\
         </a>';

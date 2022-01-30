@@ -30,48 +30,40 @@ const moduleRouter = (() => {
 
   /**
     * Populate the wrapTemplate element with the HTML template for 404 errors
+    * 
     * @private
     */
   function _getErrorPageTemplate() {
   wrapTemplate.innerHTML = 'loading...';
   const activeTemplate = '/pages/404';
-  const activePage = 'Page not found';
-  const activeUrl = location.origin + '#page=404';
-  fetch(activeTemplate, { method: 'GET' })
-      .then(response => {return response.text()})// turn HTML response into a string
-      .then(content => {
-          //This is where we update the address bar with the 'activeUrl' parameter
-          window.history.replaceState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl)
-          document.title = activePage; // Defines tab title
-          wrapTemplate.innerHTML = content; // Fills the wrap with template
-          return _getPageController(activeTemplate) // Adds template's controller
-      })
-      .catch(error => console.error('error:', error))
-  }
 
-  /**
-    * Populate the wrapTemplate element with the current page's HTML template
-    * @private
-    */
-  function _getCurrentPageTemplate() {
-    wrapTemplate.innerHTML = 'loading...';
-    const activeTemplate = history.state.template;
-    const activePage = history.state.page;
-    const activeUrl = history.state.url;
-    fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text()}) // turn HTML response into a string
+  fetch(activeTemplate, { method: 'GET' })
+    .then(response => {return response.text()})// turn HTML response into a string
     .then(content => {
-      //This is where we update the address bar with the 'activeUrl' parameter
-      history.replaceState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl);
-      document.title = activePage; // Defines tab title
-      _setPageAsActive(activePage); // Set as active
-      wrapTemplate.innerHTML = content; // Fills the wrap with template
-      return _getPageController(activeTemplate) // Adds template's controller
+      _buildPage(activeTemplate, 'Not found', location.origin + '#page=404', content, 'replace');
     })
     .catch(error => console.error('error:', error))
   }
 
   /**
-    * Populate the wrapTemplate element with the targeted HTML template
+    * Build the page with current page's HTML template
+    * 
+    * @private
+    */
+  function _getCurrentPageTemplate() {
+    wrapTemplate.innerHTML = 'loading...';
+    const activeTemplate = history.state.template;
+
+    fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text()}) // turn HTML response into a string
+    .then(content => {
+      _buildPage(activeTemplate, history.state.page, history.state.url, content, 'replace');
+    })
+    .catch(error => console.error('error:', error))
+  }
+
+  /**
+    * Build the page with targeted HTML template
+    * 
     * @param {String} activeTemplate The relative path to the template
     * @param {String} activePage Name of the page
     * @param {String} activeUrl The relative url
@@ -87,12 +79,7 @@ const moduleRouter = (() => {
       }
     }) 
     .then(content => {
-      //This is where we update the address bar with the 'activeUrl' parameter
-      window.history.pushState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl)
-      document.title = activePage; // Defines tab title
-      _setPageAsActive(activePage); // Set as active
-      wrapTemplate.innerHTML = content; // Fills the wrap with template
-      return _getPageController(activeTemplate) // Adds template's controller
+      _buildPage(activeTemplate, activePage, activeUrl, content, 'push');
     })
     .catch(error => {
       _getErrorPageTemplate(); // no template => 404 page
@@ -105,6 +92,7 @@ const moduleRouter = (() => {
     * Or refresh: calls current page's template
     * Serves also as fallback if history state is compromised or innexistant: we are redirected to Home page
     * This is mostly an exception error handler in the above case.
+    * 
     * @private
     */
   function _callTemplate() {
@@ -118,15 +106,21 @@ const moduleRouter = (() => {
   }
 
   /**
+    * @param {String} activePage The name of the active page
     * 
     * @private
     */
-   function _setPageAsActive(activePage) {
-    Array.from(document.getElementsByClassName('c-nav__link')).forEach((link) => {
-      link.classList.remove('u-active')
-      link.blur();
+  function _setPageAsActive(activePage) {
+    Array.from(document.getElementsByClassName('js-link--nav')).forEach((link) => {
+      link.classList.remove('u-active'); // removes any active state
+      link.blur(); // removes any focus
 
-      if(link.dataset.name === activePage.replace(/\s/g, '').toLowerCase()) link.classList.add('u-active');
+      if (location.hash.indexOf('projects') > -1 && link.dataset.name.replace(/\s/g, '').toLowerCase() === 'projects') {
+        link.classList.add('u-active'); // If we are on any project page it highlights the 'projects' menu item
+      } else if (link.dataset.name.replace(/\s/g, '').toLowerCase() === activePage.replace(/\s/g, '').toLowerCase()) {
+        link.classList.add('u-active'); // converts page's name to lowercase without spaces then adds active state to the relevant nav item
+      };
+      
     });
   }
 
@@ -134,6 +128,7 @@ const moduleRouter = (() => {
     * Is called on load
     * Set up the event listeners for the navigation and the generation of templates
     * within the single page wrap.
+    * 
     * @param {String} linkClass The class of the links we want to listen to
     * @private
     */
@@ -146,7 +141,7 @@ const moduleRouter = (() => {
         if(history.state !== null && history.state.template !== null && this.dataset !== undefined && this.dataset.template === history.state.template) {
           return;
         } else {
-          _getPageTemplate(this.dataset.template, link.text, this.href);
+          _getPageTemplate(this.dataset.template, this.dataset.name, this.href);
         }
         //This prevents the browser from actually following the default link
         e.stopPropagation();
@@ -158,6 +153,7 @@ const moduleRouter = (() => {
   /**
     * Is called on load
     * Set up the event listeners for the side nav and scroll to the relevant content
+    * 
     * @param {String} linkClass The class of the links we want to listen to
     * @private
     */
@@ -194,8 +190,9 @@ const moduleRouter = (() => {
   /**
     * Is called on hashchange or popstate event (back/forward)
     * Check if the page we try to access exists
-    * If yes calls its template and controller
-    * If no calls its template and controller
+    * If yes creates the page
+    * If no calls error page
+    * 
     * @private
     */
   function _navStateOrHashChange() {
@@ -209,18 +206,21 @@ const moduleRouter = (() => {
       }
     })
     .then(content => {
-      for (let page of pages) {
-        if (location.hash.replace('#page=','/pages/') === page.templatePath) {
-          const activeTemplate = page.templatePath;
-          const activePage = page.name;
-          const activeUrl = page.href;
-          //This is where we update the address bar with the 'activeUrl' parameter
-          history.replaceState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl);
-          document.title = activePage; // Defines tab title
-          _setPageAsActive(activePage); // Set as active
-          wrapTemplate.innerHTML = content; // Fills the wrap with template
+      const newPageTemplateLocation = location.hash.replace('#page=','/pages/');
 
-          return _getPageController(activeTemplate) // we get the controller for the page accessed
+      for (let page of pages) {
+        const pageTemplateToMatch = page.templatePath;
+        
+        if (newPageTemplateLocation === pageTemplateToMatch) {
+          _buildPage(pageTemplateToMatch, page.name, page.href, content, 'replace');
+        }
+      }
+      
+      for (let project of projects) {
+        const projectTemplateToMatch = project.templatePath;
+        
+        if (newPageTemplateLocation === projectTemplateToMatch) {
+          _buildPage(projectTemplateToMatch, project.name, project.href, content, 'replace');
         }
       }
     })
@@ -228,6 +228,34 @@ const moduleRouter = (() => {
       _getErrorPageTemplate(); // no template => 404 page
       console.error('error: ', error)
     })
+  }
+
+  /**
+    * Updates history
+    * Populate the wrapTemplate element with the targeted HTML template
+    * 
+    * @param {String} activeTemplate The relative path to the template
+    * @param {String} activePage Name of the page
+    * @param {String} activeUrl The relative url
+    * @param {Object} slideToDisplay the content of the page to populate the wrap
+    * @param {String} historyState either push or replace
+    * @private
+    */
+  function _buildPage(activeTemplate, activePage, activeUrl, content, historyState) {
+    //This is where we update the address bar with the 'activeUrl' parameter
+    switch (historyState) {
+      case 'push':
+        window.history.pushState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl); break;
+      case 'replace':
+        window.history.replaceState({template: activeTemplate, page: activePage, url: activeUrl}, activePage, activeUrl); break;
+      default:
+        console.error('Error: Push or Replace state not defined for history'); break;
+    }
+
+    document.title = activePage; // Defines tab title
+    wrapTemplate.innerHTML = content; // Fills the wrap with template
+    _setPageAsActive(activePage); // Set page's link as active
+    _getPageController(activeTemplate) // Adds template's controller
   }
 
   /*** @public ***/
