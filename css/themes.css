@@ -95,7 +95,8 @@ button {
 
 .c-badge,
 .c-quote,
-.c-slider__btn {
+.c-slider__btn,
+.c-load__btn {
   color: #063C72;
 }
 

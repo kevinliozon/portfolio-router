@@ -34,15 +34,15 @@ const moduleRouter = (() => {
     * @private
     */
   function _getErrorPageTemplate() {
-  wrapTemplate.innerHTML = 'loading...';
-  const activeTemplate = '/pages/404';
+    _loadPage(true);
+    const activeTemplate = '/pages/404';
 
-  fetch(activeTemplate, { method: 'GET' })
-    .then(response => {return response.text()})// turn HTML response into a string
-    .then(content => {
-      _buildPage(activeTemplate, 'Not found', location.origin + '#page=404', content, 'replace');
-    })
-    .catch(error => console.error('error:', error))
+    fetch(activeTemplate, { method: 'GET' })
+      .then(response => {return response.text()})// turn HTML response into a string
+      .then(content => {
+        _buildPage(activeTemplate, 'Not found', location.origin + '#page=404', content, 'replace');
+      })
+      .catch(error => console.error('error:', error))
   }
 
   /**
@@ -51,7 +51,7 @@ const moduleRouter = (() => {
     * @private
     */
   function _getCurrentPageTemplate() {
-    wrapTemplate.innerHTML = 'loading...';
+    _loadPage(true);
     const activeTemplate = history.state.template;
 
     fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text()}) // turn HTML response into a string
@@ -70,7 +70,7 @@ const moduleRouter = (() => {
     * @private
     */
   function _getPageTemplate(activeTemplate, activePage, activeUrl) {
-    wrapTemplate.innerHTML = 'loading...';
+    _loadPage(true);
     fetch(activeTemplate, { method: 'GET' }).then(response => {
       if(response.status !== 404) {
         return response.text(); // turn HTML response into a string
@@ -120,7 +120,6 @@ const moduleRouter = (() => {
       } else if (link.dataset.name.replace(/\s/g, '').toLowerCase() === activePage.replace(/\s/g, '').toLowerCase()) {
         link.classList.add('u-active'); // converts page's name to lowercase without spaces then adds active state to the relevant nav item
       };
-      
     });
   }
 
@@ -196,7 +195,7 @@ const moduleRouter = (() => {
     * @private
     */
   function _navStateOrHashChange() {
-    wrapTemplate.innerHTML = 'loading...';
+    _loadPage(true);
     // we check if the new url has got a corresponding template
     fetch(location.href.replace('#page=','pages/'), { method: 'GET' }).then(response => {
       if(response.status !== 404) {
@@ -252,10 +251,77 @@ const moduleRouter = (() => {
         console.error('Error: Push or Replace state not defined for history'); break;
     }
 
+    _loadPage(false);
     document.title = activePage; // Defines tab title
     wrapTemplate.innerHTML = content; // Fills the wrap with template
     _setPageAsActive(activePage); // Set page's link as active
     _getPageController(activeTemplate) // Adds template's controller
+  }
+
+  /**
+    * Fade in effect when changing or loading page
+    * 
+    * @private
+    */
+  function _contentTransitionAnimation() {
+    let opacity = 0;
+    let intervalID = setInterval(function() {
+      if (opacity < 1) {
+        opacity = opacity + 0.1;
+        wrapTemplate.style.opacity = opacity;
+      } else {
+        clearInterval(intervalID);
+      }
+    }, 25);
+  }
+
+  /**
+    * The load page replace the main container content
+    * 
+    * @param {Boolean} isLoading The loading state
+    * @private
+    */
+  function _loadPage(isLoading) {
+    if (isLoading) {
+      _contentTransitionAnimation();
+      wrapTemplate.innerHTML = '<div class="l-load">\
+        <div class="c-load">\
+          <header class="c-load__header">\
+            <h1 class="c-load__title">Loading</h1>\
+            <svg class="c-load__spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\
+              <path d="M478.71 364.58zm-22 6.11l-27.83-15.9a15.92 15.92 0 0 1-6.94-19.2A184 184 0 1 1 256 72c5.89 0 11.71.29 17.46.83-.74-.07-1.48-.15-2.23-.21-8.49-.69-15.23-7.31-15.23-15.83v-32a16 16 0 0 1 15.34-16C266.24 8.46 261.18 8 256 8 119 8 8 119 8 256s111 248 248 248c98 0 182.42-56.95 222.71-139.42-4.13 7.86-14.23 10.55-22 6.11z" class="c-btn__ico--alt"/>\
+              <path d="M271.23 72.62c-8.49-.69-15.23-7.31-15.23-15.83V24.73c0-9.11 7.67-16.78 16.77-16.17C401.92 17.18 504 124.67 504 256a246 246 0 0 1-25 108.24c-4 8.17-14.37 11-22.26 6.45l-27.84-15.9c-7.41-4.23-9.83-13.35-6.2-21.07A182.53 182.53 0 0 0 440 256c0-96.49-74.27-175.63-168.77-183.38z" class="c-btn__ico"/>\
+            </svg>\
+          </header>\
+          <ul class="c-list c-list--links">\
+            <li class="c-list__i">\
+              <a class="c-link js-link"\
+              href="'+pages[0].href+'"\
+              aria-label="'+pages[0].label+'"\
+              data-template="'+pages[0].templatePath+'"\
+              data-name="'+pages[0].name+'"\
+              target="_top">Return to home page</a>\
+            </li>\
+            <li class="c-list__i">\
+              <a class="c-link js-link"\
+              href="'+pages[3].href+'"\
+              aria-label="'+pages[3].label+'"\
+              data-template="'+pages[3].templatePath+'"\
+              data-name="'+pages[3].name+'"\
+              target="_top">Contact me</a>\
+            </li>\
+            <li class="c-list__i">\
+              <button id="loadBack" class="js-btn c-btn c-load__btn" data-command="back">\
+                Go to previous page\
+              </button>\
+            </li>\
+          </ul>\
+        </div>\
+      </div>';
+      document.getElementById('loadBack').addEventListener('click', e => history.back());
+    } else if (!isLoading) {
+      _contentTransitionAnimation();
+    }
   }
 
   /*** @public ***/

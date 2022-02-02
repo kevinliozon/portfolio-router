@@ -277,7 +277,7 @@ html {
 
 .c-cell__link::after,
 .c-slide__link::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -435,6 +435,11 @@ html {
 
 /*** BUTTONS ***/
 
+.c-btn
+.c-btn.c-load__btn {
+  padding: 0px;
+}
+
 .c-btn--block {
   margin-left: 2rem;
   max-width: 15rem;
@@ -442,7 +447,7 @@ html {
 }
 
 .c-btn--link {
-  padding: 0.1rem 0;
+  padding: 0.1rem 0px;
 }
 
 .c-btn--top,
@@ -499,12 +504,14 @@ html {
   padding-left: 3rem;
 }
 
+/* list link */
 .c-list--links .c-list__i:before {
-  content: '\25A3'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+  content: '\25A3'; /* target square https://www.w3schools.com/charsets/ref_utf_geometric.asp */
 }
 
+/* list link hovered */
 .c-list--links .c-list__i:hover:before {
-  content: '\25C8'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+  content: '\25C8'; /* target losange https://www.w3schools.com/charsets/ref_utf_geometric.asp */
   margin-right: 0.5rem;
 }
 
@@ -523,6 +530,39 @@ html {
 .c-list--sub .c-list__i:hover:before {
   content: '\25FC';
 }
+
+/*** LOADER ***/
+
+.l-load {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.c-load__header {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.c-load__title {
+  margin-right: 1.5rem;
+  width: auto;
+}
+
+.c-load__spin {
+  animation: spin 0.6s linear infinite;
+  width: 4rem;
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg)}
+  to {transform:rotate(360deg)}
+}
+
+
+
 
 
 .c-side {
