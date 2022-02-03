@@ -25,6 +25,19 @@ html {
   box-sizing: inherit;
 }
 
+
+
+/*** LAYOUTS ***/
+
+/* FLoating */
+.l-float {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 /* components */
 
 .c-title {
@@ -531,24 +544,23 @@ html {
   content: '\25FC';
 }
 
-/*** LOADER ***/
+/*** LOADER and ERROR ***/
 
-.l-load {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.c-load__header,
+.c-error__header {
   justify-content: center;
-  min-height: 100vh;
-}
-
-.c-load__header {
   display: flex;
   margin-bottom: 1.5rem;
 }
 
-.c-load__title {
+.c-load__title,
+.c-error__title {
   margin-right: 1.5rem;
   width: auto;
+}
+
+.c-error__header {
+  flex-direction: column;
 }
 
 .c-load__spin {

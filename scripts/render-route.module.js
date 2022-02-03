@@ -38,9 +38,15 @@ const moduleRouter = (() => {
     const activeTemplate = '/pages/404';
 
     fetch(activeTemplate, { method: 'GET' })
-      .then(response => {return response.text()})// turn HTML response into a string
+      .then(response => {
+        return response.text() // turn HTML response into a string
+      })
       .then(content => {
         _buildPage(activeTemplate, 'Not found', location.origin + '#page=404', content, 'replace');
+        return document.getElementById('errorComponent');
+      })
+      .then(el => {
+        el.appendChild(fallbackLinksComponent);
       })
       .catch(error => console.error('error:', error))
   }
@@ -53,12 +59,19 @@ const moduleRouter = (() => {
   function _getCurrentPageTemplate() {
     _loadPage(true);
     const activeTemplate = history.state.template;
-
-    fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text()}) // turn HTML response into a string
+    // turn HTML response into a string
+    fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text() })
     .then(content => {
-      _buildPage(activeTemplate, history.state.page, history.state.url, content, 'replace');
+      if (activeTemplate !== '/pages/404'){
+        _buildPage(activeTemplate, history.state.page, history.state.url, content, 'replace');
+      } else {
+        _getErrorPageTemplate(); // Page we refresh is 404
+      }
     })
-    .catch(error => console.error('error:', error))
+    .catch(error => {
+      _getErrorPageTemplate(); // no template => 404 page
+      console.error('error:', error);
+    })
   }
 
   /**
@@ -207,20 +220,24 @@ const moduleRouter = (() => {
     .then(content => {
       const newPageTemplateLocation = location.hash.replace('#page=','/pages/');
 
-      for (let page of pages) {
-        const pageTemplateToMatch = page.templatePath;
-        
-        if (newPageTemplateLocation === pageTemplateToMatch) {
-          _buildPage(pageTemplateToMatch, page.name, page.href, content, 'replace');
+      if (newPageTemplateLocation !== '/pages/404'){
+        for (let page of pages) {
+          const pageTemplateToMatch = page.templatePath;
+          
+          if (newPageTemplateLocation === pageTemplateToMatch) {
+            _buildPage(pageTemplateToMatch, page.name, page.href, content, 'replace');
+          }
         }
-      }
-      
-      for (let project of projects) {
-        const projectTemplateToMatch = project.templatePath;
         
-        if (newPageTemplateLocation === projectTemplateToMatch) {
-          _buildPage(projectTemplateToMatch, project.name, project.href, content, 'replace');
+        for (let project of projects) {
+          const projectTemplateToMatch = project.templatePath;
+          
+          if (newPageTemplateLocation === projectTemplateToMatch) {
+            _buildPage(projectTemplateToMatch, project.name, project.href, content, 'replace');
+          }
         }
+      } else {
+        _getErrorPageTemplate(); // next/previous page was 404
       }
     })
     .catch(error => {
@@ -284,8 +301,9 @@ const moduleRouter = (() => {
   function _loadPage(isLoading) {
     if (isLoading) {
       _contentTransitionAnimation();
-      wrapTemplate.innerHTML = '<div class="l-load">\
-        <div class="c-load">\
+      wrapTemplate.innerHTML = '\
+      <div class="l-float">\
+        <div id="loadComponent" class="c-load">\
           <header class="c-load__header">\
             <h1 class="c-load__title">Loading</h1>\
             <svg class="c-load__spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\
@@ -293,31 +311,9 @@ const moduleRouter = (() => {
               <path d="M271.23 72.62c-8.49-.69-15.23-7.31-15.23-15.83V24.73c0-9.11 7.67-16.78 16.77-16.17C401.92 17.18 504 124.67 504 256a246 246 0 0 1-25 108.24c-4 8.17-14.37 11-22.26 6.45l-27.84-15.9c-7.41-4.23-9.83-13.35-6.2-21.07A182.53 182.53 0 0 0 440 256c0-96.49-74.27-175.63-168.77-183.38z" class="c-btn__ico"/>\
             </svg>\
           </header>\
-          <ul class="c-list c-list--links">\
-            <li class="c-list__i">\
-              <a class="c-link js-link"\
-              href="'+pages[0].href+'"\
-              aria-label="'+pages[0].label+'"\
-              data-template="'+pages[0].templatePath+'"\
-              data-name="'+pages[0].name+'"\
-              target="_top">Return to home page</a>\
-            </li>\
-            <li class="c-list__i">\
-              <a class="c-link js-link"\
-              href="'+pages[3].href+'"\
-              aria-label="'+pages[3].label+'"\
-              data-template="'+pages[3].templatePath+'"\
-              data-name="'+pages[3].name+'"\
-              target="_top">Contact me</a>\
-            </li>\
-            <li class="c-list__i">\
-              <button id="loadBack" class="js-btn c-btn c-load__btn" data-command="back">\
-                Go to previous page\
-              </button>\
-            </li>\
-          </ul>\
         </div>\
       </div>';
+      document.getElementById('loadComponent').appendChild(fallbackLinksComponent);
       document.getElementById('loadBack').addEventListener('click', e => history.back());
     } else if (!isLoading) {
       _contentTransitionAnimation();
