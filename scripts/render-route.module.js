@@ -35,14 +35,14 @@ const moduleRouter = (() => {
     */
   function _getErrorPageTemplate() {
     _loadPage(true);
-    const activeTemplate = '/pages/404';
+    const activeTemplate = '/pages/error';
 
     fetch(activeTemplate, { method: 'GET' })
       .then(response => {
         return response.text() // turn HTML response into a string
       })
       .then(content => {
-        _buildPage(activeTemplate, 'Not found', location.origin + '#page=404', content, 'replace');
+        _buildPage(activeTemplate, 'Not found', location.origin + '#page=error', content, 'replace');
         return document.getElementById('errorComponent');
       })
       .then(el => {
@@ -62,7 +62,7 @@ const moduleRouter = (() => {
     // turn HTML response into a string
     fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text() })
     .then(content => {
-      if (activeTemplate !== '/pages/404'){
+      if (activeTemplate !== '/pages/error'){
         _buildPage(activeTemplate, history.state.page, history.state.url, content, 'replace');
       } else {
         _getErrorPageTemplate(); // Page we refresh is 404
@@ -220,7 +220,7 @@ const moduleRouter = (() => {
     .then(content => {
       const newPageTemplateLocation = location.hash.replace('#page=','/pages/');
 
-      if (newPageTemplateLocation !== '/pages/404'){
+      if (newPageTemplateLocation !== '/pages/error'){
         for (let page of pages) {
           const pageTemplateToMatch = page.templatePath;
           
