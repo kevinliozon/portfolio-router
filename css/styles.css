@@ -546,6 +546,11 @@ html {
 
 /*** LOADER and ERROR ***/
 
+.c-load,
+.c-error {
+  padding: 1.5rem;
+}
+
 .c-load__header,
 .c-error__header {
   justify-content: center;
