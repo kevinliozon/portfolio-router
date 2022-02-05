@@ -35,8 +35,8 @@ const pages = [{
   isMain: false,
   isVisible: true
 }, {
-  name: 'Cookies',
-  label: 'Navigate to this page to learn more about this website\'s cookie policy',
+  name: 'Privacy',
+  label: 'Privacy and cookie policy page',
   get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
   get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
   isMain: false,
