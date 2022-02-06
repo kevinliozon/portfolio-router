@@ -64,6 +64,15 @@ html {
   padding-top: 0;
 }
 
+.l-content.has-side .c-content {
+  flex: 0 0 80%;
+  max-width: 80%; /* For IE */
+}
+
+.l-content.has-side.has-nojumbo .c-content {
+  padding-top: 6rem;
+}
+
 .c-section {
   display: flex;
   flex-wrap: wrap;
@@ -115,11 +124,6 @@ html {
   margin: 0px;
   position: absolute;
   right: 1rem;
-}
-
-.l-content.has-side .c-content {
-  flex: 0 0 80%;
-  max-width: 80%; /* For IE */
 }
 
 .c-section__h,
