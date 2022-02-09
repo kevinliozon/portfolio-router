@@ -67,7 +67,8 @@ button {
 .c-link:hover,
 .c-link:focus,
 .c-btn--link:hover,
-.c-btn--link:focus {
+.c-btn--link:focus,
+.c-list--hash .c-list__i.u-active .c-link {
   border-bottom-width: 0.3rem;
 }
 

@@ -137,6 +137,21 @@ const moduleRouter = (() => {
   }
 
   /**
+    * We clear the previous anchor and make the new one active
+    * @param {Object} activeHash The element of the active anchor
+    * @param {Object} newHash The element of the new active anchor
+    * @returns updated element
+    * 
+    * @private
+    */
+  function _setHashAsActive(activeHash, newHash) {
+    activeHash.classList.remove('u-active'); // removes any active state
+    activeHash = newHash;
+    activeHash.classList.add('u-active');
+    return activeHash;
+  }
+
+  /**
     * Is called on load
     * Set up the event listeners for the navigation and the generation of templates
     * within the single page wrap.
@@ -164,18 +179,45 @@ const moduleRouter = (() => {
 
   /**
     * Is called on load
-    * Set up the event listeners for the side nav and scroll to the relevant content
+    * Set up the event listeners for the anchor nav and scroll to the relevant content
     * 
-    * @param {String} linkClass The class of the links we want to listen to
+    * @param {String} hashClass The class of the anchor we want to listen to
+    * @param {String} elId The id of the element we target
     * @private
     */
-  function _hashListener(linkClass) {
+  function _hashListener(hashClass, elId) {
+    // Active anchor/hash is the first one by default - we refer to the parent node for the styling which is <li>
+    let activeHash = document.getElementsByClassName(hashClass)[1].parentNode; // [0] is skip to content
+    let hashObserver = new IntersectionObserver(entries => {
+      // isIntersecting is true when element and viewport are overlapping
+      if(entries[0].isIntersecting === true)
+        elId = entries[0].target.id; // The element we target is the visible (75%) one 
+        activeHash.classList.remove('u-active'); // reset all anchors
+
+        Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
+          hash.blur(); // removes any focus
+          // If the value of an anchor is same as the value of the element we see
+          if(hash.dataset.hash === elId) {
+            activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
+          }
+        });
+    }, { threshold: [0.75] });
+
     // Array with all navigation links
-    Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
-      // Event listener on each link
-      link.addEventListener('click', function(e) {
+    Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
+      hash.parentNode.classList.remove('u-active'); // removes any active state
+      activeHash.classList.add('u-active'); // reset all anchors
+
+      // we observe elements using this id
+      hashObserver.observe(document.querySelector('#'+hash.dataset.hash));
+
+      // Event listener on each hash
+      hash.addEventListener('click', e => {
+
+        activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
+
         // The element, its position and the offset for scroll
-        const el = document.getElementById(link.dataset.hash);
+        const el = document.getElementById(hash.dataset.hash);
         const elementPosition = el.getBoundingClientRect().top;
         const offsetPosition = elementPosition - 100;
 
@@ -192,7 +234,7 @@ const moduleRouter = (() => {
           });
         }
 
-        //This prevents the browser from actually following the default link
+        //This prevents the browser from actually following the default hash
         e.stopPropagation();
         e.preventDefault();
       }, false)
@@ -326,8 +368,8 @@ const moduleRouter = (() => {
     _linksListener(linkClass);
   }
 
-  function hashListener(linkClass) {
-    _hashListener(linkClass);
+  function hashListener(hashClass, elId) {
+    _hashListener(hashClass, elId);
   }
 
   function callTemplate() {

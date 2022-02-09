@@ -559,6 +559,21 @@ html {
   margin-right: 0.5rem;
 }
 
+/* list anchors */
+.c-list--hash .c-list__i:before {
+  color: #82F4B6;
+  content: '\25C4'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+  text-shadow: -1px -1px 0px #063C72, 1px -1px 0px #063C72, -1px 1px 0px #063C72, 1px 1px 0px #063C72;
+}
+
+/* list anchors hovered */
+.c-list--hash .c-list__i:hover:before,
+.c-list--hash .c-list__i:visited:before,
+.c-list--hash .c-list__i:focus:before,
+.c-list--hash .c-list__i.u-active:before {
+  content: '\25C5'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
+}
+
 .c-list--links .c-link {
   border-bottom: 0;
 }
