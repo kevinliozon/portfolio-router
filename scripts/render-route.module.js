@@ -197,7 +197,7 @@ const moduleRouter = (() => {
         Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
           hash.blur(); // removes any focus
           // If the value of an anchor is same as the value of the element we see
-          if(hash.dataset.hash === elId) {
+          if(hash.dataset.name === elId) {
             activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
           }
         });
@@ -209,7 +209,7 @@ const moduleRouter = (() => {
       activeHash.classList.add('u-active'); // reset all anchors
 
       // we observe elements using this id
-      hashObserver.observe(document.querySelector('#'+hash.dataset.hash));
+      hashObserver.observe(document.querySelector('#'+hash.dataset.name));
 
       // Event listener on each hash
       hash.addEventListener('click', e => {
@@ -217,7 +217,7 @@ const moduleRouter = (() => {
         activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
 
         // The element, its position and the offset for scroll
-        const el = document.getElementById(hash.dataset.hash);
+        const el = document.getElementById(hash.dataset.name);
         const elementPosition = el.getBoundingClientRect().top;
         const offsetPosition = elementPosition - 100;
 
