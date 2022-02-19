@@ -341,6 +341,7 @@ const moduleRouter = (() => {
     * @private
     */
   function _loadPage(isLoading) {
+    window.scrollTo(0, 0); // since it is a single page website we need to reset the position to top of the screen
     if (isLoading) {
       _contentTransitionAnimation();
       wrapTemplate.innerHTML = '\
