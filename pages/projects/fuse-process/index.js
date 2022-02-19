@@ -7,7 +7,7 @@
 
 new Promise((resolve, reject) => {
   if (document.getElementById('sidenav')) {
-    moduleNav.buildNavProject(document.getElementById('sidenav')) // Build the sidenav
+    moduleNav.buildHashList(document.getElementById('sidenav'), projectAnchors) // Build the sidenav
     resolve(); // Detect the links and build their navigation listener
   } else {
     // Will listen to the links across the page in all cases

@@ -51,20 +51,21 @@ const moduleNav = (() => {
   }
 
   /**
-    * Generate the hash nav for project page
+    * Generate a list with anchors for the current page
     * 
     * @param {Object} el The parent element
+    * @param {Array} links The array of links
     * 
     * @private
     */
-  function _buildNavProject(el) {
-    for (let projectFragment of projectFragments) {
+  function _buildHashList(el, anchors) {
+    for (let hash of anchors) {
       el.innerHTML += '\
       <li class="c-list__i">\
         <a class="c-link js-link--hash"\
-        href="'+projectFragment.href+'"\
-        aria-label="'+projectFragment.label+'"\
-        data-name="'+projectFragment.hash+'">'+projectFragment.name+'</a>\
+        href="'+hash.href+'"\
+        aria-label="'+hash.label+'"\
+        data-name="'+hash.target+'">'+hash.name+'</a>\
       </li>';
     }
   }
@@ -99,8 +100,8 @@ const moduleNav = (() => {
     _buildNavAlt();
   }
 
-  function buildNavProject(el) {
-    _buildNavProject(el);
+  function buildHashList(el, anchors) {
+    _buildHashList(el, anchors);
   }
 
   function buildNavList(el, links) {
@@ -110,7 +111,7 @@ const moduleNav = (() => {
   return {
     buildNavMain: buildNavMain,
     buildNavAlt: buildNavAlt,
-    buildNavProject: buildNavProject,
+    buildHashList: buildHashList,
     buildNavList: buildNavList
   };
 })();

@@ -69,31 +69,31 @@ const externalPages = [{
 }];
 
 /*** SIDENAVS FRAGMENTS ***/
-const projectFragments = [{
+const projectAnchors = [{
   name: 'Specifics',
   label: 'Go to specifics',
   href: '#specifics',
-  hash: 'specifics'
+  target: 'specifics'
 }, {
   name: 'Problem',
   label: 'Go to problem',
   href: '#problem',
-  hash: 'problem'
+  target: 'problem'
 }, {
   name: 'Context',
   label: 'Go to context',
   href: '#context',
-  hash: 'context'
+  target: 'context'
 }, {
   name: 'Solution',
   label: 'Go to  solution',
   href: '#solution',
-  hash: 'solution'
+  target: 'solution'
 }, {
   name: 'Outcomes',
   label: 'Go to outcomes',
   href: '#outcomes',
-  hash: 'outcomes'
+  target: 'outcomes'
 }];
 
 /*** BRANDS LIST ***/
