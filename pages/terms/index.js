@@ -1,6 +1,6 @@
 /**
  * CONTROLLER FOR:
- * PRIVACY PAGE
+ * TERMS AND CONDITIONS PAGE
  * 
  * This script will replace the previous page's controller thanks to getPageController method in router module
  */
@@ -13,7 +13,7 @@ new Promise((resolve, reject) => {
       get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
       get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
     },{
-      name: 'Terms',
+      name: 'Privacy',
       label: 'Go to terms and conditions page',
       get href() { return '#page='+this.name.replace(/\s/g, '').toLowerCase() },
       get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
