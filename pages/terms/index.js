@@ -26,7 +26,7 @@ new Promise((resolve, reject) => {
   }
 })
 .then(result => {
-  moduleRouter.hashListener('js-link--hash', 'info-type');
+  moduleRouter.hashListener('js-link--hash', 'info-content');
 }, err => console.error('error:', err))
 .finally(() => {
   moduleRouter.linksListener('js-link');
