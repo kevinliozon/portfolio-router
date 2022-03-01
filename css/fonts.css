@@ -62,6 +62,7 @@ body {
   font-family: 'Roboto Slab', sans-serif;
   font-size: 1.6rem; /* Body font size 18px */
   font-weight: lighter;
+  line-height: 2.2rem;
 }
 
 .c-cell__info {
