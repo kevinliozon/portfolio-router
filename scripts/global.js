@@ -315,3 +315,7 @@ const projects = [{
   templatePath: '/pages/projects/fuse',
   isVisible: true
 }];
+
+/*** NDA URLS LIST ***/
+
+const protectedProjectsUrls = ['#page=projects/fuse','#page=projects/fuse'];

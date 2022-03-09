@@ -27,6 +27,8 @@ window.addEventListener('load', e => {
   moduleNav.buildNavAlt();
   // Building the navigation listener
   moduleRouter.linksListener('js-link--nav');
+  // Checks if user has already succesfuly accessed to password protected pages
+  moduleRouter.getAccessToken(localStorage.getItem('access'));
   // Building the command listener
   moduleCommands.commandsListener('js-btn');
   // Checks if UI settings have been defined

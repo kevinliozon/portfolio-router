@@ -59,28 +59,38 @@
 
 /* Validation */
 
-.c-form__input:invalid {
+.c-form__input:invalid,
+.c-form__input.is-invalid {
   border: 2px solid #F57569;
 }
 
-.c-form__input:invalid + .c-form__valid::before {
+.c-form__invalid {
+  color: #F57569;
+  display: none;
+}
+
+.c-form__input:invalid ~ .c-form__valid::before {
   content: '✖';
   color: #F57569;
 }
 
-.c-form__input:invalid + .c-form__valid.u-nonumber::before {
+.c-form__input:invalid ~ .c-form__valid.u-nonumber::before {
   content: '✖ Only characters | spaces | hyphens';
 }
 
-.c-form__input:invalid + .c-form__valid.u-format::before {
+.c-form__input:invalid ~ .c-form__valid.u-format::before {
   content: '✖ Not standard email format';
 }
 
-.c-form__input:invalid + .c-form__valid.u-minchar::before {
+.c-form__input:invalid ~ .c-form__valid.u-minchar::before {
   content: '✖ 3 characters minimum';
 }
 
-.c-form__input:valid + .c-form__valid::before {
+.c-form__input.is-invalid ~ .c-form__invalid {
+  display: block;
+}
+
+.c-form__input:valid ~ .c-form__valid::before {
   content: '✓';
   color: #69F5A8;
 }

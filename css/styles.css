@@ -602,7 +602,6 @@ html {
 
 .c-load__header,
 .c-error__header {
-  justify-content: center;
   display: flex;
   margin-bottom: 1.5rem;
 }
@@ -611,6 +610,11 @@ html {
 .c-error__title {
   margin-right: 1.5rem;
   width: auto;
+}
+
+.c-load__d {
+  margin-bottom: 1.5rem;
+  max-width: 60rem;
 }
 
 .c-error__header {

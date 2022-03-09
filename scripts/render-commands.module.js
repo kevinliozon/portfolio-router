@@ -7,10 +7,10 @@ const moduleCommands = (() => {
     */
   function _commandsListener(commandClass) {
     // Array with all command buttons
-    Array.from(document.getElementsByClassName(commandClass)).forEach((command) => {
+    Array.from(document.getElementsByClassName(commandClass)).forEach(cmd => {
       // Event listener on each button
-      command.addEventListener('click', function(e) {
-        switch(this.dataset.command) {
+      cmd.addEventListener('click', e => {
+        switch(cmd.dataset.command) {
           case 'back':
             history.back();
             break;
@@ -27,7 +27,7 @@ const moduleCommands = (() => {
             _changeFontSize()
             break;
           default:
-            console.log(`Sorry, we are out of ${this.dataset.command}.`);
+            console.log(`Sorry, we are out of ${cmd.dataset.command}.`);
         }
       }, false)
     })

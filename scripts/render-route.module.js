@@ -38,17 +38,16 @@ const moduleRouter = (() => {
     const activeTemplate = '/pages/error';
 
     fetch(activeTemplate, { method: 'GET' })
-      .then(response => {
-        return response.text() // turn HTML response into a string
-      })
-      .then(content => {
-        _buildPage(activeTemplate, 'Not found', location.origin + '#page=error', content, 'replace');
-        return document.getElementById('errorComponent');
-      })
-      .then(el => {
-        el.appendChild(fallbackLinksComponent);
-      })
-      .catch(error => console.error('error:', error))
+    .then(response => {
+      return response.text(); // turn HTML response into a string
+    })
+    .then(content => {
+      _buildPage(activeTemplate, 'Not found', location.origin + '#page=error', content, 'replace');
+    })
+    .finally(() => {
+      document.getElementById('errorComponent').appendChild(fallbackLinksComponent); // generates the fallback links once the page is created
+    })
+    .catch(error => console.error('error:', error));
   }
 
   /**
@@ -310,11 +309,29 @@ const moduleRouter = (() => {
         console.error('Error: Push or Replace state not defined for history'); break;
     }
 
-    _loadPage(false);
-    document.title = activePage; // Defines tab title
-    wrapTemplate.innerHTML = content; // Fills the wrap with template
-    _setPageAsActive(activePage); // Set page's link as active
-    _getPageController(activeTemplate) // Adds template's controller
+    new Promise((resolve, reject) => {
+      // It is a project page AND we do not have an access token (false or null)
+      if(activeUrl.indexOf('#page=projects') > -1 && localStorage.getItem('access') !== 'true') {
+        // We go throught the list of protected projects urls
+        for (let protectedProjectUrl of protectedProjectsUrls) {
+          // Is the url of the current project among those that are protected : if yes bring the password check component / if not build the page
+          (activeUrl.indexOf(protectedProjectUrl) > -1) ? _requestPassword() : resolve(); // Page is for project but is not protected
+        }
+      } else if (!activeUrl) reject('The url does not exist')
+      else resolve(); // Page is not for project OR we already have an access token
+    })
+    .then(result => {
+        _loadPage(false);
+
+        document.title = activePage; // Defines tab title
+        wrapTemplate.innerHTML = content; // Fills the wrap with template
+        _setPageAsActive(activePage); // Set page's link as active
+        _getPageController(activeTemplate) // Adds template's controller
+    }, err => {
+      console.error('error:', err);
+      return;
+    })
+    .finally(() => moduleRouter.linksListener('js-link--content'))
   }
 
   /**
@@ -335,7 +352,24 @@ const moduleRouter = (() => {
   }
 
   /**
-    * The load page replace the main container content
+    * Is called on load
+    * Checks if no UI settings have been applied from localstorage
+    * - if no active setting => set the default setting
+    * - if active setting => apply the class relevant to the localstorage item
+    * @param {String} accessToken The localstorage item value for access
+    * @private
+    */
+   function _getAccessToken(accessToken) {
+    if (!accessToken || accessToken === 'false') {
+      localStorage.setItem('access', 'false');
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  /**
+    * The load page replaces the main container content
     * 
     * @param {Boolean} isLoading The loading state
     * @private
@@ -356,11 +390,97 @@ const moduleRouter = (() => {
           </header>\
         </div>\
       </div>';
-      document.getElementById('loadComponent').appendChild(fallbackLinksComponent);
-      document.getElementById('loadBack').addEventListener('click', e => history.back());
+
+      _buildFallbackLinks(document.getElementById('loadComponent'));
     } else if (!isLoading) {
       _contentTransitionAnimation();
     }
+  }
+
+  /**
+    * The password page replaces the main container content
+    * 
+    * @private
+    */
+  function _requestPassword() {
+    wrapTemplate.innerHTML = '\
+    <div class="l-float">\
+      <div id="accessComponent" class="c-load">\
+        <header class="c-load__header">\
+          <h1 class="c-load__title">Get access to all projects</h1>\
+        </header>\
+        <p class="c-load__d">\
+          Please <a class="js-link c-link" href="#page=contact" target="_top" data-template="/pages/contact" data-name="Contact" aria-label="Contact page">contact me</a> to get an access token.\
+        </p>\
+        <form class="c-load__form" id="form-access" name="PasswordField" action="">\
+          <div class="c-form__field">\
+            <label class="c-form__label" for="form-password">Password</label>\
+            <input id="form-password" class="c-form__input" type="password" name="password" minlength="1" placeholder="e.g. aBc3?#0O" required>\
+            <span class="c-form__valid"></span>\
+            <p class="c-form__invalid">Password is invalid</p>\
+          </div>\
+          <div class="c-form__field">\
+            <button class="c-btn c-btn--link" type="reset">Clear</button>\
+            <button class="c-btn c-btn--block" type="submit">Log in</button>\
+          </div>\
+        </form>\
+        <p class="c-load__d">\
+          You will not be asked again as long as you do not clear your browsing data or history\
+          (<a class="js-link c-link" href="#page=privacy" target="_top" data-template="/pages/privacy" data-name="Privacy" aria-label="Privacy page">Read more about how to control your privacy settings</a>).\
+        </p>\
+      </div>\
+    </div>';
+
+    _buildFallbackLinks(document.getElementById('accessComponent'));
+
+    // validate form on submit
+    document.getElementById('form-access').addEventListener('submit', e => {
+      const form = e.target;
+      var password = document.getElementById('form-password').value;
+      if (!form.checkValidity()) {
+        // form is invalid - cancel submit
+        e.preventDefault(); // we prevent the default submission
+        e.stopImmediatePropagation();
+        reject('Some fields are invalid');
+      } else if (form.checkValidity() && password !== 'test') {
+        // password is invalid - cancel submit
+        e.preventDefault(); // we prevent the default submission
+        e.stopImmediatePropagation();
+        document.getElementById('form-password').classList.add('is-invalid');
+        reject('Password is invalid');
+      } else if (form.checkValidity() && password === 'test') {
+        localStorage.setItem('access', 'true');
+        //document.getElementById('form-access').submit();
+        resolve();
+      }
+    });
+
+    // Confirmation alert before resetting form
+    document.getElementById('form-access').addEventListener('reset', e => {
+      if (confirm('You are about to reset the whole form. Are you happy to proceed?')) {
+        result.form.reset();
+      } else {
+        e.preventDefault(); // we prevent the default reset
+        e.stopImmediatePropagation();
+      }
+    })
+  }
+
+  /**
+    * Append a fallback list to a component
+    * 
+    * @param {Object} el The element of the component
+    * @private
+    */
+  function _buildFallbackLinks(el) {
+    el.appendChild(fallbackLinksComponent);
+
+    // Back button
+    document.getElementById('loadBack').addEventListener('click', e => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      history.back();
+    });
   }
 
   /*** @public ***/
@@ -384,12 +504,17 @@ const moduleRouter = (() => {
   function getErrorPageTemplate() {
     _getErrorPageTemplate()
   }
+  
+  function getAccessToken(accessToken) {
+    _getAccessToken(accessToken)
+  }
 
   return {
     linksListener: linksListener,
     hashListener: hashListener,
     callTemplate: callTemplate,
     navStateOrHashChange: navStateOrHashChange,
-    getErrorPageTemplate : getErrorPageTemplate
+    getErrorPageTemplate : getErrorPageTemplate,
+    getAccessToken : getAccessToken
   };
 })();
