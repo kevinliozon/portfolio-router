@@ -277,9 +277,7 @@ const moduleRouter = (() => {
             _buildPage(projectTemplateToMatch, project.name, project.href, content, 'replace');
           }
         }
-      } else {
-        _getErrorPageTemplate(); // next/previous page was 404
-      }
+      } else _getErrorPageTemplate(); // next/previous page was 404
     })
     .catch(error => {
       _getErrorPageTemplate(); // no template => 404 page
@@ -311,12 +309,15 @@ const moduleRouter = (() => {
 
     new Promise((resolve, reject) => {
       // It is a project page AND we do not have an access token (false or null)
-      if(activeUrl.indexOf('#page=projects') > -1 && localStorage.getItem('access') !== 'true') {
+      if(activeUrl.indexOf('#page=projects/') > -1 && localStorage.getItem('access') !== 'true') {
         // We go throught the list of protected projects urls
         for (let protectedProjectUrl of protectedProjectsUrls) {
-          // Is the url of the current project among those that are protected : if yes bring the password check component / if not build the page
-          (activeUrl.indexOf(protectedProjectUrl) > -1) ? _requestPassword() : resolve(); // Page is for project but is not protected
+          // Is the url of the current project among those that are protected ? if yes bring the password check component : if not build the page
+          if (location.hash === protectedProjectUrl) {
+            _requestPassword(); return;
+          }
         }
+        resolve(); // Page is for project but is not protected
       } else if (!activeUrl) reject('The url does not exist')
       else resolve(); // Page is not for project OR we already have an access token
     })
@@ -327,10 +328,7 @@ const moduleRouter = (() => {
         wrapTemplate.innerHTML = content; // Fills the wrap with template
         _setPageAsActive(activePage); // Set page's link as active
         _getPageController(activeTemplate) // Adds template's controller
-    }, err => {
-      console.error('error:', err);
-      return;
-    })
+    }, err => { console.error('error:', err); return; })
     .finally(() => moduleRouter.linksListener('js-link--content'))
   }
 
@@ -352,20 +350,19 @@ const moduleRouter = (() => {
   }
 
   /**
-    * Is called on load
-    * Checks if no UI settings have been applied from localstorage
-    * - if no active setting => set the default setting
-    * - if active setting => apply the class relevant to the localstorage item
+    * Checks if no access token setting been applied from localstorage
+    * - if no access or no value to accessToken key => set the access to false and returns false
+    * - if access token has already been granted => returns true
+    * 
     * @param {String} accessToken The localstorage item value for access
+    * @returns {Boolean} Confirms if we have or not been previously granted access
     * @private
     */
    function _getAccessToken(accessToken) {
     if (!accessToken || accessToken === 'false') {
       localStorage.setItem('access', 'false');
       return false;
-    } else {
-      return true;
-    }
+    } else { return true; }
   }
 
   /**
@@ -392,9 +389,7 @@ const moduleRouter = (() => {
       </div>';
 
       _buildFallbackLinks(document.getElementById('loadComponent'));
-    } else if (!isLoading) {
-      _contentTransitionAnimation();
-    }
+    } else if (!isLoading) _contentTransitionAnimation();
   }
 
   /**
@@ -450,7 +445,6 @@ const moduleRouter = (() => {
         reject('Password is invalid');
       } else if (form.checkValidity() && password === 'test') {
         localStorage.setItem('access', 'true');
-        //document.getElementById('form-access').submit();
         resolve();
       }
     });

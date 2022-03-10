@@ -318,4 +318,4 @@ const projects = [{
 
 /*** NDA URLS LIST ***/
 
-const protectedProjectsUrls = ['#page=projects/fuse','#page=projects/fuse'];
+const protectedProjectsUrls = ['#page=projects/fuse-process','#page=projects/fuse'];
