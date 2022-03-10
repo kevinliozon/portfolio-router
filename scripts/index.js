@@ -32,7 +32,7 @@ window.addEventListener('load', e => {
   // Building the command listener
   moduleCommands.commandsListener('js-btn');
   // Checks if UI settings have been defined
-  moduleCommands.settingsGetter(localStorage.getItem('theme'), localStorage.getItem('font'));
+  moduleCommands.getSettings(localStorage.getItem('theme'), localStorage.getItem('font'));
   // Building the listeners for closing modals
   moduleCommands.closeViewModal(wrapModal.container, wrapModal.close);
   // Calls the template relevant to the page we are loading from

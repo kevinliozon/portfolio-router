@@ -42,7 +42,7 @@ const moduleCommands = (() => {
     * @param {String} activeFont The localstorage item value for font
     * @private
     */
-  function _settingsGetter(activeTheme, activeFont) {
+  function _getSettings(activeTheme, activeFont) {
     if (!activeTheme) {
       localStorage.setItem('theme', 'light')
     } else {
@@ -155,8 +155,8 @@ const moduleCommands = (() => {
     _commandsListener(commandClass);
   }
 
-  function settingsGetter(activeTheme, activeFont) {
-    _settingsGetter(activeTheme, activeFont);
+  function getSettings(activeTheme, activeFont) {
+    _getSettings(activeTheme, activeFont);
   }
 
   function closeViewModal(modalContainer, modalClose) {
@@ -165,7 +165,7 @@ const moduleCommands = (() => {
 
   return {
     commandsListener: commandsListener,
-    settingsGetter: settingsGetter,
+    getSettings: getSettings,
     closeViewModal: closeViewModal
   };
 })();
