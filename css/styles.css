@@ -738,7 +738,7 @@ html {
     margin-left: auto;
     order: 0;
     padding: 3rem 0 0;
-    position: relative;
+    position: static;
   }
 
   .c-filters__heading {
