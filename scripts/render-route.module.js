@@ -377,10 +377,10 @@ const moduleRouter = (() => {
       _contentTransitionAnimation();
       wrapTemplate.innerHTML = '\
       <div class="l-float">\
-        <div id="loadComponent" class="c-load">\
-          <header class="c-load__header">\
-            <h1 class="c-load__title">Loading</h1>\
-            <svg class="c-load__spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\
+        <div id="loadComponent" class="c-float">\
+          <header class="c-float__header">\
+            <h1 class="c-float__title">Loading</h1>\
+            <svg class="c-float__spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">\
               <path d="M478.71 364.58zm-22 6.11l-27.83-15.9a15.92 15.92 0 0 1-6.94-19.2A184 184 0 1 1 256 72c5.89 0 11.71.29 17.46.83-.74-.07-1.48-.15-2.23-.21-8.49-.69-15.23-7.31-15.23-15.83v-32a16 16 0 0 1 15.34-16C266.24 8.46 261.18 8 256 8 119 8 8 119 8 256s111 248 248 248c98 0 182.42-56.95 222.71-139.42-4.13 7.86-14.23 10.55-22 6.11z" class="c-btn__ico--alt"/>\
               <path d="M271.23 72.62c-8.49-.69-15.23-7.31-15.23-15.83V24.73c0-9.11 7.67-16.78 16.77-16.17C401.92 17.18 504 124.67 504 256a246 246 0 0 1-25 108.24c-4 8.17-14.37 11-22.26 6.45l-27.84-15.9c-7.41-4.23-9.83-13.35-6.2-21.07A182.53 182.53 0 0 0 440 256c0-96.49-74.27-175.63-168.77-183.38z" class="c-btn__ico"/>\
             </svg>\
@@ -400,14 +400,14 @@ const moduleRouter = (() => {
   function _requestPassword() {
     wrapTemplate.innerHTML = '\
     <div class="l-float">\
-      <div id="accessComponent" class="c-load">\
-        <header class="c-load__header">\
-          <h1 class="c-load__title">Get access to all projects</h1>\
+      <div id="accessComponent" class="c-float">\
+        <header class="c-float__header">\
+          <h1 class="c-float__title">Get access to all projects</h1>\
         </header>\
-        <p class="c-load__d">\
+        <p class="c-float__d">\
           Please <a class="js-link c-link" href="#page=contact" target="_top" data-template="/pages/contact" data-name="Contact" aria-label="Contact page">contact me</a> to get an access token.\
         </p>\
-        <form class="c-load__form" id="form-access" name="PasswordField" action="">\
+        <form class="c-float__form" id="form-access" name="PasswordField" action="">\
           <div class="c-form__field">\
             <label class="c-form__label" for="form-password">Password</label>\
             <input id="form-password" class="c-form__input" type="password" name="password" minlength="1" placeholder="e.g. aBc3?#0O" required>\
@@ -419,7 +419,7 @@ const moduleRouter = (() => {
             <button class="c-btn c-btn--block" type="submit">Log in</button>\
           </div>\
         </form>\
-        <p class="c-load__d">\
+        <p class="c-float__d">\
           You will not be asked again as long as you do not clear your browsing data or history\
           (<a class="js-link c-link" href="#page=privacy" target="_top" data-template="/pages/privacy" data-name="Privacy" aria-label="Privacy page">Read more about how to control your privacy settings</a>).\
         </p>\
