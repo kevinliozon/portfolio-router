@@ -97,7 +97,8 @@ button {
 .c-badge,
 .c-quote,
 .c-slider__btn,
-.c-float__btn {
+.c-float__btn,
+.l-header__ctrl {
   color: #063C72;
 }
 
