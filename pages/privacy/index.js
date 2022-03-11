@@ -30,4 +30,10 @@ new Promise((resolve, reject) => {
 }, err => console.error('error:', err))
 .finally(() => {
   moduleRouter.linksListener('js-link');
+
+  // Clear the localStorage
+  document.getElementById('form-data').addEventListener('submit', e => {
+    e.preventDefault(); // we prevent the default submission
+    if (confirm('Your settings and access tokens will be deleted. Are you happy to proceed?')) localStorage.clear();
+  });
 })

@@ -169,6 +169,10 @@ html {
   z-index: 1;
 }
 
+.l-widget__section .c-btn {
+  margin-left: 3rem;
+}
+
 /*** PROJECTS PAGES ***/
 
 .radio--filter {
@@ -870,8 +874,13 @@ html {
 }
 
 @media only screen and (max-height : 600px) {
-  .l-widget__section:nth-child(n+3) {
-    display: none; /* On screens with small height the sections following the second do not appear to prevent overflow */
+  .l-widget {
+    position: static;
+    width: 100%;
+  }
+
+  .c-side {
+    overflow: scroll;
   }
 }
 
