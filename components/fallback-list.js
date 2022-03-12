@@ -25,7 +25,7 @@ fallbackLinksComponent.innerHTML = '\
   target="_top">Contact me</a>\
 </li>\
 <li class="c-list__i">\
-  <button id="loadBack" class="c-btn c-load__btn">\
+  <button id="loadBack" class="c-btn c-float__btn">\
     Go to previous page\
   </button>\
 </li>';
