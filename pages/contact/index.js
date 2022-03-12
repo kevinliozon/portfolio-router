@@ -10,47 +10,50 @@
  * Final state: Building the navigation listener
  * 
  */
- new Promise((resolve, reject) => {
 
-  let formCtrls = {
-    emailBtn: document.getElementById('btn-email'),
-    emailSubmit: document.getElementById('btn-submit'),
-    emailReset: document.getElementById('btn-reset'),
-    emailInput: document.getElementById('form-email'),
-    form: document.getElementById('form-contact')
-  }
 
-  if (formCtrls) {
-    resolve(formCtrls); // We pass all the elements used for controls
-  } else {
-    // Will listen to the links across the page in all cases
-    reject('Prefill email button element does not exist')
-  }
+const contactForm = document.getElementById('form-contact');
+let emailField = document.getElementById('form-email');
+
+new Promise((resolve, reject) => {
+
+  // The form exists
+  if (contactForm) {
+    resolve(); // We pass all the elements used for controls
+  } else reject('Contact form does not exist');
 })
 .then(result => {
   // When clicking the button to prefill with @gmail.com
-  result.emailBtn.addEventListener('click', e => {
-    result.emailInput.value = result.emailInput.value + '@gmail.com';
+  document.getElementById('btn-email').addEventListener('click', e => {
+    emailField.value = emailField.value + '@gmail.com';
   })
 
-  // Confirmation alert before submitting form
-  result.emailSubmit.addEventListener('click', e => {
-    e.preventDefault(); // we prevent the default submission
-    
-    if (confirm('This email will be sent to me. Are you happy to proceed?')) {
-      result.form.submit();
+  // validate form on submit
+  contactForm.addEventListener('submit', e => {
+    if (!contactForm.checkValidity()) {
+      // form is invalid - cancel submit
+      e.preventDefault(); // we prevent the default submission
+      e.stopImmediatePropagation();
+      const fields = contactForm.querySelectorAll(':invalid');
+      // Assigns the is-invalid class to all elements marqued as :invalid
+      for (let field of fields) field.classList.add('is-invalid');
+    } else if (contactForm.checkValidity()) {
+      if (confirm('This email will be sent to me. Are you happy to proceed?')) {
+        contactForm.submit();
+      }
     }
-  })
+  });
 
   // Confirmation alert before resetting form
-  result.emailReset.addEventListener('click', e => {
-    e.preventDefault(); // we prevent the default reset
-    
+  contactForm.addEventListener('reset', e => {
     if (confirm('You are about to reset the whole form. Are you happy to proceed?')) {
-      result.form.reset();
+      contactForm.reset();
+    } else {
+      e.preventDefault(); // we prevent the default reset
+      e.stopImmediatePropagation();
     }
   })
 }, err => console.error('error:', err))
 .finally(() => {
-  moduleRouter.linksListener('js-link--content');
+  moduleRouter.linksListener('js-link');
 })
