@@ -316,7 +316,7 @@ const moduleRouter = (() => {
         for (let protectedProjectUrl of protectedProjectsUrls) {
           // Is the url of the current project among those that are protected ? if yes bring the password check component : if not build the page
           if (location.hash === protectedProjectUrl) {
-            _requestPassword(); return;
+            _requestPassword(); return; // we do not proceed with resolve
           }
         }
         resolve(); // Page is for project but is not protected
@@ -428,33 +428,33 @@ const moduleRouter = (() => {
       </div>\
     </div>';
 
+    const accessForm = document.getElementById('form-access');
+    const accessField = document.getElementById('form-password');
+
     _buildFallbackLinks(document.getElementById('accessComponent'));
 
     // validate form on submit
-    document.getElementById('form-access').addEventListener('submit', e => {
-      const form = e.target;
-      var password = document.getElementById('form-password').value;
-      if (!form.checkValidity()) {
+    accessForm.addEventListener('submit', e => {
+      let password = accessField.value;
+      
+      if (!accessForm.checkValidity()) {
         // form is invalid - cancel submit
         e.preventDefault(); // we prevent the default submission
         e.stopImmediatePropagation();
-        reject('Some fields are invalid');
-      } else if (form.checkValidity() && password !== 'test') {
+      } else if (accessForm.checkValidity() && password !== 'test') {
         // password is invalid - cancel submit
         e.preventDefault(); // we prevent the default submission
         e.stopImmediatePropagation();
-        document.getElementById('form-password').classList.add('is-invalid');
-        reject('Password is invalid');
-      } else if (form.checkValidity() && password === 'test') {
+        accessField.classList.add('is-invalid');
+      } else if (accessForm.checkValidity() && password === 'test') {
         localStorage.setItem('access', 'true');
-        resolve();
       }
     });
 
     // Confirmation alert before resetting form
-    document.getElementById('form-access').addEventListener('reset', e => {
+    accessForm.addEventListener('reset', e => {
       if (confirm('You are about to reset the whole form. Are you happy to proceed?')) {
-        result.form.reset();
+        accessForm.reset();
       } else {
         e.preventDefault(); // we prevent the default reset
         e.stopImmediatePropagation();
