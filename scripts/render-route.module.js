@@ -188,18 +188,21 @@ const moduleRouter = (() => {
     // Active anchor/hash is the first one by default - we refer to the parent node for the styling which is <li>
     let activeHash = document.getElementsByClassName(hashClass)[1].parentNode; // [0] is skip to content
     let hashObserver = new IntersectionObserver(entries => {
-      // isIntersecting is true when element and viewport are overlapping
-      if(entries[0].isIntersecting === true)
-        elId = entries[0].target.id; // The element we target is the visible (75%) one 
-        activeHash.classList.remove('u-active'); // reset all anchors
-
-        Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
-          hash.blur(); // removes any focus
-          // If the value of an anchor is same as the value of the element we see
-          if(hash.dataset.name === elId) {
-            activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
-          }
-        });
+      entries.forEach(el => {
+        // isIntersecting is true when element and viewport are overlapping
+        if(el.isIntersecting === true) {
+          elId = el.target.id; // The element we target is the visible (75%) one 
+          activeHash.classList.remove('u-active'); // reset all anchors
+  
+          Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
+            hash.blur(); // removes any focus
+            // If the value of an anchor is same as the value of the element we see
+            if(hash.dataset.name === elId) {
+              activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
+            }
+          })
+        }
+      });
     }, { threshold: [0.75] });
 
     // Array with all navigation links
@@ -212,7 +215,6 @@ const moduleRouter = (() => {
 
       // Event listener on each hash
       hash.addEventListener('click', e => {
-
         activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
 
         // The element, its position and the offset for scroll

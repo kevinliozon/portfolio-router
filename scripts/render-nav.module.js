@@ -82,7 +82,7 @@ const moduleNav = (() => {
     for (let link of links) {
       el.innerHTML += '\
       <li class="c-list__i">\
-        <a class="c-link js-link--hash"\
+        <a class="c-link js-link"\
         href="'+link.href+'"\
         aria-label="'+link.label+'"\
         data-template="'+link.templatePath+'"\

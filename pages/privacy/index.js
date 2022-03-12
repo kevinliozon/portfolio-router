@@ -6,7 +6,10 @@
  */
 
 new Promise((resolve, reject) => {
-  if (document.getElementById('sidenav') && document.getElementById('recommended')) {
+  let startAtAnchor = 'info-type'; // The id of the the first visible container for the nav
+
+  // If sidenav, related contents container and default anchor to target exist
+  if (document.getElementById('sidenav') && document.getElementById('recommended') && document.getElementById(startAtAnchor)) {
     moduleNav.buildNavList(document.getElementById('recommended'), [{
       name: 'Sitemap',
       label: 'Go to sitemap page',
@@ -19,14 +22,15 @@ new Promise((resolve, reject) => {
       get templatePath() { return '/pages/'+this.name.replace(/\s/g, '').toLowerCase() },
     }]);
     // Detect the links and build their navigation listener
-    resolve();
+    resolve(startAtAnchor);
   } else {
     // Will listen to the links across the page in all cases
     reject('Sidenav element does not exist')
   }
 })
-.then(result => {
-  moduleRouter.hashListener('js-link--hash', 'info-type');
+.then(startAtAnchor => {
+  moduleViewRenderer.getViewSidebar(); // toggle side menu
+  moduleRouter.hashListener('js-link--hash', startAtAnchor);
 }, err => console.error('error:', err))
 .finally(() => {
   moduleRouter.linksListener('js-link');
