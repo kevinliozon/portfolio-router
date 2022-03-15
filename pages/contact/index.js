@@ -12,7 +12,7 @@
  */
 
 
-const contactForm = document.getElementById('form-contact');
+let contactForm = document.getElementById('form-contact');
 let emailField = document.getElementById('form-email');
 
 new Promise((resolve, reject) => {
