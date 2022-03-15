@@ -21,4 +21,4 @@ new Promise((resolve, reject) => {
   moduleViewRenderer.getViewBadges(['Process', 'Management'], document.getElementById('badges'));
   moduleViewRenderer.getViewSidebar();
 }, err => console.error('error:', err))
-.finally(() => moduleRouter.linksListener('js-link--content'))
+.finally(() => moduleRouter.linksListener('js-link'))
