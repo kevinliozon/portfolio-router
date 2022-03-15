@@ -196,7 +196,7 @@ const moduleRouter = (() => {
           elId = el.target.id; // The element we target is the visible (75%) one 
           activeHash.classList.remove('u-active'); // reset all anchors
   
-          // Array with all navigation links
+          // Array with all anchor links
           for (let hash of document.getElementsByClassName(hashClass)) {
             hash.blur(); // removes any focus
             // If the value of an anchor is same as the value of the element we see
@@ -208,7 +208,7 @@ const moduleRouter = (() => {
       }
     }, { threshold: [0.75] });
 
-    // Array with all navigation links
+    // Array with all anchor links
     for (let hash of document.getElementsByClassName(hashClass)) {
       hash.parentNode.classList.remove('u-active'); // removes any active state
       activeHash.classList.add('u-active'); // reset all anchors

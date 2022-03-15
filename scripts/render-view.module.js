@@ -59,7 +59,8 @@ const moduleViewRenderer = (() => {
   function _getViewSlide(index, slideToDisplay) {
     let slides = document.querySelectorAll('.c-slide'); // Get a NodeList of all .c-slide elements
     selectedSlideIndex = index;
-    slides.forEach(slide => slide.style.display = 'none'); // Hide all slides
+    
+    for (let slide of slides) slide.style.display = 'none'; // Hide all slides
 
     if (index === 1) {
       document.getElementById('sliderPrev').disabled = true; // if first slide, prev button is disabled
@@ -84,7 +85,8 @@ const moduleViewRenderer = (() => {
    * @private
    */
   function _getActiveSlideThumbnail(slideThumbs, slideThumbActive, selectedSlideIndex) {
-    slideThumbs.forEach(slideThumb => slideThumb.classList.remove('u-active')); // all images are not active anymore
+    for (let slideThumb of slideThumbs) slideThumb.classList.remove('u-active'); // all images are not active anymore
+    
     slideThumbActive = document.body.querySelector('.c-slideselector__btn[data-slideindex="'+selectedSlideIndex+'"]');  // Get the slide with equivalent index
     slideThumbActive.classList.add('u-active'); // selected image is active
   }
@@ -104,12 +106,13 @@ const moduleViewRenderer = (() => {
       // If there is at least one image
       if (images.length > 0) {
         // Array with all image links
-        images.forEach((imgWrap) => {
+        for (let imgWrap of images) {
           // Event listener on each image
           imgWrap.addEventListener('click', function(e) {
             if (this.hasAttribute('data-slideindex')) {
               let index = parseInt(this.dataset.slideindex);
-              images.forEach(img => img.classList.remove('u-active')); // all images are not active anymore
+
+              for (let img of images) img.classList.remove('u-active'); // all images are not active anymore
               this.classList.add('u-active'); // selected image is active
               _getViewSlide(index, document.body.querySelector('.c-slide[data-slide="'+index+'"]')); // the image we click on is a slider selector
             } else {
@@ -117,7 +120,7 @@ const moduleViewRenderer = (() => {
             }
             observer.disconnect(); // We can disconnect since images have been found
           }, false)
-        })
+        }
       }
     });
 
