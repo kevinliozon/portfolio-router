@@ -7,7 +7,7 @@ const moduleCommands = (() => {
     */
   function _commandsListener(commandClass) {
     // Array with all command buttons
-    Array.from(document.getElementsByClassName(commandClass)).forEach(cmd => {
+    for (let cmd of Array.from(document.getElementsByClassName(commandClass))) {
       // Event listener on each button
       cmd.addEventListener('click', e => {
         switch(cmd.dataset.command) {
@@ -30,7 +30,7 @@ const moduleCommands = (() => {
             console.log(`Sorry, we are out of ${cmd.dataset.command}.`);
         }
       }, false)
-    })
+    }
   }
 
   /**
