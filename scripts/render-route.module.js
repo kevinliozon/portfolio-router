@@ -451,7 +451,11 @@ const moduleRouter = (() => {
         e.stopImmediatePropagation();
         accessField.classList.add('is-invalid');
       } else if (accessForm.checkValidity() && password === 'test') {
+        // password is valid - get current template (from history)
+        e.preventDefault(); // we prevent the default submission
+        e.stopImmediatePropagation();
         localStorage.setItem('access', 'true');
+        _getCurrentPageTemplate();
       }
     });
 
