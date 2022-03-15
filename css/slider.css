@@ -84,8 +84,8 @@
 }
 
 .c-slideselector__btn {
-  height: 33%;
-  margin-bottom: 3rem;
+  height: calc(33% - 1rem);
+  margin-bottom: 1rem;
   overflow: hidden;
 }
 
