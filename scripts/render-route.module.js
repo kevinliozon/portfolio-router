@@ -123,7 +123,8 @@ const moduleRouter = (() => {
     * @private
     */
   function _setPageAsActive(activePage) {
-    Array.from(document.getElementsByClassName('js-link--nav')).forEach((link) => {
+    // Array with all navigation links
+    for (let link of Array.from(document.getElementsByClassName('js-link--nav'))) {
       link.classList.remove('u-active'); // removes any active state
       link.blur(); // removes any focus
 
@@ -132,7 +133,7 @@ const moduleRouter = (() => {
       } else if (link.dataset.name.replace(/\s/g, '').toLowerCase() === activePage.replace(/\s/g, '').toLowerCase()) {
         link.classList.add('u-active'); // converts page's name to lowercase without spaces then adds active state to the relevant nav item
       };
-    });
+    };
   }
 
   /**
@@ -160,7 +161,7 @@ const moduleRouter = (() => {
     */
   function _linksListener(linkClass) {
     // Array with all navigation links
-    Array.from(document.getElementsByClassName(linkClass)).forEach((link) => {
+    for (let link of Array.from(document.getElementsByClassName(linkClass))) {
       // Event listener on each link
       link.addEventListener('click', function(e) {
         // If page selected is the same as actual one: do nothing
@@ -173,7 +174,7 @@ const moduleRouter = (() => {
         e.stopPropagation();
         e.preventDefault();
       }, false)
-    })
+    }
   }
 
   /**
@@ -188,25 +189,27 @@ const moduleRouter = (() => {
     // Active anchor/hash is the first one by default - we refer to the parent node for the styling which is <li>
     let activeHash = document.getElementsByClassName(hashClass)[1].parentNode; // [0] is skip to content
     let hashObserver = new IntersectionObserver(entries => {
-      entries.forEach(el => {
+      // Each entry being an element with a specific id
+      for (let el of entries) {
         // isIntersecting is true when element and viewport are overlapping
         if(el.isIntersecting === true) {
           elId = el.target.id; // The element we target is the visible (75%) one 
           activeHash.classList.remove('u-active'); // reset all anchors
   
-          Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
+          // Array with all navigation links
+          for (let hash of document.getElementsByClassName(hashClass)) {
             hash.blur(); // removes any focus
             // If the value of an anchor is same as the value of the element we see
             if(hash.dataset.name === elId) {
               activeHash = _setHashAsActive(activeHash, hash.parentNode); // set active and update variable of the active anchor
             }
-          })
+          }
         }
-      });
+      }
     }, { threshold: [0.75] });
 
     // Array with all navigation links
-    Array.from(document.getElementsByClassName(hashClass)).forEach((hash) => {
+    for (let hash of document.getElementsByClassName(hashClass)) {
       hash.parentNode.classList.remove('u-active'); // removes any active state
       activeHash.classList.add('u-active'); // reset all anchors
 
@@ -239,7 +242,7 @@ const moduleRouter = (() => {
         e.stopPropagation();
         e.preventDefault();
       }, false)
-    })
+    }
   }
 
   /**
