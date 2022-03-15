@@ -472,14 +472,16 @@ const moduleRouter = (() => {
     * @private
     */
   function _buildFallbackLinks(el) {
-    el.appendChild(fallbackLinksComponent);
+    if (el) {
+      el.appendChild(fallbackLinksComponent);
 
-    // Back button
-    document.getElementById('loadBack').addEventListener('click', e => {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      history.back();
-    });
+      // Back button
+      document.getElementById('loadBack').addEventListener('click', e => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        history.back();
+      });
+    }
   }
 
   /*** @public ***/
