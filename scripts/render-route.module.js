@@ -171,8 +171,8 @@ const moduleRouter = (() => {
           _getPageTemplate(this.dataset.template, this.dataset.name, this.href);
         }
         //This prevents the browser from actually following the default link
-        e.stopPropagation();
         e.preventDefault();
+        e.stopImmediatePropagation();
       }, false)
     }
   }
@@ -239,8 +239,8 @@ const moduleRouter = (() => {
         }
 
         //This prevents the browser from actually following the default hash
-        e.stopPropagation();
         e.preventDefault();
+        e.stopImmediatePropagation();
       }, false)
     }
   }
@@ -323,8 +323,9 @@ const moduleRouter = (() => {
           }
         }
         resolve(); // Page is for project but is not protected
-      } else if (!activeUrl) reject('The url does not exist')
-      else resolve(); // Page is not for project OR we already have an access token
+      } else if (!activeUrl) {
+        reject('The url does not exist')
+      } else resolve(); // Page is not for project OR we already have an access token
     })
     .then(result => {
         _loadPage(false);
@@ -334,7 +335,7 @@ const moduleRouter = (() => {
         _setPageAsActive(activePage); // Set page's link as active
         _getPageController(activeTemplate) // Adds template's controller
     }, err => { console.error('error:', err); return; })
-    .finally(() => moduleRouter.linksListener('js-link--content'))
+    .finally(() => moduleRouter.linksListener('js-link'))
   }
 
   /**
