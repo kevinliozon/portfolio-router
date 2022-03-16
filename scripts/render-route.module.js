@@ -112,8 +112,8 @@ const moduleRouter = (() => {
       // If no page selected or there is no history registered, we fall back onto homepage
       _getPageTemplate(pages[0].templatePath, pages[0].name, pages[0].href)
     } else {
-      // Are we refreshing an existing page? otherwise we go back to the page before hashchange
-      (history.state) ? _getCurrentPageTemplate() : history.back();
+      // Are we refreshing an existing page? otherwise we follow the url
+      (history.state) ? _getCurrentPageTemplate() : _navStateOrHashChange();
     }
   }
 
