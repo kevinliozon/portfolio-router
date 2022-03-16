@@ -6,8 +6,6 @@ const moduleViewRenderer = (() => {
    * @param {Object} wrapView The element where the content should be injected
    */
   function _getViewTemplate (activeTemplate, wrapView) {
-    wrapView.innerHTML = 'loading...';
-
     fetch(activeTemplate, { method: 'GET' })
     .then( response => {
       if(response.status !== 404) {
@@ -108,7 +106,7 @@ const moduleViewRenderer = (() => {
         // Array with all image links
         for (let imgWrap of images) {
           // Event listener on each image
-          imgWrap.addEventListener('click', function(e) {
+          imgWrap.addEventListener('click', e => {
             if (this.hasAttribute('data-slideindex')) {
               let index = parseInt(this.dataset.slideindex);
 
