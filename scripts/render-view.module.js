@@ -107,14 +107,18 @@ const moduleViewRenderer = (() => {
         for (let imgWrap of images) {
           // Event listener on each image
           imgWrap.addEventListener('click', e => {
-            if (this.hasAttribute('data-slideindex')) {
-              let index = parseInt(this.dataset.slideindex);
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            let imgSelected = e.currentTarget; // target is the inner part, currentTarget is the button itself
+            
+            if (imgSelected.hasAttribute('data-slideindex')) {
+              let index = parseInt(imgSelected.dataset.slideindex);
 
               for (let img of images) img.classList.remove('u-active'); // all images are not active anymore
-              this.classList.add('u-active'); // selected image is active
+              imgSelected.classList.add('u-active'); // selected image is active
               _getViewSlide(index, document.body.querySelector('.c-slide[data-slide="'+index+'"]')); // the image we click on is a slider selector
             } else {
-              _getViewImageModal(wrapModal, imgWrap.querySelector('.c-fig__img'), imgWrap.querySelector('.c-fig__c'));
+              _getViewImageModal(wrapModal, imgSelected.querySelector('.js-img .c-fig__img'), imgSelected.querySelector('.js-img .c-fig__c'));
             }
             observer.disconnect(); // We can disconnect since images have been found
           }, false)
