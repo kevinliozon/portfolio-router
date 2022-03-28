@@ -41,11 +41,21 @@ const moduleRouter = (() => {
     .then(response => {
       return response.text(); // turn HTML response into a string
     })
-    .then(content => {
-      _buildPage(activeTemplate, 'Not found', location.origin + '#page=error', content, 'replace');
-    })
+    .then(content => { _buildPage(activeTemplate, 'Not found', location.origin + '#page=error', content, 'replace'); })
     .finally(() => {
-      document.getElementById('errorComponent').appendChild(fallbackLinksComponent); // generates the fallback links once the page is created
+      const errorComponent = document.getElementById('errorComponent');
+      errorComponent.appendChild(fallbackLinksComponent); // generates the fallback links once the page is created
+
+      const backLink = document.getElementById('loadBack');
+
+      if(backLink) {
+        // Back button
+        backLink.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          history.back();
+        });
+      }
     })
     .catch(error => console.error('error:', error));
   }
@@ -59,14 +69,14 @@ const moduleRouter = (() => {
     _loadPage(true);
     const activeTemplate = history.state.template;
     // turn HTML response into a string
-    fetch(activeTemplate, { method: 'GET' }).then(response => {return response.text() })
-    .then(content => {
-      if (activeTemplate !== '/pages/error'){
-        _buildPage(activeTemplate, history.state.page, history.state.url, content, 'replace');
+    fetch(activeTemplate, { method: 'GET' }).then(response => {
+      if(response.status !== 404 && location.hash.indexOf('#page=error') === -1) {
+        return response.text(); // has a template
       } else {
-        _getErrorPageTemplate(); // Page we refresh is 404
+        throw new Error('No template for this page - 404')
       }
     })
+    .then(content => { _buildPage(activeTemplate, history.state.page, history.state.url, content, 'replace'); })
     .catch(error => {
       _getErrorPageTemplate(); // no template => 404 page
       console.error('error:', error);
@@ -257,7 +267,7 @@ const moduleRouter = (() => {
     _loadPage(true);
     // we check if the new url has got a corresponding template
     fetch(location.href.replace('#page=','pages/'), { method: 'GET' }).then(response => {
-      if(response.status !== 404) {
+      if(response.status !== 404 && location.hash.indexOf('#page=error') === -1) {
         return response.text(); // has a template
       } else {
         throw new Error('No template for this page - 404')
@@ -266,23 +276,21 @@ const moduleRouter = (() => {
     .then(content => {
       const newPageTemplateLocation = location.hash.replace('#page=','/pages/');
 
-      if (newPageTemplateLocation !== '/pages/error'){
-        for (let page of pages) {
-          const pageTemplateToMatch = page.templatePath;
-          
-          if (newPageTemplateLocation === pageTemplateToMatch) {
-            _buildPage(pageTemplateToMatch, page.name, page.href, content, 'replace');
-          }
-        }
+      for (let page of pages) {
+        const pageTemplateToMatch = page.templatePath;
         
-        for (let project of projects) {
-          const projectTemplateToMatch = project.templatePath;
-          
-          if (newPageTemplateLocation === projectTemplateToMatch) {
-            _buildPage(projectTemplateToMatch, project.name, project.href, content, 'replace');
-          }
+        if (newPageTemplateLocation === pageTemplateToMatch || newPageTemplateLocation === pageTemplateToMatch+'/') {
+          _buildPage(newPageTemplateLocation, page.name, page.href, content, 'replace');
         }
-      } else _getErrorPageTemplate(); // next/previous page was 404
+      }
+      
+      for (let project of projects) {
+        const projectTemplateToMatch = project.templatePath;
+        
+        if (newPageTemplateLocation === projectTemplateToMatch || newPageTemplateLocation === projectTemplateToMatch+'/') {
+          _buildPage(newPageTemplateLocation, project.name, project.href, content, 'replace');
+        }
+      }
     })
     .catch(error => {
       _getErrorPageTemplate(); // no template => 404 page
@@ -394,7 +402,9 @@ const moduleRouter = (() => {
         </div>\
       </div>';
 
-      _buildFallbackLinks(document.getElementById('loadComponent'));
+      const loadComponent = document.getElementById('loadComponent');
+
+      if (loadComponent) _buildFallbackLinks(loadComponent);
     } else if (!isLoading) _contentTransitionAnimation();
   }
 
@@ -413,7 +423,7 @@ const moduleRouter = (() => {
         <p class="c-float__d">\
           Please <a class="js-link c-link" href="#page=contact" target="_top" data-template="/pages/contact" data-name="Contact" aria-label="Contact page">contact me</a> to get an access token.\
         </p>\
-        <form class="c-float__form" id="form-access" name="PasswordField" action="">\
+        <form class="c-float__form" id="form-access" name="PasswordField" method="post" action="">\
           <div class="c-form__field">\
             <label class="c-form__label" for="form-password">Password</label>\
             <input id="form-password" class="c-form__input" type="password" name="password" minlength="1" placeholder="e.g. aBc3?#0O" required>\
@@ -432,10 +442,11 @@ const moduleRouter = (() => {
       </div>\
     </div>';
 
+    const accessComponent = document.getElementById('accessComponent');
     const accessForm = document.getElementById('form-access');
     const accessField = document.getElementById('form-password');
 
-    _buildFallbackLinks(document.getElementById('accessComponent'));
+    if (accessComponent) _buildFallbackLinks(accessComponent);
 
     // validate form on submit
     accessForm.addEventListener('submit', e => {
@@ -479,13 +490,16 @@ const moduleRouter = (() => {
   function _buildFallbackLinks(el) {
     if (el) {
       el.appendChild(fallbackLinksComponent);
+      const backLink = document.getElementById('loadBack');
 
-      // Back button
-      document.getElementById('loadBack').addEventListener('click', e => {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        history.back();
-      });
+      if(backLink) {
+        // Back button
+        backLink.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          history.back();
+        });
+      }
     }
   }
 
