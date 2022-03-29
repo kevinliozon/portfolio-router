@@ -32,11 +32,8 @@ html {
 
 /* FLoating */
 .l-float {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   min-height: 100vh;
+  position: relative;
 }
 
 /* components */
@@ -599,19 +596,21 @@ html {
 
 /*** LOADER and ERROR ***/
 
-.c-float,
-.c-error {
+.c-float {
+  left: 50%;
   padding: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.c-float__header,
-.c-error__header {
+.c-float__header {
   display: flex;
   margin-bottom: 1.5rem;
+  flex-direction: column;
 }
 
-.c-float__title,
-.c-error__title {
+.c-float__title {
   margin-right: 1.5rem;
   width: auto;
 }
@@ -621,8 +620,8 @@ html {
   max-width: 60rem;
 }
 
-.c-error__header {
-  flex-direction: column;
+.c-float__header--load {
+  flex-direction: row;
 }
 
 .c-float__spin {
