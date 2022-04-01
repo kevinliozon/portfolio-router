@@ -232,17 +232,17 @@ const projects = [{
   isVisible: true
 }, {
   id: 'p2',
-  name: 'Project 2',
-  label: 'Show all projects',
+  name: 'Fuse: Design systems',
+  label: 'Design systems at Fuse',
   type: 'tools',
   filters: 'is-content is-tools is-featured',
   themes: ['Management', 'HR', 'upskilling'],
   desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  beneficiary: 'Migros via Fuse',
+  beneficiary: 'Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse',
+  href: '#page=projects/fuse-system',
+  templatePath: '/pages/projects/fuse-system',
   isVisible: true
 }, {
   id: 'p3',
