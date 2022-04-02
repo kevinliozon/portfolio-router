@@ -14,5 +14,9 @@ new Promise((resolve, reject) => {
     reject('Sidenav element does not exist')
   }
 })
+.then(result => {
+  moduleRouter.hashListener('js-link--hash');
+  moduleViewRenderer.getViewBadges(['skill 1', 'skill 2', 'skill3'], document.getElementById('skills'));
+  moduleViewRenderer.getViewSidebar();
+}, err => console.error('error:', err))
 .finally(() => moduleRouter.linksListener('js-link--content'))
-.then(result => moduleRouter.hashListener('js-link--hash'), err => console.error('error:', err))

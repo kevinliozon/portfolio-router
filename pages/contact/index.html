@@ -1,25 +1,66 @@
-<h1>You want to get in touch?</h1>
+<div id="content" class="l-content">
+  
+  <div class="c-jumbo">
+    <main class="c-jumbo__info">
+      <h1 class="c-jumbo__title">Contact Me</h1>
 
-<main>
-  <p>Ok let's stop the scroll frenzy here. Feel free to contact me if you need more info and I will reply to you as soon as possible.</p>
-  <form action="https://formspree.io/f/xayllbln" method="POST">
-      <label>
-          Your name:
-          <input type="text" name="name">
-      </label>
-      <label>
-          Your email:
-          <input type="email" name="_replyto" required>
-          <span>Your email will never be shared with anybody. I will only use it for the purpose of replying to you.</span>
-      </label>
-      <label>
-          Subject:
-          <input type="text" name="_subject">
-      </label>
-      <label>
-          Your message:
-          <textarea name="message" required></textarea>
-      </label>
-      <button type="submit">Send</button>
-  </form>
-</main>
+      <p class="c-jumbo__desc">
+        Available for consultation and guidance. I make sure to tailor my service to the size of your business and your objectives.
+      </p>
+
+      <div class="c-jumbo__list">
+        <h3>Feel free to reach out to me regarding:</h3>
+        <ul class="c-list">
+          <li class="c-list__i">Scaling a multi-disciplinary UX team</li>
+          <li class="c-list__i">Auditing or setting up design systems</li>
+          <li class="c-list__i">Implement best practices for user research, ideation and prototyping</li>
+          <li class="c-list__i">Any suggestion or question concerning this portfolio</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <section class="c-section">
+    <header class="c-section__h">
+      <h2 class="c-section__t">Use the form below to email me</h2>
+  
+      <p class="c-section__d">
+        Your email will never be shared with any third party. I will only use it for the sole purpose of replying to you.
+      </p>
+    </header>
+
+    <form class="c-form" id="form-contact" action="https://formspree.io/f/xayllbln" method="POST">
+      <div class="c-form__field">
+        <label class="c-form__label" for="form-name">Your name</label>
+        <input class="c-form__input" id="form-name" name="name" type="text" placeholder="e.g. John Doe" maxlength="50" pattern="[a-zA-Z\-\s]*">
+        <span class="c-form__valid u-nonumber"></span>
+      </div>
+      
+      <div class="c-form__field">
+        <label class="c-form__label" for="form-email">Your email</label>
+        <button class="c-btn c-btn--link c-form__prefill" id="btn-email" type="button">@gmail.com?</button>
+        <input class="c-form__input" id="form-email" type="email" name="_replyto" placeholder="e.g. johnd42@gmail.com" maxlength="50" required aria-required="true">
+        <span class="c-form__valid u-format"></span>
+        <div class="c-form__smprint">*Is mandatory</div>
+      </div>
+      
+      <div class="c-form__field">
+        <label class="c-form__label" for="form-subject">Subject</label>
+        <input class="c-form__input" id="form-subject" type="text" name="_subject" placeholder="e.g. I need you!" maxlength="50">
+        <span class="c-form__valid"></span>
+      </div>
+      
+      <div class="c-form__field">
+        <label class="c-form__label" for="form-msg">Your message</label>
+        <textarea class="c-form__input c-form__textarea" id="form-msg" name="message" rows="10" placeholder="e.g. Hi, we are urrently short in designers..." minlength="3" required aria-required="true"></textarea>
+        <span class="c-form__valid u-minchar"></span>
+        <div class="c-form__smprint">*Is mandatory</div>
+      </div>
+      
+      <div class="c-form__field">
+        <button id="btn-reset" class="c-btn c-btn--link" type="reset">Clear all</button>
+        <button id="btn-submit" class="c-btn c-btn--block" type="submit">Send</button>
+      </div>
+    </form>
+  </section>
+</div>

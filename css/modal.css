@@ -1,0 +1,61 @@
+/*** MODAL stylesheet ***/
+
+.c-modal {
+  align-items: center;
+  display: none; /* Hidden by default */
+  height: 100%; /* Full height */
+  justify-content: center;
+  left: 0;
+  overflow: auto; /* Enable scroll if needed */
+  position: fixed; /* Stay in place */
+  top: 0;
+  width: 100%; /* Full width */
+  z-index: 3; /* Sit on top */
+}
+
+/* Modal Content (Image) */
+.c-modal__img {
+  display: block;
+  margin: auto;
+  max-width: 700px;
+  width: 80%;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+.c-modal__c {
+  display: block;
+  height: 150px;
+  margin: auto;
+  max-width: 700px;
+  padding: 10px 0;
+  text-align: center;
+  width: 80%;
+}
+
+/* Add Animation - Zoom in the Modal */
+.c-modal__img,
+.c-modal__c {
+  animation-duration: 0.6s;
+  animation-name: zoom;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* Close Button for modal */
+.c-modal__icn {
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  transition: 0.3s;
+}
+
+.c-modal__icn:hover,
+.c-modal__icn:focus {
+  cursor: pointer;
+  text-decoration: none;
+}

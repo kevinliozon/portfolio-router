@@ -1,8 +1,20 @@
 /*** CONTAINERS ***/
+const wrapBody = document.body;
 const wrapHeaderNav = document.getElementById('header-nav');
 const wrapFooterNav = document.getElementById('footer-nav');
 const wrapFooterNavAlt = document.getElementById('footer-nav-alt');
 const wrapTemplate = document.getElementById('wrap');
+const wrapModal = {
+  container: document.getElementById('modal'),
+  close: document.getElementById('modalClose'),
+  caption: document.getElementById('modalCaption'),
+  image: document.getElementById('modalImage')
+};
+
+/*** COUNTS ***/
+const fontSizeCount = document.getElementById('fontSize');
+let slideIndex = 1;
+let selectedSlideIndex = 1;
 
 /**
  * On load or refresh:
@@ -15,6 +27,14 @@ window.addEventListener('load', e => {
   moduleNav.buildNavAlt();
   // Building the navigation listener
   moduleRouter.linksListener('js-link--nav');
+  // Checks if user has already succesfuly accessed to password protected pages
+  moduleRouter.getAccessToken(localStorage.getItem('access'));
+  // Building the command listener
+  moduleCommands.commandsListener('js-btn');
+  // Checks if UI settings have been defined
+  moduleCommands.getSettings(localStorage.getItem('theme'), localStorage.getItem('font'));
+  // Building the listeners for closing modals
+  moduleCommands.closeViewModal(wrapModal.container, wrapModal.close);
   // Calls the template relevant to the page we are loading from
   moduleRouter.callTemplate();
 });
@@ -43,3 +63,12 @@ window.addEventListener('hashchange', e => {
     moduleRouter.getErrorPageTemplate(); // no template => 404 page
   }
 }, false);
+
+/* Sample function that returns boolean in case the browser is Internet Explorer*/
+function isIE() {
+  var ua = navigator.userAgent;
+  /* MSIE used to detect old browsers and Trident used to newer ones*/
+  var is_ie = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+  
+  return is_ie; 
+}
