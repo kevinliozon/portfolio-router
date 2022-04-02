@@ -101,14 +101,22 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
+  font-size: 2.4rem;
   font-weight: bold;
+  line-height: 2.4rem;
   margin: 1rem 0;
   width: 100%;
+}
+
+.c-jumbo__title {
+  font-size: 2.8rem;
+  line-height: 2.8rem;
 }
 
 .c-filters__label {
   font-size: 2rem;
   font-weight: bold;
+  line-height: 2rem;
 }
 
 .c-form__input::placeholder,

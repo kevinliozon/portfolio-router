@@ -218,12 +218,12 @@ const projectsCarousel = [{
 /*** PROJECTS GRID ***/
 const projects = [{
   id: 'p1',
-  name: 'Fuse: Design process',
+  name: 'Optimising a design process',
   label: 'Design process at Fuse',
   type: 'management',
   filters: 'is-content is-manage is-featured',
   themes: ['Design systems', 'consistency'],
-  desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  desc: 'Adapting a process for a medium sized organisation.',
   beneficiary: 'Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
@@ -232,7 +232,7 @@ const projects = [{
   isVisible: true
 }, {
   id: 'p2',
-  name: 'Fuse: Design systems',
+  name: 'Design systems for non-designers',
   label: 'Design systems at Fuse',
   type: 'tools',
   filters: 'is-content is-tools is-featured',
