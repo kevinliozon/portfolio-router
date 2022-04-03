@@ -1,7 +1,7 @@
 /*** MODAL stylesheet ***/
 
 .c-modal {
-  align-items: center;
+  align-items: top;
   display: none; /* Hidden by default */
   height: 100%; /* Full height */
   justify-content: center;
@@ -16,8 +16,7 @@
 /* Modal Content (Image) */
 .c-modal__img {
   display: block;
-  margin: auto;
-  max-width: 700px;
+  margin: 8rem auto;
   width: 80%;
 }
 
