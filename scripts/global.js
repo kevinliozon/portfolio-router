@@ -246,8 +246,8 @@ const projects = [{
   isVisible: true
 }, {
   id: 'p3',
-  name: 'Project 3',
-  label: 'Show all projects',
+  name: 'Defining a career ladder',
+  label: 'Career ladder at Fuse',
   type: 'documentation',
   filters: 'is-content is-doc',
   themes: ['Management', 'HR', 'upskilling'],
@@ -255,8 +255,8 @@ const projects = [{
   beneficiary: 'Migros via Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse',
+  href: '#page=projects/fuse-careerladder',
+  templatePath: '/pages/projects/fuse-careerladder',
   isVisible: true
 }, {
   id: 'p4',
