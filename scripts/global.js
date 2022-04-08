@@ -260,8 +260,8 @@ const projects = [{
   isVisible: true
 }, {
   id: 'p4',
-  name: 'Project 4',
-  label: 'Show all projects',
+  name: 'Tooling up your user research',
+  label: 'User research tools at Fuse',
   type: 'projects',
   filters: 'is-content is-proj',
   themes: ['Management', 'HR', 'upskilling'],
@@ -269,8 +269,8 @@ const projects = [{
   beneficiary: 'Migros via Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse',
+  href: '#page=projects/fuse-researchtools',
+  templatePath: '/pages/projects/fuse-researchtools',
   isVisible: true
 }, {
   id: 'p5',
