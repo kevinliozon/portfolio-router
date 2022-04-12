@@ -274,7 +274,7 @@ const projects = [{
   isVisible: true
 }, {
   id: 'p5',
-  name: 'Project 5',
+  name: 'Conducting an accessibility audit',
   label: 'Show all projects',
   type: 'default',
   filters: 'is-content is-manage',
@@ -283,8 +283,8 @@ const projects = [{
   beneficiary: 'Migros via Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse',
+  href: '#page=projects/fuse-a11y',
+  templatePath: '/pages/projects/fuse-a11y',
   isVisible: true
 }, {
   id: 'p6',
