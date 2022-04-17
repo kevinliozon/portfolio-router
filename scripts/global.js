@@ -288,7 +288,7 @@ const projects = [{
   isVisible: true
 }, {
   id: 'p6',
-  name: 'Project 6',
+  name: 'Designing dashboards',
   label: 'Show all projects',
   type: 'default',
   filters: 'is-content is-tools',
@@ -297,8 +297,8 @@ const projects = [{
   beneficiary: 'Migros via Fuse',
   img: '/assets/img/placeholder.jpg',
   imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse',
+  href: '#page=projects/fuse-dashboards',
+  templatePath: '/pages/projects/fuse-dashboards',
   isVisible: true
 }, {
   id: 'p7',

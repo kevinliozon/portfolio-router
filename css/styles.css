@@ -310,6 +310,10 @@ html {
   z-index: 1; /* makes the shadow visible */
 }
 
+.c-cell__info {
+  height: 21.1rem;
+}
+
 .c-cell__title,
 .c-slide__title {
   margin-top: 2rem;
