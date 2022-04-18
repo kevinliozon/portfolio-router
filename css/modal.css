@@ -16,17 +16,17 @@
 /* Modal Content (Image) */
 .c-modal__img {
   display: block;
-  margin: 8rem auto;
-  width: 80%;
+  margin: 8rem auto 4rem;
+  max-height: 75%;
+  max-width: 75%;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
 .c-modal__c {
   display: block;
-  height: 150px;
   margin: auto;
   max-width: 700px;
-  padding: 10px 0;
+  padding: 1.5rem 0;
   text-align: center;
   width: 80%;
 }
