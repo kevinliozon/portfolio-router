@@ -111,15 +111,23 @@ button {
   color: #063C72;
 }
 
-.c-filters__label {
-  opacity: 0.7;
+.c-nav__link:hover {
+  border-right: 5px solid #063C72;
 }
 
-.c-nav__link:before {
-  color: #82F4B6;
-  content: '\25FC'; /* https://www.w3schools.com/charsets/ref_utf_geometric.asp */
-  opacity: 0;
-  text-shadow: -1px -1px 0px #063C72, 1px -1px 0px #063C72, -1px 1px 0px #063C72, 1px 1px 0px #063C72;
+.c-nav__link:focus,
+.c-nav__link.u-active {
+  border-bottom: 5px solid #063C72;
+  border-right: 5px solid #063C72;
+  box-shadow: .25rem .25rem .25rem rgba(0,0,0,.5);
+}
+
+.c-nav__link.l-footer__nav__link {
+  border-color: #82F4B6;
+}
+
+.c-filters__label {
+  opacity: 0.7;
 }
 
 .l-footer__nav__link,
@@ -136,9 +144,6 @@ button {
 #radio-tools:checked ~ .c-filters #filter-tools,
 #radio-doc:checked ~ .c-filters #filter-doc,
 #radio-proj:checked ~ .c-filters #filter-proj,
-.c-nav__link:hover:before,
-.c-nav__link:focus:before,
-.c-nav__link.u-active:before,
 #radio-all:checked ~ .c-filters #filter-all:before,
 #radio-featured:checked ~ .c-filters #filter-featured:before,
 #radio-manage:checked ~ .c-filters #filter-manage:before,
@@ -272,11 +277,17 @@ h1, h2, h3, h4, h5, h6 {
 @media only screen and (max-width : 1000px) {
   .l-header {
     background: #F8FFFE;
-    box-shadow: -.2rem .2rem .5rem #ccc;
+    box-shadow: 0rem -0.1rem 0.5rem rgba(0,0,0,.75);
   }
 }
 
 @media only screen and (max-width : 600px) {
+  .c-nav__link:focus,
+  .c-nav__link.u-active {
+    border-right: 0;
+    box-shadow: none;
+  }
+
   .l-footer {
     background: #063C72;
   }

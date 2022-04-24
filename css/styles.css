@@ -478,6 +478,12 @@ html {
   margin: 0 0.5rem;
 }
 
+
+.c-nav__link {
+  padding: 1rem;
+  transition: all .1s ease-in;
+}
+
 .l-header__ctrl {
   display: block;
   flex-basis: 60px;
@@ -810,6 +816,10 @@ html {
     bottom: 0;
     justify-content: space-around;
     padding: 0 1rem;
+  }
+  
+  .c-nav.l-header__nav {
+    padding-right: 0;
   }
   
   .l-footer {
