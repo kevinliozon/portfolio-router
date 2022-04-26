@@ -141,15 +141,15 @@ button {
 #radio-all:checked ~ .c-filters #filter-all,
 #radio-featured:checked ~ .c-filters #filter-featured,
 #radio-manage:checked ~ .c-filters #filter-manage,
-#radio-tools:checked ~ .c-filters #filter-tools,
+#radio-tool:checked ~ .c-filters #filter-tool,
 #radio-doc:checked ~ .c-filters #filter-doc,
-#radio-proj:checked ~ .c-filters #filter-proj,
+#radio-design:checked ~ .c-filters #filter-design,
 #radio-all:checked ~ .c-filters #filter-all:before,
 #radio-featured:checked ~ .c-filters #filter-featured:before,
 #radio-manage:checked ~ .c-filters #filter-manage:before,
-#radio-tools:checked ~ .c-filters #filter-tools:before,
+#radio-tool:checked ~ .c-filters #filter-tool:before,
 #radio-doc:checked ~ .c-filters #filter-doc:before,
-#radio-proj:checked ~ .c-filters #filter-proj:before {
+#radio-design:checked ~ .c-filters #filter-design:before {
   opacity: 1;
 }
 
@@ -159,6 +159,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .l-footer__nav__link {
   color: #82F4B6;
+}
+
+/*** BACKGROUNDS ***/
+
+.c-jumbo {
+  background: url(/assets/img/placeholder.jpg) center / cover no-repeat;
+}
+
+.c-jumbo--home {
+  background-image: url(/assets/img/jumbo/bg-home.jpg);
+}
+
+.c-jumbo--projects {
+  background-image: url(/assets/img/jumbo/bg-projects.jpg);
+}
+
+.c-jumbo--contact {
+  background-image: url(/assets/img/jumbo/bg-contact.jpg);
+}
+
+.c-jumbo--management {
+  background-image: url(/assets/img/jumbo/bg-management.jpg);
+}
+
+.c-jumbo--tool {
+  background-image: url(/assets/img/jumbo/bg-tool.jpg);
+}
+
+.c-jumbo--doc {
+  background-image: url(/assets/img/jumbo/bg-doc.jpg);
+}
+
+.c-jumbo--design {
+  background-image: url(/assets/img/jumbo/bg-design.jpg);
 }
 
 /*** BORDERS ***/
@@ -244,8 +278,8 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #8EF3F5;
 }
 
-#filter-tools,
-.is-tools .c-cell__type {
+#filter-tool,
+.is-tool .c-cell__type {
   background-color: #6ADEBF;
 }
 
@@ -254,8 +288,8 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #53C0C2;
 }
 
-#filter-proj,
-.is-proj .c-cell__type {
+#filter-design,
+.is-design .c-cell__type {
   background-color: #D29AF5;
 }
 

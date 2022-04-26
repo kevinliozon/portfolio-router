@@ -17,8 +17,8 @@ new Promise((resolve, reject) => {
 .then(result => {
   moduleRouter.hashListener('js-link--hash', 'specifics');
   moduleViewRenderer.imagesListener(wrapTemplate, wrapModal); // Building the images listener
-  moduleViewRenderer.getViewBadges(['skill 1', 'skill 2', 'skill3'], document.getElementById('skills'));
-  moduleViewRenderer.getViewBadges(['Process', 'Management'], document.getElementById('badges'));
+  moduleViewRenderer.getViewBadges(['Skills knowledge', 'Communication'], document.getElementById('skills'));
+  moduleViewRenderer.getViewBadges(['Management', 'HR'], document.getElementById('badges'));
   moduleViewRenderer.getViewSidebar();
 }, err => console.error('error:', err))
 .finally(() => moduleRouter.linksListener('js-link'))

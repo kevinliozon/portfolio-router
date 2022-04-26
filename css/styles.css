@@ -98,7 +98,6 @@ html {
 }
 
 .c-jumbo {
-  background: url(/assets/img/placeholder.jpg) center / cover no-repeat;
   display: flex;
   margin-top: -12rem;
   padding: 12rem 6rem 6rem;
@@ -292,9 +291,9 @@ html {
 #radio-all:checked ~ .c-grid .c-cell.is-content,
 #radio-featured:checked ~ .c-grid .c-cell.is-featured,
 #radio-manage:checked ~ .c-grid .c-cell.is-manage,
-#radio-tools:checked ~ .c-grid .c-cell.is-tools,
+#radio-tool:checked ~ .c-grid .c-cell.is-tool,
 #radio-doc:checked ~ .c-grid .c-cell.is-doc,
-#radio-proj:checked ~ .c-grid .c-cell.is-proj {
+#radio-design:checked ~ .c-grid .c-cell.is-design {
   display: flex;
 }
 
@@ -817,7 +816,7 @@ html {
     justify-content: space-around;
     padding: 0 1rem;
   }
-  
+
   .c-nav.l-header__nav {
     padding-right: 0;
   }
