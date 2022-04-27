@@ -142,77 +142,77 @@ const brands = [{
 /*** HOME - PROJECTS GRID ***/
 const projectsHome = [{
   id: 'ph1',
-  name: 'Fuse: Design process',
-  label: 'Need to optimise your design process?',
-  themes: ['Process', 'consistency'],
-  desc: 'See how together with our product managers at Fuse we managed to nail a process that works and defines accountability for everyone.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Need to optimise your design process?',
+  label: 'Project: Design process at Fuse',
+  themes: ['Process', 'Management'],
+  desc: 'See how we managed to nail a process that works and defines accountability for everyone with our product managers at Fuse.',
+  img: '/assets/img/projects/fuse-process/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing cogs',
   href: '#page=projects/fuse-process',
   templatePath: '/pages/projects/fuse-process'
 }, {
   id: 'ph2',
   name: 'Want to upskill your pool of design talents?',
-  label: 'Want to upskill your pool of design talents?',
-  themes: ['Design systems', 'consistency'],
-  desc: 'We can work together towards making sure your designers stay involved and are motivated to upskills, even through periods of change.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse'
+  label: 'Project: Career ladder at Fuse',
+  themes: ['Management', 'HR'],
+  desc: 'We can work together towards making sure your designers keep motivated to upskills. Just like we did with our new career ladder in this case study.',
+  img: '/assets/img/projects/fuse-careerladder/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing an allegory of career path as a road with milestones',
+  href: '#page=projects/fuse-careerladder',
+  templatePath: '/pages/projects/fuse-careerladder'
 }, {
   id: 'ph3',
   name: 'Aim to design a consistent, accessible and scalable product?',
-  label: 'Aim to design a consistent, accessible and scalable product?',
-  themes: ['Design systems', 'consistency'],
-  desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse'
+  label: 'Project: Design systems for non-designers at Fuse',
+  themes: ['Design systems', 'Accessibility'],
+  desc: 'Better getting things done properly from the start. A design system like this one will save you a lot of time and money with its reusable components.',
+  img: '/assets/img/projects/fuse-system/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a hand grabbing another one in support',
+  href: '#page=projects/fuse-system',
+  templatePath: '/pages/projects/fuse-system'
 }, {
   id: 'ph4',
   name: 'Not sure what tools can help your user research?',
-  label: 'Not sure what tools can help your user research?',
-  themes: ['Design systems', 'consistency'],
-  desc: 'Basing your research on user interviews is ideal but you could make the most of these insights for your future projects.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse'
+  label: 'Project: User research tools at Fuse',
+  themes: ['Research', 'Tools'],
+  desc: 'Do not limit your research to interview transcripts and raw data but start refining these info the way we did at Fuse instead.',
+  img: '/assets/img/projects/fuse-researchtools/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing two users and a cog',
+  href: '#page=projects/fuse-tool',
+  templatePath: '/pages/projects/fuse-tool'
 }];
 
 /*** HOME - PROJECTS CAROUSEL ***/
 const projectsCarousel = [{
   id: 'pc1',
-  name: 'Need to optimise your design process?',
-  label: 'About Defining a design process',
-  themes: ['Process', 'consistency'],
-  desc: 'See how together with our product managers at Fuse we managed to nail a process that works and defines accountability for everyone.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
-  href: '#page=projects/fuse-process',
-  templatePath: '/pages/projects/fuse-process'
+  name: 'Conducting an accessibility audit',
+  label: 'Project: Accessibility audits at Fuse',
+  themes: ['Accessibility', 'Client-facing'],
+  desc: 'Compliance to WCAG accessibility standards could differentiate your organisation from the competition. This case study will focus on some steps to follow in order to achieve this objective.',
+  img: '/assets/img/projects/fuse-a11y/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a hand grabbing another one in support',
+  href: '#page=projects/fuse-a11y',
+  templatePath: '/pages/projects/fuse-a11y'
 }, {
   id: 'pc2',
-  name: 'Want to upskill your pool of design talents?',
-  label: 'Getting the best from your people',
-  themes: ['Design systems', 'consistency'],
-  desc: 'We can work together towards making sure your designers stay involved and are motivated to upskills, even through periods of change.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse'
+  name: 'Designing dashboards',
+  label: 'Project: Designing dashboards',
+  themes: ['Data', 'Accessibility'],
+  desc: 'How to make data easily interpretable to the user and drive their engagement? This case study is a collection of smaller ones that will show in which circumstances dashboards can help you.',
+  img: '/assets/img/projects/fuse-dashboards/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a bar chart',
+  href: '#page=projects/fuse-dashboards',
+  templatePath: '/pages/projects/fuse-dashboards'
 }, {
   id: 'pc3',
   name: 'Aim to design a consistent, accessible and scalable product?',
   label: 'Building a bullet proof design system',
   themes: ['Design systems', 'consistency'],
   desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
-  href: '#page=projects/fuse',
-  templatePath: '/pages/projects/fuse'
+  img: '/assets/img/projects/fuse-system/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing an allegory of career path as a road with milestones',
+  href: '#page=projects/fuse-system',
+  templatePath: '/pages/projects/fuse-system'
 }];
 
 /*** PROJECTS GRID ***/
@@ -223,10 +223,10 @@ const projects = [{
   type: 'Management',
   filters: 'is-content is-manage is-featured',
   themes: ['Process', 'Management'],
-  desc: 'Adapting a process for a medium sized organisation.',
+  desc: 'Adapting a process for a medium sized organisation',
   beneficiary: 'Fuse',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  img: '/assets/img/projects/fuse-process/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing cogs',
   href: '#page=projects/fuse-process',
   templatePath: '/pages/projects/fuse-process',
   isVisible: true
@@ -239,8 +239,8 @@ const projects = [{
   themes: ['Design systems', 'Accessibility'],
   desc: 'Creating a non-designer friendly system',
   beneficiary: 'Fuse',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  img: '/assets/img/projects/fuse-system/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a design prototype',
   href: '#page=projects/fuse-system',
   templatePath: '/pages/projects/fuse-system',
   isVisible: true
@@ -253,8 +253,8 @@ const projects = [{
   themes: ['Management', 'HR'],
   desc: 'Defining a career ladder tailored to your team',
   beneficiary: 'Fuse',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  img: '/assets/img/projects/fuse-careerladder/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing an allegory of career path as a road with milestones',
   href: '#page=projects/fuse-careerladder',
   templatePath: '/pages/projects/fuse-careerladder',
   isVisible: true
@@ -267,8 +267,8 @@ const projects = [{
   themes: ['Research', 'Tools'],
   desc: 'Providing the right tools for facilitating your user research',
   beneficiary: 'Fuse',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  img: '/assets/img/projects/fuse-researchtools/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing two users and a cog',
   href: '#page=projects/fuse-researchtools',
   templatePath: '/pages/projects/fuse-researchtools',
   isVisible: true
@@ -281,8 +281,8 @@ const projects = [{
   themes: ['Accessibility', 'Client-facing'],
   desc: 'Auditing the accessibility of clients\' projects',
   beneficiary: 'Fuse',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  img: '/assets/img/projects/fuse-a11y/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a hand grabbing another one in support',
   href: '#page=projects/fuse-a11y',
   templatePath: '/pages/projects/fuse-a11y',
   isVisible: true
@@ -293,10 +293,10 @@ const projects = [{
   type: 'Design',
   filters: 'is-content is-design',
   themes: ['Data', 'Accessibility'],
-  desc: 'How to approach dashboards in general',
+  desc: 'Some good practices regarding dashboards',
   beneficiary: 'Multiple accounts',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  img: '/assets/img/projects/fuse-dashboards/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a bar chart',
   href: '#page=projects/fuse-dashboards',
   templatePath: '/pages/projects/fuse-dashboards',
   isVisible: true
