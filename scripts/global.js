@@ -99,44 +99,64 @@ const projectAnchors = [{
 /*** BRANDS LIST ***/
 const brands = [{
   id: 'b1',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Avon',
+  img: '/assets/img/brands/avon.png',
+  imgAlt: 'Avon logo',
 }, {
   id: 'b2',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Chartered Financial Analyst',
+  img: '/assets/img/brands/cfa.png',
+  imgAlt: 'CFA logo',
 }, {
   id: 'b3',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Colt technology services',
+  img: '/assets/img/brands/colt.png',
+  imgAlt: 'Colt technology services logo',
 }, {
   id: 'b4',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Demant',
+  img: '/assets/img/brands/demant.png',
+  imgAlt: 'Demant logo',
 }, {
   id: 'b5',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Douglas and Gordon',
+  img: '/assets/img/brands/dng.png',
+  imgAlt: 'Douglas and Gordon logo',
 }, {
   id: 'b6',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Dropbox',
+  img: '/assets/img/brands/dropbox.png',
+  imgAlt: 'Dropbox logo',
 }, {
   id: 'b7',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Fuse',
+  img: '/assets/img/brands/fuse.png',
+  imgAlt: 'Fuse logo',
 }, {
   id: 'b8',
-  name: 'Placeholder',
-  img: '/assets/img/placeholder.jpg',
-  imgAlt: 'placeholder',
+  name: 'Lloyds Banking Group',
+  img: '/assets/img/brands/lloydsbank.png',
+  imgAlt: 'Lloyds Banking Group logo',
+}, {
+  id: 'b9',
+  name: 'Macmillan Cancer Support',
+  img: '/assets/img/brands/macmillan.png',
+  imgAlt: 'Macmillan Cancer Support logo',
+}, {
+  id: 'b10',
+  name: 'Migros',
+  img: '/assets/img/brands/migros.png',
+  imgAlt: 'Migros logo',
+}, {
+  id: 'b11',
+  name: 'RSA insurance group',
+  img: '/assets/img/brands/rsa.png',
+  imgAlt: 'RSA insurance group logo',
+}, {
+  id: 'b12',
+  name: 'Vodafone',
+  img: '/assets/img/brands/vodafone.png',
+  imgAlt: 'Vodafone logo',
 }];
 
 /*** HOME - PROJECTS GRID ***/
@@ -178,8 +198,8 @@ const projectsHome = [{
   desc: 'Do not limit your research to interview transcripts and raw data but start refining these info the way we did at Fuse instead.',
   img: '/assets/img/projects/fuse-researchtools/thumbnail.jpg',
   imgAlt: 'Thumbnail showing two users and a cog',
-  href: '#page=projects/fuse-tool',
-  templatePath: '/pages/projects/fuse-tool'
+  href: '#page=projects/fuse-researchtools',
+  templatePath: '/pages/projects/fuse-researchtools'
 }];
 
 /*** HOME - PROJECTS CAROUSEL ***/
@@ -205,9 +225,9 @@ const projectsCarousel = [{
   templatePath: '/pages/projects/fuse-dashboards'
 }, {
   id: 'pc3',
-  name: 'Aim to design a consistent, accessible and scalable product?',
-  label: 'Building a bullet proof design system',
-  themes: ['Design systems', 'consistency'],
+  name: 'Design systems for non-designers',
+  label: 'Project: Design systems for non-designers at Fuse',
+  themes: ['Design systems', 'Accessibility'],
   desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
   img: '/assets/img/projects/fuse-system/thumbnail.jpg',
   imgAlt: 'Thumbnail showing an allegory of career path as a road with milestones',
@@ -249,7 +269,7 @@ const projects = [{
   name: 'Defining a career ladder for designers',
   label: 'Project: Career ladder at Fuse',
   type: 'Documentation',
-  filters: 'is-content is-doc',
+  filters: 'is-content is-doc is-featured',
   themes: ['Management', 'HR'],
   desc: 'Defining a career ladder tailored to your team',
   beneficiary: 'Fuse',
@@ -263,7 +283,7 @@ const projects = [{
   name: 'Tooling up your user research',
   label: 'Project: User research tools at Fuse',
   type: 'Tool',
-  filters: 'is-content is-tool',
+  filters: 'is-content is-tool is-featured',
   themes: ['Research', 'Tools'],
   desc: 'Providing the right tools for facilitating your user research',
   beneficiary: 'Fuse',
@@ -277,7 +297,7 @@ const projects = [{
   name: 'Conducting an accessibility audit',
   label: 'Project: Accessibility audits at Fuse',
   type: 'Management',
-  filters: 'is-content is-manage',
+  filters: 'is-content is-manage is-featured',
   themes: ['Accessibility', 'Client-facing'],
   desc: 'Auditing the accessibility of clients\' projects',
   beneficiary: 'Fuse',
@@ -291,7 +311,7 @@ const projects = [{
   name: 'Designing dashboards',
   label: 'Project: Designing dashboards',
   type: 'Design',
-  filters: 'is-content is-design',
+  filters: 'is-content is-design is-featured',
   themes: ['Data', 'Accessibility'],
   desc: 'Some good practices regarding dashboards',
   beneficiary: 'Multiple accounts',
@@ -304,4 +324,4 @@ const projects = [{
 
 /*** NDA URLS LIST ***/
 
-const protectedProjectsUrls = ['#page=projects/fuse-process','#page=projects/fuse'];
+const protectedProjectsUrls = ['#page=projects/fuse','#page=projects/fuse'];

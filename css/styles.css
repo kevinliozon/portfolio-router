@@ -241,13 +241,6 @@ html {
   color: #82F4B6;
 }
 
-.c-fig.c-section__i {
-  max-width: 20rem;
-  min-width: 10rem;
-  padding: 1rem;
-  width: 15%;
-}
-
 .c-grid {
   display: flex;
   flex-basis: 80%;
@@ -822,8 +815,8 @@ html {
   }
   
   .l-footer {
-    height: 24rem;
-    padding-bottom: 14rem;
+    height: 32rem;
+    padding-bottom: 18rem;
   }
 
   .c-section {

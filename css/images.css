@@ -26,6 +26,17 @@ figure {
   padding: 1rem;
 }
 
+.c-fig.c-section__i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  max-width: 20rem;
+  min-width: 10rem;
+  padding: 1rem;
+  width: 15%;
+}
+
 .c-cell__feat,
 .c-cell__type {
   z-index: 1;
@@ -44,6 +55,12 @@ figure {
 .c-fig__img,
 .c-cell__img {
   width: 100%;
+}
+
+.c-fig.c-section__i .c-fig__img {
+  max-height: 10rem;
+  max-width: 100%;
+  width: auto;
 }
 
 .c-cell__img,

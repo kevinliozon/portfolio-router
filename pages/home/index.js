@@ -90,8 +90,7 @@
   for (let brand of brands) {
     document.getElementById('brands').innerHTML += '\
     <figure id="brand-'+brand.id+'" class="c-fig c-section__i">\
-      <img src="'+brand.img+'" alt="'+brand.imgAlt+'" class="c-fig__img">\
-      <figcaption class="c-fig__c">'+brand.name+'</figcaption>\
+        <img src="'+brand.img+'" alt="'+brand.imgAlt+'" class="c-fig__img">\
     </figure>';
   }
 }, err => console.error('error:', err))
