@@ -132,7 +132,8 @@ h1, h2, h3, h4, h5, h6 {
 .c-btn,
 .c-link,
 .c-list--links,
-.c-nav__link {
+.c-nav__link,
+.c-link--hidden {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
