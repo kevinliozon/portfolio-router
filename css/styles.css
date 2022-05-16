@@ -534,6 +534,8 @@ html {
 }
 
 /* Images Used to Trigger the Modal */
+
+.c-btn--img,
 .c-btn__img {
   cursor: pointer;
   margin-bottom: 1rem;

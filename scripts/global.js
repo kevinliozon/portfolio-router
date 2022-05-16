@@ -225,14 +225,14 @@ const projectsCarousel = [{
   templatePath: '/pages/projects/fuse-dashboards'
 }, {
   id: 'pc3',
-  name: 'Design systems for non-designers',
-  label: 'Project: Design systems for non-designers at Fuse',
-  themes: ['Design systems', 'Accessibility'],
-  desc: 'Better getting things done properly from the start. A design system will save you a lot of time down the line with its reusable components so you can focus.',
-  img: '/assets/img/projects/fuse-system/thumbnail.jpg',
+  name: 'The synergy between user flows and lo-fi designs',
+  label: 'Project: The synergy between user flows and lo-fi designss',
+  themes: ['Ideation', 'User flows'],
+  desc: 'How to properly capture your users\' actions and finding solutions by iterating through lo-fi designs.',
+  img: '/assets/img/projects/fuse-diagramslofi/thumbnail.jpg',
   imgAlt: 'Thumbnail showing an allegory of career path as a road with milestones',
-  href: '#page=projects/fuse-system',
-  templatePath: '/pages/projects/fuse-system'
+  href: '#page=projects/fuse-diagramslofi',
+  templatePath: '/pages/projects/fuse-diagramslofi'
 }];
 
 /*** PROJECTS GRID ***/
@@ -319,6 +319,20 @@ const projects = [{
   imgAlt: 'Thumbnail showing a bar chart',
   href: '#page=projects/fuse-dashboards',
   templatePath: '/pages/projects/fuse-dashboards',
+  isVisible: true
+}, {
+  id: 'p7',
+  name: 'The synergy between user flows and lo-fi designs',
+  label: 'Project: The synergy between user flows and lo-fi designs',
+  type: 'tool',
+  filters: 'is-content is-tool is-featured',
+  themes: ['Ideation', 'User flows'],
+  desc: 'How user flows and designing lo-fi can help you nailing down the right solution.',
+  beneficiary: 'Fuse',
+  img: '/assets/img/projects/fuse-diagramslofi/thumbnail.jpg',
+  imgAlt: 'Thumbnail showing a flow diagram',
+  href: '#page=projects/fuse-diagramslofi',
+  templatePath: '/pages/projects/fuse-diagramslofi',
   isVisible: true
 }];
 
