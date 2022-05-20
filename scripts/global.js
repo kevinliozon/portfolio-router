@@ -80,10 +80,10 @@ const projectAnchors = [{
   href: '#problem',
   target: 'problem'
 }, {
-  name: 'Context',
-  label: 'Go to context',
-  href: '#context',
-  target: 'context'
+  name: 'Approach',
+  label: 'Go to approach',
+  href: '#approach',
+  target: 'approach'
 }, {
   name: 'Solution',
   label: 'Go to  solution',
@@ -226,7 +226,7 @@ const projectsCarousel = [{
 }, {
   id: 'pc3',
   name: 'The synergy between user flows and lo-fi designs',
-  label: 'Project: The synergy between user flows and lo-fi designss',
+  label: 'Project: The synergy between user flows and lo-fi designs',
   themes: ['Ideation', 'User flows'],
   desc: 'How to properly capture your users\' actions and finding solutions by iterating through lo-fi designs.',
   img: '/assets/img/projects/fuse-diagramslofi/thumbnail.jpg',
